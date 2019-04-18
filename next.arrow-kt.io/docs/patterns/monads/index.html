@@ -1,0 +1,2130 @@
+<!DOCTYPE html>
+<html>
+
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Arrow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Functional companion to Kotlin's Standard Library">
+    <meta name="keywords" content="functional-programming, kotlin-library, monads, monad-transformers, functional-data-structure, kotlin, fp-types, adt, free-monads, tagless-final, mtl, for-comprehension, category-theory">
+
+    <meta property="og:image" content="http://arrow-kt.io/img/poster.png"/>
+    <meta property="og:title" content="Arrow"/>
+    <meta property="og:site_name" content="Arrow"/>
+    <meta property="og:url" content="http://arrow-kt.io/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description" content="Functional companion to Kotlin's Standard Library"/>
+    <meta property="og:keywords" content="functional-programming, kotlin-library, monads, monad-transformers, functional-data-structure, kotlin, fp-types, adt, free-monads, tagless-final, mtl, for-comprehension, category-theory"/>
+
+    <meta name="twitter:text:description" content="Functional companion to Kotlin's Standard Library"/>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@arrow_kt">
+    <meta name="twitter:creator" content="@arrow_kt">
+    <meta name="twitter:image" content="http://arrow-kt.io/img/twitter-card.png"/>
+
+    <!-- Arrow versions metadata -->
+    <meta name="previous-version" data-title="" data-url="" />
+    <meta name="stable-version" data-title="" data-url="" />
+    <meta name="next-version" data-title="" data-url="" />
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"
+          type="text/css">
+    <!-- Animated -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <!-- Arrow main css -->
+    <link rel="shortcut icon" href="../../../img/favicon.png">
+    <!-- highlight  css -->
+    <link rel="stylesheet" type="text/css" href="../../../css/highlight/atom-one-light.css">
+    <!-- Arrow main css -->
+    <link rel="stylesheet" type="text/css" href="../../../css/arrow.css">
+
+    <!-- Code to manage version information -->
+    <script src="../../../js/docVersions.js" defer></script>
+
+    <!-- Diagrams support -->
+    <script src="../../../js/dagre.min.js"></script>
+    <script src="../../../js/lodash.min.js"></script>
+    <script src="../../../js/nomnoml.js"></script>
+    <script src="../../../js/diagrams.js" async></script>
+
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-18433785-18"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-18433785-18');
+</script>
+
+    
+</head>
+
+<body id="doc-body">
+<div id="wrapper">
+    <div id="sidebar-wrapper">
+    <div class="sidebar-brand">
+        <a class="brand" href="https://next.arrow-kt.io/">
+            <img src="../../../img/arrow-brand-sidebar.svg" alt="">
+            <span>Λrrow</span>
+        </a>
+        <button type="button" id="main-toggle" class="sidebar-toggle">
+            <span class="close"></span>
+        </button>
+    </div>
+
+    <ul class="sidebar-nav sidebar-doc-versions">
+  <li class="sidebar-nav-item">
+    <a href="index.html#">
+      <span>Arrow version</span>
+      <span id="arrow-version"></span>
+    </a>
+    <ul>
+      <li>
+        <a href="https://arrow-kt.io/docs/">
+          <span>
+            v0.9.0 - STABLE
+          </span>
+        </a>
+      </li>
+
+      <li>
+        <a href="../../index.html">
+            <span>
+              v0.9.1 - NEXT
+            </span>
+        </a>
+      </li>
+
+      <li>
+        <a href="https://0-8-2.arrow-kt.io/docs/">
+            <span>
+              v0.8.2 -
+              PREVIOUS
+            </span>
+        </a>
+      </li>
+
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </li>
+</ul>
+
+
+    <ul class="sidebar-nav">
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Quick Start</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Index</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../quickstart/libraries/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Libraries</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://next.arrow-kt.io/blog/">
+                        <i class="fa fa-circle"></i>
+                        <span>Blogs & Presentations</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../quickstart/projects/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Projects & Examples</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Arrow Fx</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../effects/fx/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Getting Started</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../effects/fx/async/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Asynchronous & Concurrent Programming</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../effects/fx/polymorphism/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Polymorphism. One Program multiple runtimes</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>API Docs</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../apidocs/arrow-typeclasses/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Type Classes</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-core-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Core Data Types</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-core-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Core Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-extras/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Core Extra Data Types</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-extras-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Core Extra Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-effects-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-effects-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-effects-kotlinx-coroutines-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Coroutines</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-effects-kotlinx-coroutines-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Coroutines Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-effects-rx2-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Rx2</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-effects-rx2-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Rx2 Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-effects-reactor-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Reactor</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-effects-reactor-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Reactor Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-streams/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Streams</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-mtl/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MTL</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-optics/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Optics</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-recursion-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Recursion</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-recursion-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Recursion Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-generic/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Generic</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-free-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Free</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-validation/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Validation</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Patterns</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../glossary/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Glossary</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../error_handling/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Error Handling</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../dependency_injection/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Dependency Injection</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>The Monad Tutorial</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../monad_comprehensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Monad Comprehensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../polymorphic_programs/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Polymorphic Programs</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../free_algebras/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Free Algebras</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Data Types</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../datatypes/intro/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Intro</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../datatypes/basic/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Basic Types</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/core/option/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Option</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/core/either/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Either</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/core/try/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Try</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/validated/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Validated</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/nonemptylist/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>NonEmptyList</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/listk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>ListK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/sequencek/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>SequenceK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/setk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>SetK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/mapk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MapK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/sortedmapk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>SortedMapK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/ior/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Ior</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/core/id/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Id</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/reader/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Reader</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/kleisli/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Kleisli</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/state/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>State</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/statet/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>StateT</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/store/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Store</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/moore/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Moore</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/sum/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Sum</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/day/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Day</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/writert/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>WriterT</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/free/trampoline/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Trampoline</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/coproduct/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Coproduct</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/core/eval/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Eval</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/optiont/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>OptionT</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/eithert/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>EitherT</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/core/function0/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Function0</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/core/function1/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Function1</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/const/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Const</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Type Classes</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../typeclasses/intro/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Intro</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/show/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Show</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/eq/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Eq</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/hash/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Hash</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/order/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Order</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/semigroup/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Semigroup</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-typeclasses/arrow.typeclasses/-semigroupal/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Semigroupal</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-typeclasses/arrow.typeclasses/-monoidal/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Monoidal</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/monoid/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Monoid</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-typeclasses/arrow.typeclasses/-semiring/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Semiring</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/foldable/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Foldable</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/bifoldable/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Bifoldable</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/traverse/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Traverse</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/reducible/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Reducible</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/mtl/typeclasses/traversefilter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>TraverseFilter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/functor/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Functor</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/mtl/typeclasses/functorfilter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>FunctorFilter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/applicative/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Applicative</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/applicativeerror/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>ApplicativeError</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/selective/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Selective</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/monad/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Monad</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/monaderror/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadError</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/effects/typeclasses/bracket/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Bracket</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/mtl/typeclasses/monadfilter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadFilter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/mtl/typeclasses/monadreader/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadReader</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/mtl/typeclasses/monadwriter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadWriter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/mtl/typeclasses/monadstate/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadState</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/mtl/typeclasses/monadcombine/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadCombine</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/comonad/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Comonad</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/bimonad/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Bimonad</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/bifunctor/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Bifunctor</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/profunctor/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Profunctor</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/semigroupk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>SemigroupK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/monoidk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonoidK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://next.arrow-kt.io/docs/typeclasses/inject/">
+                        <i class="fa fa-circle"></i>
+                        <span>Inject</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/alternative/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Alternative</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/divide/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Divide</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/divisible/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Divisible</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/decidable/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Decidable</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Effects</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../effects/io/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>IO</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../effects/monaddefer/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadDefer</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../effects/async/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Async</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../effects/effect/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effect</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../effects/promise/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Promise</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../effects/ref/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Ref</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../effects/fiber/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Fiber</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-effects-data/arrow.effects/-resource/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Resource</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Optics</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../optics/dsl/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Optics DSL</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/iso/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Iso</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/lens/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Lens</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/optional/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Optional</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/prism/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Prism</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/getter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Getter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/setter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Setter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/fold/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Fold</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/traversal/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Traversal</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/cons/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Cons</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/snoc/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Snoc</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/at/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>At</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/index/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Index</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/filterindex/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>FilterIndex</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/each/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Each</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Λrrow Query Language</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../aql/intro/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Λrrow Query Language</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../aql/select/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>select</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../aql/from/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>from</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../aql/where/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>where</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../aql/groupby/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>groupBy</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../aql/orderby/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>orderBy</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../aql/sum/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>sum</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../aql/union/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>union</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../aql/custom/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Custom Data Types</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Generic</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../generic/coproduct/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Coproduct</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../generic/product/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Product</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Integrations</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../integrations/rx2/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Rx2</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../integrations/reactor/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Reactor</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../integrations/kotlinxcoroutines/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>kotlinx.coroutines</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../integrations/retrofit/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Retrofit</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../integrations/kindedj/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>KindedJ</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Free</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../free/free/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Free</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../free/freeapplicative/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>FreeApplicative</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../free/cofree/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Cofree</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../free/yoneda/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Yoneda</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../free/coyoneda/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Coyoneda</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Recursion Schemes</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../recursion/intro/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Intro</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../recursion/recursive/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Recursive</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../recursion/corecursive/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Corecursive</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../recursion/birecursive/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Birecursive</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../recursion/mu/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Mu</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../recursion/nu/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Nu</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../recursion/fix/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Fix</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Legal</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../legal/credits/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Credits</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../legal/licenses/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Licenses</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+    </ul>
+
+</div>
+
+    <div id="doc-wrapper">
+    <div class="doc-header">
+        <button type="button" id="main-toggle" class="sidebar-toggle">
+            <i class="fa fa-lg fa-bars menu-icon"></i>
+        </button>
+        <div class="search-wrapper">
+          <input id="docsearch" class="search" placeholder="Search documentation..." type="search">
+        </div>
+        <a target="_blank"
+          href="https://github.com/arrow-kt/arrow/edit/master/modules/docs/arrow-docs/docs/docs/patterns/monads/README.md">
+          <i class="fa fa-pencil"></i>
+            Edit
+        </a>
+    </div>
+    <div class="doc-content">
+        
+        <h2 id="monads-explained-in-kotlin-again">Monads explained in Kotlin (again)</h2>
+
+<p class="intermediate">intermediate</p>
+
+<h3 id="credits">Credits</h3>
+
+<p>This doc has been adapted from Mikhail Shilkov’s blog entry <a href="https://mikhail.io/2018/07/monads-explained-in-csharp-again/"><code class="highlighter-rouge">Monads explained in C# (again)</code></a>. It attempts to explain the rationale behind Monads, providing simple examples and how they relate to standard library constructs.</p>
+
+<p>If you’re just interested in the API, head down to the <a href="https://next.arrow-kt.io/docs/arrow/typeclasses/monad"><code class="highlighter-rouge">Monad</code></a> typeclass page.</p>
+
+<h3 id="intro">Intro</h3>
+
+<p>I love functional programming for the simplicity that it brings.</p>
+
+<p>But at the same time, I realize that learning functional programming is a challenging process. FP comes with a baggage of unfamiliar vocabulary that can be daunting for somebody coming from an object-oriented language like Kotlin.</p>
+
+<p><img src="https://mikhail.io/2018/07/monads-explained-in-csharp-again//functional-programming-word-cloud.png" alt="" /></p>
+
+<p><em>some of functional lingo</em></p>
+
+<p><code class="highlighter-rouge">Monad</code> is probably the most infamous term from the list above. Monads have reputation of being something very abstract and very confusing.</p>
+
+<h3 id="the-fallacy-of-monad-tutorials">The Fallacy of Monad Tutorials</h3>
+
+<p>Numerous attempts were made to explain monads in simple definitions; and monad tutorials have become a genre of its own. And yet, times and times again, they fail to enlighten the readers.</p>
+
+<p>The shortest explanation of monads looks like this:</p>
+
+<blockquote>
+  <p>A Monad is just a monoid in the category of endofunctors</p>
+</blockquote>
+
+<p>It’s both mathematically correct and totally useless to anybody learning functional programming. To understand this statement, one has to know the terms “monoid”, “category” and “endofunctors” and be able to mentally compose them into something meaningful.</p>
+
+<p>The same problem is apparent in most monad tutorials. They assume some pre-existing knowledge in heads of their readers, and if that assumption fails, the tutorial doesn’t click.</p>
+
+<p>Focusing too much on mechanics of monads instead of explaining why they are important is another common problem.</p>
+
+<p>Douglas Crockford grasped this fallacy very well:</p>
+
+<blockquote>
+  <p>The monadic curse is that once someone learns what monads are and how to use them, they lose the ability to explain them to other people</p>
+</blockquote>
+
+<p>The problem here is likely the following. Every person who understands monads had their own path to this knowledge. It hasn’t come all at once, instead there was a series of steps, each giving an insight, until the last final step made the puzzle complete.</p>
+
+<p>But they don’t remember the whole path anymore. They go online and blog about that very last step as the key to understanding, joining the club of flawed explanations.</p>
+
+<p>There is an actual academic paper from Tomas Petricek that studies monad tutorials.</p>
+
+<p>I’ve read that paper and a dozen of monad tutorials online. And of course, now I came up with my own.</p>
+
+<p>I’m probably doomed to fail too, at least for some readers.</p>
+
+<h3 id="story-of-composition">Story of Composition</h3>
+
+<p>The base element of each functional program is Function. In typed languages each function is just a mapping between the type of its input parameter and output parameter. Such type can be annotated as <code class="highlighter-rouge">func: TypeA -&gt; TypeB</code>.</p>
+
+<p>Kotlin is an object-oriented language, so we use methods to declare functions. There are two ways to define a method comparable to function <code class="highlighter-rouge">func</code> above. I can use a top level “static” method:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">func</span><span class="p">(</span><span class="nv">a</span><span class="p">:</span> <span class="nc">ClassA</span><span class="p">):</span> <span class="nc">ClassB</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>… or an instance method:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">ClassA</span> <span class="p">{</span>
+    <span class="c1">// Instance method</span>
+    <span class="k">fun</span> <span class="nf">func</span><span class="p">():</span> <span class="nc">ClassB</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The top level form looks closer to the function notation, but both ways are actually equivalent for the purpose of our discussion. I will use instance methods in my examples, however all of them could be written as top level extension methods too.</p>
+
+<p>How do we compose more complex workflows, programs and applications, out of such simple building blocks? A lot of patterns in both OOP and FP worlds revolve around this question. And monads are one of the answers.</p>
+
+<p>My sample code is going to be about conferences and speakers. The method implementations aren’t really important, just watch the types carefully. There are 4 classes (types) and 3 methods (functions):</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Speaker</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">nextTalk</span><span class="p">():</span> <span class="nc">Talk</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Talk</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">getConference</span><span class="p">():</span> <span class="nc">Conference</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Conference</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">getCity</span><span class="p">():</span> <span class="nc">City</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">City</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>These methods are currently very easy to compose into a workflow:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">nextTalkCity</span><span class="p">(</span><span class="nv">speaker</span><span class="p">:</span> <span class="nc">Speaker</span><span class="p">):</span> <span class="nc">City</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">talk</span> <span class="p">=</span> <span class="n">speaker</span><span class="p">.</span><span class="n">nextTalk</span><span class="p">()</span>
+    <span class="kd">val</span> <span class="py">conf</span> <span class="p">=</span> <span class="n">talk</span><span class="p">.</span><span class="n">getConference</span><span class="p">()</span>
+    <span class="kd">val</span> <span class="py">city</span> <span class="p">=</span> <span class="n">conf</span><span class="p">.</span><span class="n">getCity</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">city</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Because the return type of the previous step always matches the input type of the next step, we can write it even shorter:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">nextTalkCity</span><span class="p">(</span><span class="nv">speaker</span><span class="p">:</span> <span class="nc">Speaker</span><span class="p">):</span> <span class="nc">City</span> <span class="p">=</span>
+  <span class="n">speaker</span>
+    <span class="p">.</span><span class="n">nextTalk</span><span class="p">()</span>
+    <span class="p">.</span><span class="n">getConference</span><span class="p">()</span>
+    <span class="p">.</span><span class="n">getCity</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>This code looks quite readable. It’s concise and it flows from top to bottom, from left to right, similar to how we are used to read any text. There is not much noise too.</p>
+
+<p>That’s not what real codebases look like though, because there are multiple complications along the happy composition path. Let’s look at some of them.</p>
+
+<h3 id="nulls">NULLs</h3>
+
+<p>Any class instance in Kotlin can be null. In the example above I might get runtime errors if one of the methods ever returns null back.</p>
+
+<p>Typed functional programming always tries to be explicit about types, so I’ll re-write the signatures of my methods to annotate the return types as nullables:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Speaker</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">nextTalk</span><span class="p">():</span> <span class="nc">Talk</span><span class="p">?</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Talk</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">getConference</span><span class="p">():</span> <span class="nc">Conference</span><span class="p">?</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Conference</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">getCity</span><span class="p">():</span> <span class="nc">City</span><span class="p">?</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">City</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Now, when composing our workflow, we need to take care of null results:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">nextTalkCity</span><span class="p">(</span><span class="nv">speaker</span><span class="p">:</span> <span class="nc">Speaker</span><span class="p">?):</span> <span class="nc">City</span><span class="p">?</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">speaker</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span> <span class="k">return</span> <span class="k">null</span>
+
+    <span class="kd">val</span> <span class="py">talk</span> <span class="p">=</span> <span class="n">speaker</span><span class="p">.</span><span class="n">nextTalk</span><span class="p">()</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">talk</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span> <span class="k">return</span> <span class="k">null</span>
+
+    <span class="kd">val</span> <span class="py">conf</span> <span class="p">=</span> <span class="n">talk</span><span class="p">.</span><span class="n">getConference</span><span class="p">()</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">conf</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span> <span class="k">return</span> <span class="k">null</span>
+
+    <span class="kd">val</span> <span class="py">city</span> <span class="p">=</span> <span class="n">conf</span><span class="p">.</span><span class="n">getCity</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">city</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>It’s still the same method, but it got more noise now. Even though I used short-circuit returns and one-liners, it still got harder to read.</p>
+
+<p>To fight that problem, smart language designers came up with the <a href="https://kotlinlang.org/docs/reference/null-safety.html#safe-calls">Safe Call Operator</a>:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">nextTalkCity</span><span class="p">(</span><span class="nv">speaker</span><span class="p">:</span> <span class="nc">Speaker</span><span class="p">?):</span> <span class="nc">City</span><span class="p">?</span> <span class="p">{</span>
+    <span class="k">return</span>
+        <span class="n">speaker</span>
+        <span class="o">?.</span><span class="n">nextTalk</span><span class="p">()</span>
+        <span class="o">?.</span><span class="n">getConference</span><span class="p">()</span>
+        <span class="o">?.</span><span class="n">getCity</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Now we are almost back to our original workflow code: it’s clean and concise, we just got 3 extra <code class="highlighter-rouge">?</code> symbols around.</p>
+
+<p>Let’s take another leap.</p>
+
+<h3 id="collections">Collections</h3>
+
+<p>Quite often a function returns a collection of items, not just a single item. To some extent, that’s a generalization of <code class="highlighter-rouge">null</code> case: with <code class="highlighter-rouge">T?</code> we might get 0 or 1 results back, while with a collection we can get 0 to any n results.</p>
+
+<p>Our sample API could look like this:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Speaker</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">getTalks</span><span class="p">():</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Talk</span><span class="p">&gt;</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Talk</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">getConferences</span><span class="p">():</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Conference</span><span class="p">&gt;</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Conference</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">getCities</span><span class="p">():</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">City</span><span class="p">&gt;</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>I used <code class="highlighter-rouge">List&lt;T&gt;</code> but it could be any class or even a <code class="highlighter-rouge">Sequence&lt;T&gt;</code>.</p>
+
+<p>How would we combine the methods into one workflow? The traditional version would look like this:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">allCitiesToVisit</span><span class="p">(</span><span class="nv">speaker</span><span class="p">:</span> <span class="nc">Speaker</span><span class="p">):</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">City</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">result</span> <span class="p">=</span> <span class="n">mutableListOf</span><span class="p">&lt;</span><span class="n">City</span><span class="p">&gt;()</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">talk</span> <span class="k">in</span> <span class="n">speaker</span><span class="p">.</span><span class="n">getTalks</span><span class="p">())</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">conf</span> <span class="k">in</span> <span class="n">talk</span><span class="p">.</span><span class="n">getConferences</span><span class="p">())</span>
+            <span class="k">for</span> <span class="p">(</span><span class="n">city</span> <span class="k">in</span> <span class="n">conf</span><span class="p">.</span><span class="n">getCities</span><span class="p">())</span>
+                <span class="n">result</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">city</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">result</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>It reads ok-ish still. But the combination of nested loops and mutation with some conditionals sprinkled on them can get unreadable pretty soon. The exact workflow might be lost in the mechanics.</p>
+
+<p>As an alternative, the Kotlin language designers included extension methods. We can write code like this:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">allCitiesToVisit</span><span class="p">(</span><span class="nv">speaker</span><span class="p">:</span> <span class="nc">Speaker</span><span class="p">):</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">City</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">return</span>
+        <span class="n">speaker</span>
+        <span class="p">.</span><span class="n">getTalks</span><span class="p">()</span>
+        <span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">talk</span> <span class="p">-&gt;</span> <span class="n">talk</span><span class="p">.</span><span class="n">getConferences</span><span class="p">()</span> <span class="p">}</span>
+        <span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">conf</span> <span class="p">-&gt;</span> <span class="n">conf</span><span class="p">.</span><span class="n">getCities</span><span class="p">()</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Let me do one further trick and format the same code in an unusual way:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">allCitiesToVisit</span><span class="p">(</span><span class="n">Speaker</span> <span class="n">speaker</span><span class="p">):</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">City</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">return</span>
+        <span class="n">speaker</span>
+        <span class="p">.</span><span class="n">getTalks</span><span class="p">()</span>           <span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">x</span> <span class="p">-&gt;</span> <span class="n">x</span>
+        <span class="p">.</span><span class="n">getConferences</span><span class="p">()</span>    <span class="p">}.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">x</span> <span class="p">-&gt;</span> <span class="n">x</span>
+        <span class="p">.</span><span class="n">getCities</span><span class="p">()</span>         <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Now you can see the original original code on the left, combined with just a bit of technical repetitive clutter on the right. Hold on, I’ll show you where I’m going.</p>
+
+<p>Let’s discuss another possible complication.</p>
+
+<h3 id="asynchronous-calls">Asynchronous Calls</h3>
+
+<p>What if our methods need to access some remote database or service to produce the results? This should be shown in type signature,
+and we can imagine a library providing a <code class="highlighter-rouge">Task&lt;T&gt;</code> type for that:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Speaker</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">nextTalk</span><span class="p">():</span> <span class="nc">Task</span><span class="p">&lt;</span><span class="nc">Talk</span><span class="p">&gt;</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Talk</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">getConference</span><span class="p">():</span> <span class="nc">Task</span><span class="p">&lt;</span><span class="nc">Conference</span><span class="p">&gt;</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Conference</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">getCity</span><span class="p">():</span> <span class="nc">Task</span><span class="p">&lt;</span><span class="nc">City</span><span class="p">&gt;</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This change breaks our nice workflow composition again.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">nextTalkCity</span><span class="p">(</span><span class="nv">speaker</span><span class="p">:</span> <span class="nc">Speaker</span><span class="p">):</span> <span class="nc">Task</span><span class="p">&lt;</span><span class="nc">City</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">return</span>
+        <span class="n">speaker</span><span class="p">.</span><span class="n">nextTalk</span><span class="p">().</span><span class="n">execute</span><span class="p">()</span>
+        <span class="p">.</span><span class="n">then</span> <span class="p">{</span> <span class="n">talk</span> <span class="p">-&gt;</span> <span class="n">talk</span><span class="p">.</span><span class="n">getConference</span><span class="p">()</span> <span class="p">}.</span><span class="n">execute</span><span class="p">()</span>
+        <span class="p">.</span><span class="n">then</span> <span class="p">{</span> <span class="n">conf</span> <span class="p">-&gt;</span> <span class="n">conf</span><span class="p">.</span><span class="n">getCity</span><span class="p">()</span> <span class="p">}.</span><span class="n">execute</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Hard to read, but let me apply my formatting trick again:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">nextTalkCity</span><span class="p">(</span><span class="nv">speaker</span><span class="p">:</span> <span class="nc">Speaker</span><span class="p">):</span> <span class="nc">Task</span><span class="p">&lt;</span><span class="nc">City</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">return</span>
+        <span class="n">speaker</span>
+        <span class="p">.</span><span class="n">nextTalk</span><span class="p">()</span>         <span class="p">.</span><span class="n">execute</span><span class="p">().</span><span class="n">then</span> <span class="p">{</span> <span class="n">x</span> <span class="p">-&gt;</span> <span class="n">x</span>
+        <span class="p">.</span><span class="n">getConference</span><span class="p">()</span>   <span class="p">}.</span><span class="n">execute</span><span class="p">().</span><span class="n">then</span> <span class="p">{</span> <span class="n">x</span> <span class="p">-&gt;</span> <span class="n">x</span>
+        <span class="p">.</span><span class="n">getCity</span><span class="p">()</span>         <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>You can see that, once again, it’s our nice readable workflow on the left plus some mechanical repeatable junction code on the right.</p>
+
+<h3 id="pattern">Pattern</h3>
+
+<p>Can you see a pattern yet?</p>
+
+<p>I’ll repeat the <code class="highlighter-rouge">T?</code>, <code class="highlighter-rouge">List&lt;T&gt;</code> <code class="highlighter-rouge">Task&lt;T&gt;</code>-based workflows again:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">nextTalkCity</span><span class="p">(</span><span class="nv">speaker</span><span class="p">:</span> <span class="nc">Speaker</span><span class="p">?):</span> <span class="nc">City</span><span class="p">?</span> <span class="p">{</span>
+    <span class="k">return</span>
+        <span class="n">speaker</span>               <span class="p">?</span>
+        <span class="p">.</span><span class="n">nextTalk</span><span class="p">()</span>           <span class="p">?</span>
+        <span class="p">.</span><span class="n">getConference</span><span class="p">()</span>      <span class="p">?</span>
+        <span class="p">.</span><span class="n">getCity</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">allCitiesToVisit</span><span class="p">(</span><span class="nv">speaker</span><span class="p">:</span> <span class="nc">Speaker</span><span class="p">):</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">City</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">return</span>
+        <span class="n">speaker</span>
+        <span class="p">.</span><span class="n">getTalks</span><span class="p">()</span>            <span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">x</span> <span class="p">-&gt;</span> <span class="n">x</span>
+        <span class="p">.</span><span class="n">getConferences</span><span class="p">()</span>     <span class="p">}.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">x</span> <span class="p">-&gt;</span> <span class="n">x</span>
+        <span class="p">.</span><span class="n">getCities</span><span class="p">()</span>          <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">nextTalkCity</span><span class="p">(</span><span class="nv">speaker</span><span class="p">:</span> <span class="nc">Speaker</span><span class="p">):</span> <span class="nc">Task</span><span class="p">&lt;</span><span class="nc">City</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">return</span>
+        <span class="n">speaker</span>
+        <span class="p">.</span><span class="n">nextTalk</span><span class="p">()</span>            <span class="p">.</span><span class="n">execute</span><span class="p">().</span><span class="n">then</span> <span class="p">{</span> <span class="n">x</span> <span class="p">-&gt;</span> <span class="n">x</span>
+        <span class="p">.</span><span class="n">getConference</span><span class="p">()</span>      <span class="p">}.</span><span class="n">execute</span><span class="p">().</span><span class="n">then</span> <span class="p">{</span> <span class="n">x</span> <span class="p">-&gt;</span> <span class="n">x</span>
+        <span class="p">.</span><span class="n">getCity</span><span class="p">()</span>            <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In all 3 cases there was a complication which prevented us from sequencing method calls fluently. In all 3 cases we found the gluing code to get back to fluent composition.</p>
+
+<p>Let’s try to generalize this approach. Given some generic container type <code class="highlighter-rouge">WorkflowThatReturns&lt;T&gt;</code>, we have a method to combine an instance of such workflow with a function which accepts the result of that workflow and returns another workflow back:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">WorkflowThatReturns</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">addStep</span><span class="p">(</span><span class="n">step</span><span class="p">:</span> <span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">WorkflowThatReturns</span><span class="p">&lt;</span><span class="n">U</span><span class="p">&gt;):</span> <span class="nc">WorkflowThatReturns</span><span class="p">&lt;</span><span class="nc">U</span><span class="p">&gt;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In case this is hard to grasp, have a look at the picture of what is going on:</p>
+
+<p><img src="https://mikhail.io/2018/07/monads-explained-in-csharp-again//monad-bind.png" alt="" /></p>
+
+<p>An instance of type <code class="highlighter-rouge">T</code> sits in a generic container.</p>
+
+<p>We call <code class="highlighter-rouge">addStep</code> with a function, which maps <code class="highlighter-rouge">T</code> to <code class="highlighter-rouge">U</code> sitting inside yet another container.</p>
+
+<p>We get an instance of <code class="highlighter-rouge">U</code> but inside two containers.</p>
+
+<p>Two containers are automatically unwrapped into a single container to get back to the original shape.</p>
+
+<p>Now we are ready to add another step!</p>
+
+<p>In the following code, <code class="highlighter-rouge">nextTalk</code> returns the first instance inside the container:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">workflow</span><span class="p">(</span><span class="nv">speaker</span><span class="p">:</span> <span class="nc">Speaker</span><span class="p">):</span> <span class="nc">WorkflowThatReturns</span><span class="p">&lt;</span><span class="nc">City</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">return</span>
+        <span class="n">speaker</span>
+        <span class="p">.</span><span class="n">nextTalk</span><span class="p">()</span>
+        <span class="p">.</span><span class="n">addStep</span> <span class="p">{</span> <span class="n">x</span> <span class="p">-&gt;</span> <span class="n">x</span><span class="p">.</span><span class="n">getConference</span><span class="p">()</span> <span class="p">}</span>
+        <span class="p">.</span><span class="n">addStep</span> <span class="p">{</span> <span class="n">x</span> <span class="p">-&gt;</span> <span class="n">x</span><span class="p">.</span><span class="n">getCity</span><span class="p">()</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Subsequently, <code class="highlighter-rouge">addStep</code> is called two times to transfer to <code class="highlighter-rouge">Conference</code> and then <code class="highlighter-rouge">City</code> inside the same container:</p>
+
+<p><img src="https://mikhail.io/2018/07/monads-explained-in-csharp-again//monad-two-binds.png" alt="" /></p>
+
+<h3 id="finally-monads">Finally, Monads</h3>
+
+<p>The name of this pattern is <strong>Monad</strong>.</p>
+
+<p>In Arrow terms, a Monad is an interface with two operations: a constructor <code class="highlighter-rouge">just</code>, and <code class="highlighter-rouge">flatMap</code>.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Monad</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;:</span> <span class="n">Applicative</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;,</span> <span class="n">Functor</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="p">&lt;</span><span class="nc">A</span><span class="p">&gt;</span> <span class="nf">just</span> <span class="p">(</span><span class="nv">instance</span><span class="p">:</span> <span class="nc">A</span><span class="p">):</span> <span class="nc">Kind</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">A</span><span class="p">&gt;</span>
+
+    <span class="k">fun</span> <span class="p">&lt;</span><span class="nc">A</span><span class="p">,</span> <span class="nc">B</span><span class="p">&gt;</span> <span class="nf">Kind</span><span class="p">&lt;</span><span class="n">F</span><span class="p">,</span> <span class="n">A</span><span class="p">&gt;.</span><span class="n">flatMap</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="p">-&gt;</span>  <span class="n">Kind</span><span class="p">&lt;</span><span class="n">F</span><span class="p">,</span> <span class="n">B</span><span class="p">&gt;)</span> <span class="p">:</span> <span class="nc">Kind</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">B</span><span class="p">&gt;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>See that instead of <code class="highlighter-rouge">WorkflowThatReturns&lt;A&gt;</code> our containers are called <code class="highlighter-rouge">Kind&lt;F, A&gt;</code>, where <code class="highlighter-rouge">F</code> is the generic parameter of the container and <code class="highlighter-rouge">A</code> the generic parameter of the content. We talk more about them in the <a href="../glossary/index.html#type-constructors">glossary</a>.</p>
+
+<p>The constructor <code class="highlighter-rouge">just</code> is used to put an object into a container <code class="highlighter-rouge">Kind&lt;F, A&gt;</code>, and <code class="highlighter-rouge">flatMap</code> is used to replace one contained object with another contained object.</p>
+
+<p>It’s important that <code class="highlighter-rouge">flatMaps</code>’s argument returns <code class="highlighter-rouge">Kind&lt;F, B&gt;</code> and not just <code class="highlighter-rouge">B</code>, as this new contained object can have different behavior, like a left branch of <code class="highlighter-rouge">Either</code> or an async execution of <code class="highlighter-rouge">IO</code>.</p>
+
+<p>We can think of <code class="highlighter-rouge">flatMap</code> as a combination of <code class="highlighter-rouge">map</code> and <code class="highlighter-rouge">flatten</code> as defined by the following signature:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">A</span><span class="p">,</span> <span class="nc">B</span><span class="p">&gt;</span> <span class="nf">Kind</span><span class="p">&lt;</span><span class="n">F</span><span class="p">,</span> <span class="n">A</span><span class="p">&gt;.</span><span class="n">map</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="p">-&gt;</span>  <span class="n">B</span><span class="p">):</span> <span class="nc">Kind</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">B</span><span class="p">&gt;</span> <span class="c1">// Inherited from Functor</span>
+
+<span class="k">fun</span> <span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">A</span><span class="p">&gt;</span> <span class="nf">Kind</span><span class="p">&lt;</span><span class="n">F</span><span class="p">,</span> <span class="n">Kind</span><span class="p">&lt;</span><span class="n">F</span><span class="p">,</span> <span class="n">A</span><span class="p">&gt;&gt;.</span><span class="n">flatten</span><span class="p">():</span> <span class="nc">Kind</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">A</span><span class="p">&gt;</span>
+
+<span class="n">container</span>
+  <span class="p">.</span><span class="n">map</span> <span class="p">{</span> <span class="n">x</span> <span class="p">-&gt;</span> <span class="n">just</span><span class="p">(</span><span class="n">x</span> <span class="p">+</span> <span class="m">1</span><span class="p">)</span> <span class="p">}</span> <span class="c1">// Kind&lt;F, Kind&lt;F, Int&gt;&gt;</span>
+  <span class="p">.</span><span class="n">flatten</span><span class="p">()</span> <span class="c1">// Kind&lt;F, Int&gt;</span>
+</code></pre></div></div>
+
+<p>Even though I spent quite some time with examples, I expect you to be slightly confused at this point. That’s ok.</p>
+
+<p>Keep going and let’s have a look at several sample implementations of Monad pattern.</p>
+
+<h3 id="option">Option</h3>
+
+<p>My first example was with nullable <code class="highlighter-rouge">?</code>. The full pattern containing either 0 or 1 instance of some type is called Option (it maybe has a value, or maybe not).</p>
+
+<p>Option is another approach to dealing with “no value” value, alternative to the concept of null. You can read more about <a href="https://next.arrow-kt.io/docs/arrow/core/option"><code class="highlighter-rouge">Option</code></a> to see how Arrow implemented it.</p>
+
+<p>When null is not allowed, any API contract gets more explicit: either you return type <code class="highlighter-rouge">T</code> and it’s always going to be filled, or you return <code class="highlighter-rouge">Option&lt;T&gt;</code>.
+The client will see that Option type is used, so it will be forced to handle the case of absent value.</p>
+
+<p>Given an imaginary repository contract (which does something with customers and orders):</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">OptionAwareRepository</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">getCustomer</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="nc">Int</span><span class="p">):</span> <span class="nc">Option</span><span class="p">&lt;</span><span class="nc">Customer</span><span class="p">&gt;</span>
+
+    <span class="k">fun</span> <span class="nf">getAddress</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="nc">Int</span><span class="p">):</span> <span class="nc">Option</span><span class="p">&lt;</span><span class="nc">Address</span><span class="p">&gt;</span>
+
+    <span class="k">fun</span> <span class="nf">getOrder</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="nc">Int</span><span class="p">):</span> <span class="nc">Option</span><span class="p">&lt;</span><span class="nc">Order</span><span class="p">&gt;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The client can be written with <code class="highlighter-rouge">flatMap</code> method composition, without branching, in fluent style:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">shipperOfLastOrderOnCurrentAddress</span><span class="p">(</span><span class="nv">customerId</span><span class="p">:</span> <span class="nc">Int</span><span class="p">):</span> <span class="nc">Option</span><span class="p">&lt;</span><span class="nc">Shipper</span><span class="p">&gt;</span> <span class="p">=</span>
+    <span class="n">repo</span><span class="p">.</span><span class="n">getCustomer</span><span class="p">(</span><span class="n">customerId</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">c</span> <span class="p">-&gt;</span> <span class="n">c</span><span class="p">.</span><span class="n">address</span> <span class="p">}</span>
+        <span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">a</span> <span class="p">-&gt;</span> <span class="n">repo</span><span class="p">.</span><span class="n">getAddress</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">id</span><span class="p">)</span> <span class="p">}</span>
+        <span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">a</span> <span class="p">-&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">lastOrder</span> <span class="p">}</span>
+        <span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">lo</span> <span class="p">-&gt;</span> <span class="n">repo</span><span class="p">.</span><span class="n">getOrder</span><span class="p">(</span><span class="n">lo</span><span class="p">.</span><span class="n">id</span><span class="p">)</span> <span class="p">}</span>
+        <span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">o</span> <span class="p">-&gt;</span> <span class="n">o</span><span class="p">.</span><span class="n">shipper</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="sequence-can-implement-monad">Sequence can implement Monad</h3>
+
+<p>Sequence is an interface for enumerable containers.</p>
+
+<p>You might have used <code class="highlighter-rouge">Sequence&lt;T&gt;</code> before, but what you probably didn’t know is that it’s a container type that fills the requirements of a Monad: sequences can be constructed, and they can be flatMapped.</p>
+
+<p>Here’s the signature of <code class="highlighter-rouge">flatMap</code> as defined in the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/flat-map.html">Kotlin standard library</a>:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="p">&lt;</span><span class="nc">T</span><span class="p">,</span> <span class="nc">R</span><span class="p">&gt;</span> <span class="nf">Sequence</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;.</span><span class="n">flatMap</span><span class="p">(</span>
+    <span class="n">transform</span><span class="p">:</span> <span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Sequence</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span>
+<span class="p">):</span> <span class="nc">Sequence</span><span class="p">&lt;</span><span class="nc">R</span><span class="p">&gt;</span>
+</code></pre></div></div>
+
+<p>And here is an example of composition:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">shippers</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">&lt;</span><span class="n">Shipper</span><span class="p">&gt;</span> <span class="p">=</span>
+    <span class="n">customers</span>
+        <span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">c</span> <span class="p">-&gt;</span> <span class="n">c</span><span class="p">.</span><span class="n">addresses</span> <span class="p">}</span>
+        <span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">a</span> <span class="p">-&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">orders</span> <span class="p">}</span>
+        <span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">o</span> <span class="p">-&gt;</span> <span class="n">o</span><span class="p">.</span><span class="n">shippers</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>The query has no idea about how the collections are stored (encapsulated in containers). We use functions of type <code class="highlighter-rouge">A -&gt; Sequence&lt;B&gt;</code> to produce new sequences using the <code class="highlighter-rouge">flatMap</code> operation.</p>
+
+<h3 id="deferred-future">Deferred (Future)</h3>
+
+<p>In the Kotlin coroutines library <code class="highlighter-rouge">Deferred&lt;T&gt;</code> type is used to denote asynchronous computation which will eventually return an instance of <code class="highlighter-rouge">T</code>.
+The other names for similar concepts in other languages are Promise and Future.</p>
+
+<p>While the typical usage of Deferred in Kotlin is different from the Monad pattern we discussed, I can still come up with a Future class with the familiar structure:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Future</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span>
+    <span class="kd">val</span> <span class="py">instance</span><span class="p">:</span> <span class="n">Deferred</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span>
+<span class="p">):</span> <span class="nc">Kind</span><span class="p">&lt;</span><span class="nc">ForFuture</span><span class="p">,</span> <span class="nc">A</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">constructor</span><span class="p">(</span><span class="nv">instance</span><span class="p">:</span> <span class="nc">T</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">instance</span> <span class="p">=</span> <span class="n">async</span><span class="p">(</span><span class="n">LAZY</span><span class="p">)</span> <span class="p">{</span> <span class="n">instance</span> <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">constructor</span><span class="p">(</span><span class="nv">instance</span><span class="p">:</span> <span class="nc">Deferred</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">instance</span> <span class="p">=</span> <span class="n">instance</span>
+    <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="p">&lt;</span><span class="nc">U</span><span class="p">&gt;</span> <span class="nf">flatMap</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Future</span><span class="p">&lt;</span><span class="n">U</span><span class="p">&gt;):</span> <span class="nc">Future</span><span class="p">&lt;</span><span class="nc">U</span><span class="p">&gt;</span> <span class="p">=</span>
+        <span class="n">Future</span><span class="p">(</span><span class="n">async</span><span class="p">(</span><span class="n">LAZY</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">val</span> <span class="py">t</span> <span class="p">=</span> <span class="n">instance</span><span class="p">.</span><span class="n">await</span><span class="p">()</span>
+            <span class="n">func</span><span class="p">(</span><span class="n">t</span><span class="p">).</span><span class="n">await</span><span class="p">()</span>
+        <span class="p">})</span>
+
+    <span class="k">fun</span> <span class="nf">runSync</span><span class="p">(</span><span class="n">action</span><span class="p">:</span> <span class="p">(</span><span class="n">Try</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;)</span> <span class="p">-&gt;</span> <span class="n">Unit</span><span class="p">)</span> <span class="p">=</span>
+        <span class="n">runBlocking</span> <span class="p">{</span> <span class="n">action</span><span class="p">(</span><span class="n">Try</span> <span class="p">{</span> <span class="n">instance</span><span class="p">.</span><span class="n">await</span><span class="p">()</span> <span class="p">})</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Effectively, it’s just a wrapper around the Deferred which doesn’t add too much value, but it’s a useful illustration because now we can do:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">repository</span>
+    <span class="p">.</span><span class="n">loadSpeaker</span><span class="p">()</span>
+    <span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">speaker</span> <span class="p">-&gt;</span> <span class="n">speaker</span><span class="p">.</span><span class="n">nextTalk</span><span class="p">()</span>
+        <span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">talk</span> <span class="p">-&gt;</span> <span class="n">talk</span><span class="p">.</span><span class="n">getConference</span><span class="p">()</span> <span class="p">}</span>
+        <span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">conference</span> <span class="p">-&gt;</span> <span class="n">conference</span><span class="p">.</span><span class="n">getCity</span><span class="p">().</span><span class="n">map</span> <span class="p">{</span> <span class="n">it</span> <span class="n">to</span> <span class="n">speaker</span> <span class="p">}</span> <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="p">.</span><span class="n">runSync</span> <span class="p">{</span> <span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="n">speaker</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">city</span><span class="p">.</span><span class="n">fold</span><span class="p">(</span>
+        <span class="p">{</span> <span class="n">Logger</span><span class="p">.</span><span class="n">logError</span><span class="p">(</span><span class="n">it</span><span class="p">);</span> <span class="n">reservations</span><span class="p">.</span><span class="n">cancel</span><span class="p">()</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">reservations</span><span class="p">.</span><span class="n">bookFlight</span><span class="p">(</span><span class="n">speaker</span><span class="p">,</span> <span class="n">city</span><span class="p">)</span> <span class="p">})</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>We are back to the familiar structure. Time for some more complications.</p>
+
+<h3 id="abstraction-for-all-monads">Abstraction for all Monads</h3>
+
+<p>We’re going to dispel one common misconception.
+Sometimes the word Monad is used to refer to types like Option, Future, Either… and so on, and that’s not correct.
+Those are called <a href="https://next.arrow-kt.io/docs/datatypes/intro">datatypes</a> or just types. Let’s see the difference!</p>
+
+<p>As you have seen, neither Future nor Option implement Monad directly.
+This is intentional, as you can potentially have several Monad implementations for a single type.
+For example, RxJava’s Observable can be chained using <code class="highlighter-rouge">flatMap</code>, <code class="highlighter-rouge">switchMap</code>, and <code class="highlighter-rouge">concatMap</code>, and using each is still a Monad.</p>
+
+<p>Instead, Arrow specifies that Monad must be implemented by a separate object or class, referred as the “instance of Monad for type F”.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">object</span> <span class="nc">FutureMonad</span><span class="p">:</span> <span class="n">Monad</span><span class="p">&lt;</span><span class="n">ForFuture</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="p">&lt;</span><span class="nc">A</span><span class="p">&gt;</span> <span class="nf">just</span> <span class="p">(</span><span class="nv">instance</span><span class="p">:</span> <span class="nc">A</span><span class="p">):</span> <span class="nc">Future</span><span class="p">&lt;</span><span class="nc">A</span><span class="p">&gt;</span> <span class="p">=</span>
+        <span class="n">Future</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="p">&lt;</span><span class="nc">A</span><span class="p">,</span> <span class="nc">B</span><span class="p">&gt;</span> <span class="nf">Kind</span><span class="p">&lt;</span><span class="n">ForFuture</span><span class="p">,</span> <span class="n">A</span><span class="p">&gt;.</span><span class="n">flatMap</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="p">-&gt;</span>  <span class="n">Kind</span><span class="p">&lt;</span><span class="n">ForFuture</span><span class="p">,</span> <span class="n">B</span><span class="p">&gt;):</span> <span class="nc">Future</span><span class="p">&lt;</span><span class="nc">B</span><span class="p">&gt;</span> <span class="p">=</span>
+        <span class="n">flatMap</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1">// as per precedence rules the class method is called</span>
+<span class="p">}</span>
+
+<span class="kd">object</span> <span class="nc">OptionMonad</span><span class="p">:</span> <span class="n">Monad</span><span class="p">&lt;</span><span class="n">ForOption</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="p">&lt;</span><span class="nc">A</span><span class="p">&gt;</span> <span class="nf">just</span> <span class="p">(</span><span class="nv">instance</span><span class="p">:</span> <span class="nc">A</span><span class="p">):</span> <span class="nc">Option</span><span class="p">&lt;</span><span class="nc">A</span><span class="p">&gt;</span> <span class="p">=</span>
+        <span class="n">Some</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+    <span class="c1">// OptionOf&lt;T&gt; is an alias for Kind&lt;ForOption, T&gt;</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="p">&lt;</span><span class="nc">A</span><span class="p">,</span> <span class="nc">B</span><span class="p">&gt;</span> <span class="nf">OptionOf</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;.</span><span class="n">flatMap</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="p">-&gt;</span>  <span class="n">OptionOf</span><span class="p">&lt;</span><span class="n">B</span><span class="p">&gt;):</span> <span class="nc">Option</span><span class="p">&lt;</span><span class="nc">B</span><span class="p">&gt;</span> <span class="p">=</span>
+        <span class="n">flatMap</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">object</span> <span class="nc">ObservableSwitchMonad</span><span class="p">:</span> <span class="n">Monad</span><span class="p">&lt;</span><span class="n">ForObservable</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="p">&lt;</span><span class="nc">A</span><span class="p">&gt;</span> <span class="nf">just</span> <span class="p">(</span><span class="nv">instance</span><span class="p">:</span> <span class="nc">A</span><span class="p">):</span> <span class="nc">Observable</span><span class="p">&lt;</span><span class="nc">A</span><span class="p">&gt;</span> <span class="p">=</span>
+        <span class="n">Observable</span><span class="p">.</span><span class="n">just</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+    <span class="c1">// ObservableOf&lt;T&gt; is an alias for Kind&lt;ForObservable, T&gt;</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="p">&lt;</span><span class="nc">A</span><span class="p">,</span> <span class="nc">B</span><span class="p">&gt;</span> <span class="nf">ObservableOf</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;.</span><span class="n">flatMap</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="p">-&gt;</span>  <span class="n">ObservableOf</span><span class="p">&lt;</span><span class="n">B</span><span class="p">&gt;):</span> <span class="nc">Observable</span><span class="p">&lt;</span><span class="nc">B</span><span class="p">&gt;</span> <span class="p">=</span>
+        <span class="n">switchMap</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">object</span> <span class="nc">ObservableConcatMonad</span><span class="p">:</span> <span class="n">Monad</span><span class="p">&lt;</span><span class="n">ForObservable</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="p">&lt;</span><span class="nc">A</span><span class="p">&gt;</span> <span class="nf">just</span> <span class="p">(</span><span class="nv">instance</span><span class="p">:</span> <span class="nc">A</span><span class="p">):</span> <span class="nc">Observable</span><span class="p">&lt;</span><span class="nc">A</span><span class="p">&gt;</span> <span class="p">=</span>
+        <span class="n">Observable</span><span class="p">.</span><span class="n">just</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+    <span class="c1">// ObservableOf&lt;T&gt; is an alias for Kind&lt;ForObservable, T&gt;</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="p">&lt;</span><span class="nc">A</span><span class="p">,</span> <span class="nc">B</span><span class="p">&gt;</span> <span class="nf">ObservableOf</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;.</span><span class="n">flatMap</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="p">-&gt;</span>  <span class="n">ObservableOf</span><span class="p">&lt;</span><span class="n">B</span><span class="p">&gt;):</span> <span class="nc">Observable</span><span class="p">&lt;</span><span class="nc">B</span><span class="p">&gt;</span> <span class="p">=</span>
+        <span class="n">concatMap</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>What are the benefits of separating the instances from the direct implementation, causing a duplication in methods and an extra layer of indirection?</p>
+
+<p>The main use case is allowing you to write code that is generic for any object that can provide a Monad instance object.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="p">&lt;</span><span class="nc">F</span><span class="p">&gt;</span> <span class="nf">Monad</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;.</span><span class="n">shipperOfLastOrderOnCurrentAddress</span><span class="p">(</span><span class="nv">customerId</span><span class="p">:</span> <span class="nc">Int</span><span class="p">):</span> <span class="nc">Kind</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">Shipper</span><span class="p">&gt;</span> <span class="p">=</span>
+    <span class="n">repo</span><span class="p">.</span><span class="n">getCustomer</span><span class="p">(</span><span class="n">customerId</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">c</span> <span class="p">-&gt;</span> <span class="n">c</span><span class="p">.</span><span class="n">address</span> <span class="p">}</span>
+        <span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">a</span> <span class="p">-&gt;</span> <span class="n">repo</span><span class="p">.</span><span class="n">getAddress</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">id</span><span class="p">)</span> <span class="p">}</span>
+        <span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">a</span> <span class="p">-&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">lastOrder</span> <span class="p">}</span>
+        <span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">lo</span> <span class="p">-&gt;</span> <span class="n">repo</span><span class="p">.</span><span class="n">getOrder</span><span class="p">(</span><span class="n">lo</span><span class="p">.</span><span class="n">id</span><span class="p">)</span> <span class="p">}</span>
+        <span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">o</span> <span class="p">-&gt;</span> <span class="n">o</span><span class="p">.</span><span class="n">shipper</span> <span class="p">}</span>
+</code></pre></div></div>
+<p>In this case, like with any other interface, Monad defines the API and behavior but not the implementation details.
+This pattern is specially useful for libraries that must remain agnostic to implementations, and gives them a <em>lingua franca</em> when building on top of each other.</p>
+
+<p>Using the Monad and other similar abstractions, Arrow can provide a rich collection of extension functions and new language extensions that can be reused by other codebases.</p>
+
+<p>You can read more about generalizing code in the <a href="https://next.arrow-kt.io/docs/patterns/glossary">glossary</a> and <a href="https://next.arrow-kt.io/docs/typeclasses/intro">typeclasses intro</a>.</p>
+
+<h3 id="non-sequential-workflows">Non-Sequential Workflows</h3>
+
+<p>Up until now, all the composed workflows had very linear, sequential structure: the output of a previous step was always the input for the next step.
+That piece of data could be discarded after the first use because it was never needed for later steps:</p>
+
+<p><img src="https://mikhail.io/2018/07/monads-explained-in-csharp-again//linear-workflow.png" alt="" /></p>
+
+<p>Quite often though, this might not be the case. A workflow step might need data from two or more previous steps combined.</p>
+
+<p>In the example above, <code class="highlighter-rouge">bookFlight</code> method might actually needs both <code class="highlighter-rouge">Speaker</code> and <code class="highlighter-rouge">City</code> objects:</p>
+
+<p><img src="https://mikhail.io/2018/07/monads-explained-in-csharp-again//non-linear-workflow.png" alt="" /></p>
+
+<p>In this case, we would have to use a lambda to save the speaker variable until we get a talk too:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">repository</span>
+    <span class="p">.</span><span class="n">loadSpeaker</span><span class="p">()</span>
+    <span class="p">.</span><span class="n">runSync</span> <span class="p">{</span> <span class="n">speaker</span> <span class="p">-&gt;</span>
+        <span class="n">speaker</span>
+            <span class="p">.</span><span class="n">nextTalk</span><span class="p">()</span>
+            <span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">talk</span> <span class="p">-&gt;</span> <span class="n">talk</span><span class="p">.</span><span class="n">getConference</span><span class="p">()</span> <span class="p">}</span>
+            <span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">conference</span> <span class="p">-&gt;</span> <span class="n">conference</span><span class="p">.</span><span class="n">getCity</span><span class="p">()</span> <span class="p">}</span>
+            <span class="p">.</span><span class="n">runSync</span> <span class="p">{</span> <span class="n">city</span> <span class="p">-&gt;</span> <span class="n">city</span><span class="p">.</span><span class="n">fold</span><span class="p">(</span>
+                <span class="p">{</span> <span class="n">Logger</span><span class="p">.</span><span class="n">logError</span><span class="p">(</span><span class="n">it</span><span class="p">);</span> <span class="n">reservations</span><span class="p">.</span><span class="n">cancel</span><span class="p">()</span> <span class="p">},</span>
+                <span class="p">{</span> <span class="n">reservations</span><span class="p">.</span><span class="n">bookFlight</span><span class="p">(</span><span class="n">speaker</span><span class="p">,</span> <span class="n">city</span><span class="p">)</span> <span class="p">})</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Obviously, this gets ugly very soon.</p>
+
+<p>To solve this structural problem the Kotlin language introduced coroutines, the design of which was inspired by other languages such as C# and JavaScript.</p>
+
+<p>If we move back to using Deferred instead of our custom Future, we are able to write</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">speaker</span> <span class="p">=</span> <span class="n">repository</span><span class="p">.</span><span class="n">loadSpeaker</span><span class="p">().</span><span class="n">await</span><span class="p">()</span>
+<span class="kd">val</span> <span class="py">talk</span> <span class="p">=</span> <span class="n">speaker</span><span class="p">.</span><span class="n">nextTalk</span><span class="p">().</span><span class="n">await</span><span class="p">()</span>
+<span class="kd">val</span> <span class="py">conference</span> <span class="p">=</span> <span class="n">talk</span><span class="p">.</span><span class="n">getConference</span><span class="p">().</span><span class="n">await</span><span class="p">()</span>
+<span class="kd">val</span> <span class="py">city</span> <span class="p">=</span> <span class="n">conference</span><span class="p">.</span><span class="n">getCity</span><span class="p">().</span><span class="n">await</span><span class="p">()</span>
+<span class="n">reservations</span><span class="p">.</span><span class="n">bookFlight</span><span class="p">(</span><span class="n">speaker</span><span class="p">,</span> <span class="n">city</span><span class="p">).</span><span class="n">await</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Even though we lost the fluent syntax, at least the block has just one level, which makes it easier to read and navigate.</p>
+
+<p>By using coroutines Arrow provides a specialization that enables readable async/await style code for any Monad.
+This specialization can be accessed using the function <code class="highlighter-rouge">binding</code> on any Monad, and the method <code class="highlighter-rouge">bind</code>. Internally, <code class="highlighter-rouge">Monad#flatMap</code> is used for chaining.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="p">&lt;</span><span class="nc">F</span><span class="p">&gt;</span> <span class="nf">bookSpeakersFlights</span><span class="p">(</span><span class="nv">M</span><span class="p">:</span> <span class="nc">Monad</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">&gt;):</span> <span class="nc">Kind</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">Reservation</span><span class="p">&gt;</span> <span class="p">=</span>
+    <span class="n">M</span><span class="p">.</span><span class="n">binding</span> <span class="p">{</span>
+        <span class="kd">val</span> <span class="p">(</span><span class="py">speaker</span><span class="p">)</span> <span class="p">=</span> <span class="n">repository</span><span class="p">.</span><span class="n">loadSpeaker</span><span class="p">()</span>
+        <span class="kd">val</span> <span class="p">(</span><span class="py">talk</span><span class="p">)</span> <span class="p">=</span> <span class="n">speaker</span><span class="p">.</span><span class="n">nextTalk</span><span class="p">()</span>
+        <span class="kd">val</span> <span class="p">(</span><span class="py">conference</span><span class="p">)</span> <span class="p">=</span> <span class="n">talk</span><span class="p">.</span><span class="n">getConference</span><span class="p">()</span>
+        <span class="kd">val</span> <span class="p">(</span><span class="py">city</span><span class="p">)</span> <span class="p">=</span> <span class="n">conference</span><span class="p">.</span><span class="n">getCity</span><span class="p">()</span>
+        <span class="n">reservations</span><span class="p">.</span><span class="n">bookFlight</span><span class="p">(</span><span class="n">speaker</span><span class="p">,</span> <span class="n">city</span><span class="p">).</span><span class="n">bind</span><span class="p">()</span>
+    <span class="p">}</span>
+
+<span class="n">bookSpeakersFlights</span><span class="p">(</span><span class="n">ObservableSwitchMonad</span><span class="p">).</span><span class="n">fix</span><span class="p">()</span> <span class="c1">// Observable&lt;Reservation&gt;</span>
+
+<span class="n">bookSpeakersFlights</span><span class="p">(</span><span class="n">OptionMonad</span><span class="p">).</span><span class="n">fix</span><span class="p">()</span> <span class="c1">// Option&lt;Reservation&gt;</span>
+
+<span class="n">bookSpeakersFlights</span><span class="p">(</span><span class="n">ListMonad</span><span class="p">).</span><span class="n">fix</span><span class="p">()</span> <span class="c1">// List&lt;Reservation&gt;</span>
+</code></pre></div></div>
+
+<p>These are called <a href="https://next.arrow-kt.io/docs/patterns/monad_comprehensions">Monad Comprehensions</a>, and you can find a complete section of the docs explaining it.</p>
+
+<h3 id="monad-laws">Monad Laws</h3>
+
+<p>There are a couple laws that <code class="highlighter-rouge">just</code> constructor and <code class="highlighter-rouge">flatMap</code> need to adhere to, so that they produce a Monad with a stable implementation.
+These laws are encoded in Arrow as tests you can find in the <code class="highlighter-rouge">arrow-test</code> module, and are already tested for all instances in the library.</p>
+
+<p>A typical monad tutorial will make a lot of emphasis on the laws, but I find them less important to explain to a beginner. Nonetheless, here they are for the sake of completeness.</p>
+
+<p><code class="highlighter-rouge">Left Identity law</code> says that Monad constructor is a neutral operation: you can safely run it before <code class="highlighter-rouge">flatMap</code>, and it won’t change the result of the function call:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Given
+val value: A
+val f: (A) -&gt; Kind&lt;F, B&gt;
+
+// Then (== means both parts are equivalent)
+just(value).flatMap(f) == f(value)
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">Right Identity law</code> says that given a monadic value, wrapping its contained data into another monad of same type and then <code class="highlighter-rouge">flatMap</code> it, doesn’t change the original value:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Given
+val monadicValue: Kind&lt;F, A&gt;
+
+// Then (== means both parts are equivalent)
+monadicValue.flatMap { x -&gt; just(x) } == monadicValue
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">Associativity law</code> means that the order in which <code class="highlighter-rouge">flatMap</code> operations are composed does not matter:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Given
+val m: Kind&lt;F, T&gt;
+val f: (T) -&gt; Kind&lt;F, U&gt;
+val g: (T) -&gt; Kind&lt;F, V&gt;
+
+// Then (== means both parts are equivalent)
+m.flatMap(f).flatMap(g) == m.flatMap { a -&gt; f(a).flatMap(g) }
+</code></pre></div></div>
+
+<p>The laws may look complicated, but in fact they are very natural expectations that any developer has when working with monads, so don’t spend too much mental effort on memorizing them.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>You should not be afraid of the “M-word” just because you are a Kotlin programmer.</p>
+
+<p>Kotlin does not have a notion of monads as predefined language constructs, but that doesn’t mean we can’t borrow some ideas from the functional world.
+Having said that, it’s also true that Kotlin is lacking some powerful ways to combine and generalize monads that are available in functional programming languages.</p>
+
+    </div>
+</div>
+
+</div>
+<!-- Jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Arrow playground -->
+<script src="https://unpkg.com/arrow-playground@1" data-selector="[class^='language-kotlin']"></script>
+<!-- Highlight -->
+<script src="../../../js/highlight.pack.js"></script>
+<script>
+  hljs.initHighlighting();
+</script>
+<!-- Docsearch -->
+<script type="text/javascript" src="../../../js/docsearch.min.js"></script>
+<!-- Custom scripts for this template -->
+<script src="../../../js/functions.js"></script>
+<!-- Gitter -->
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'arrow-kt/Lobby'
+  };
+
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+</body>
+</html>

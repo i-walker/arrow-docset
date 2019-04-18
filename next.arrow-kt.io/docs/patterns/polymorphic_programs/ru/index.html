@@ -1,0 +1,2072 @@
+<!DOCTYPE html>
+<html>
+
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Arrow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Functional companion to Kotlin's Standard Library">
+    <meta name="keywords" content="functional-programming, kotlin-library, monads, monad-transformers, functional-data-structure, kotlin, fp-types, adt, free-monads, tagless-final, mtl, for-comprehension, category-theory">
+
+    <meta property="og:image" content="http://arrow-kt.io/img/poster.png"/>
+    <meta property="og:title" content="Arrow"/>
+    <meta property="og:site_name" content="Arrow"/>
+    <meta property="og:url" content="http://arrow-kt.io/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description" content="Functional companion to Kotlin's Standard Library"/>
+    <meta property="og:keywords" content="functional-programming, kotlin-library, monads, monad-transformers, functional-data-structure, kotlin, fp-types, adt, free-monads, tagless-final, mtl, for-comprehension, category-theory"/>
+
+    <meta name="twitter:text:description" content="Functional companion to Kotlin's Standard Library"/>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@arrow_kt">
+    <meta name="twitter:creator" content="@arrow_kt">
+    <meta name="twitter:image" content="http://arrow-kt.io/img/twitter-card.png"/>
+
+    <!-- Arrow versions metadata -->
+    <meta name="previous-version" data-title="" data-url="" />
+    <meta name="stable-version" data-title="" data-url="" />
+    <meta name="next-version" data-title="" data-url="" />
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"
+          type="text/css">
+    <!-- Animated -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <!-- Arrow main css -->
+    <link rel="shortcut icon" href="../../../../img/favicon.png">
+    <!-- highlight  css -->
+    <link rel="stylesheet" type="text/css" href="../../../../css/highlight/atom-one-light.css">
+    <!-- Arrow main css -->
+    <link rel="stylesheet" type="text/css" href="../../../../css/arrow.css">
+
+    <!-- Code to manage version information -->
+    <script src="../../../../js/docVersions.js" defer></script>
+
+    <!-- Diagrams support -->
+    <script src="../../../../js/dagre.min.js"></script>
+    <script src="../../../../js/lodash.min.js"></script>
+    <script src="../../../../js/nomnoml.js"></script>
+    <script src="../../../../js/diagrams.js" async></script>
+
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-18433785-18"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-18433785-18');
+</script>
+
+    
+</head>
+
+<body id="doc-body">
+<div id="wrapper">
+    <div id="sidebar-wrapper">
+    <div class="sidebar-brand">
+        <a class="brand" href="https://next.arrow-kt.io/">
+            <img src="../../../../img/arrow-brand-sidebar.svg" alt="">
+            <span>Λrrow</span>
+        </a>
+        <button type="button" id="main-toggle" class="sidebar-toggle">
+            <span class="close"></span>
+        </button>
+    </div>
+
+    <ul class="sidebar-nav sidebar-doc-versions">
+  <li class="sidebar-nav-item">
+    <a href="index.html#">
+      <span>Arrow version</span>
+      <span id="arrow-version"></span>
+    </a>
+    <ul>
+      <li>
+        <a href="https://arrow-kt.io/docs/">
+          <span>
+            v0.9.0 - STABLE
+          </span>
+        </a>
+      </li>
+
+      <li>
+        <a href="../../../index.html">
+            <span>
+              v0.9.1 - NEXT
+            </span>
+        </a>
+      </li>
+
+      <li>
+        <a href="https://0-8-2.arrow-kt.io/docs/">
+            <span>
+              v0.8.2 -
+              PREVIOUS
+            </span>
+        </a>
+      </li>
+
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </li>
+</ul>
+
+
+    <ul class="sidebar-nav">
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Quick Start</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Index</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../quickstart/libraries/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Libraries</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://next.arrow-kt.io/blog/">
+                        <i class="fa fa-circle"></i>
+                        <span>Blogs & Presentations</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../quickstart/projects/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Projects & Examples</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Arrow Fx</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../effects/fx/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Getting Started</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../effects/fx/async/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Asynchronous & Concurrent Programming</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../effects/fx/polymorphism/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Polymorphism. One Program multiple runtimes</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>API Docs</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../apidocs/arrow-typeclasses/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Type Classes</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../apidocs/arrow-core-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Core Data Types</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../apidocs/arrow-core-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Core Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../apidocs/arrow-extras/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Core Extra Data Types</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../apidocs/arrow-extras-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Core Extra Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../apidocs/arrow-effects-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../apidocs/arrow-effects-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../apidocs/arrow-effects-kotlinx-coroutines-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Coroutines</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../apidocs/arrow-effects-kotlinx-coroutines-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Coroutines Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../apidocs/arrow-effects-rx2-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Rx2</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../apidocs/arrow-effects-rx2-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Rx2 Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../apidocs/arrow-effects-reactor-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Reactor</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../apidocs/arrow-effects-reactor-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Reactor Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../apidocs/arrow-streams/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Streams</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../apidocs/arrow-mtl/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MTL</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../apidocs/arrow-optics/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Optics</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../apidocs/arrow-recursion-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Recursion</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../apidocs/arrow-recursion-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Recursion Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../apidocs/arrow-generic/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Generic</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../apidocs/arrow-free-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Free</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../apidocs/arrow-validation/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Validation</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Patterns</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../glossary/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Glossary</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../error_handling/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Error Handling</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../dependency_injection/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Dependency Injection</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../monads/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>The Monad Tutorial</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../monad_comprehensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Monad Comprehensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Polymorphic Programs</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../free_algebras/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Free Algebras</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Data Types</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../datatypes/intro/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Intro</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../datatypes/basic/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Basic Types</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/core/option/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Option</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/core/either/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Either</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/core/try/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Try</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/validated/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Validated</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/nonemptylist/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>NonEmptyList</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/listk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>ListK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/sequencek/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>SequenceK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/setk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>SetK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/mapk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MapK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/sortedmapk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>SortedMapK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/ior/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Ior</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/core/id/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Id</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/reader/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Reader</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/kleisli/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Kleisli</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/state/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>State</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/statet/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>StateT</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/store/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Store</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/moore/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Moore</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/sum/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Sum</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/day/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Day</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/writert/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>WriterT</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/free/trampoline/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Trampoline</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/coproduct/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Coproduct</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/core/eval/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Eval</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/optiont/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>OptionT</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/eithert/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>EitherT</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/core/function0/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Function0</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/core/function1/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Function1</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/const/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Const</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Type Classes</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../typeclasses/intro/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Intro</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/show/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Show</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/eq/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Eq</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/hash/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Hash</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/order/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Order</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/semigroup/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Semigroup</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../apidocs/arrow-typeclasses/arrow.typeclasses/-semigroupal/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Semigroupal</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../apidocs/arrow-typeclasses/arrow.typeclasses/-monoidal/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Monoidal</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/monoid/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Monoid</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../apidocs/arrow-typeclasses/arrow.typeclasses/-semiring/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Semiring</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/foldable/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Foldable</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/bifoldable/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Bifoldable</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/traverse/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Traverse</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/reducible/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Reducible</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/mtl/typeclasses/traversefilter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>TraverseFilter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/functor/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Functor</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/mtl/typeclasses/functorfilter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>FunctorFilter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/applicative/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Applicative</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/applicativeerror/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>ApplicativeError</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/selective/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Selective</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/monad/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Monad</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/monaderror/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadError</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/effects/typeclasses/bracket/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Bracket</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/mtl/typeclasses/monadfilter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadFilter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/mtl/typeclasses/monadreader/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadReader</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/mtl/typeclasses/monadwriter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadWriter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/mtl/typeclasses/monadstate/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadState</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/mtl/typeclasses/monadcombine/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadCombine</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/comonad/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Comonad</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/bimonad/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Bimonad</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/bifunctor/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Bifunctor</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/profunctor/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Profunctor</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/semigroupk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>SemigroupK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/monoidk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonoidK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://next.arrow-kt.io/docs/typeclasses/inject/">
+                        <i class="fa fa-circle"></i>
+                        <span>Inject</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/alternative/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Alternative</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/divide/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Divide</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/divisible/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Divisible</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/decidable/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Decidable</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Effects</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../effects/io/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>IO</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../effects/monaddefer/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadDefer</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../effects/async/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Async</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../effects/effect/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effect</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../effects/promise/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Promise</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../effects/ref/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Ref</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../effects/fiber/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Fiber</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../apidocs/arrow-effects-data/arrow.effects/-resource/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Resource</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Optics</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../optics/dsl/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Optics DSL</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/iso/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Iso</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/lens/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Lens</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/optional/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Optional</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/prism/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Prism</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/getter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Getter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/setter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Setter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/fold/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Fold</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/traversal/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Traversal</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/cons/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Cons</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/snoc/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Snoc</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/at/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>At</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/index/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Index</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/filterindex/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>FilterIndex</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/each/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Each</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Λrrow Query Language</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../aql/intro/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Λrrow Query Language</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../aql/select/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>select</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../aql/from/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>from</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../aql/where/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>where</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../aql/groupby/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>groupBy</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../aql/orderby/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>orderBy</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../aql/sum/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>sum</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../aql/union/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>union</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../aql/custom/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Custom Data Types</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Generic</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../generic/coproduct/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Coproduct</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../generic/product/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Product</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Integrations</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../integrations/rx2/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Rx2</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../integrations/reactor/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Reactor</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../integrations/kotlinxcoroutines/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>kotlinx.coroutines</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../integrations/retrofit/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Retrofit</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../integrations/kindedj/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>KindedJ</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Free</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../free/free/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Free</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../free/freeapplicative/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>FreeApplicative</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../free/cofree/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Cofree</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../free/yoneda/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Yoneda</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../free/coyoneda/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Coyoneda</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Recursion Schemes</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../recursion/intro/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Intro</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../recursion/recursive/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Recursive</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../recursion/corecursive/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Corecursive</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../recursion/birecursive/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Birecursive</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../recursion/mu/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Mu</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../recursion/nu/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Nu</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../recursion/fix/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Fix</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Legal</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../legal/credits/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Credits</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../legal/licenses/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Licenses</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+    </ul>
+
+</div>
+
+    <div id="doc-wrapper">
+    <div class="doc-header">
+        <button type="button" id="main-toggle" class="sidebar-toggle">
+            <i class="fa fa-lg fa-bars menu-icon"></i>
+        </button>
+        <div class="search-wrapper">
+          <input id="docsearch" class="search" placeholder="Search documentation..." type="search">
+        </div>
+        <a target="_blank"
+          href="https://github.com/arrow-kt/arrow/edit/master/modules/docs/arrow-docs/docs/docs/patterns/polymorphicprograms/ru/README.md">
+          <i class="fa fa-pencil"></i>
+            Edit
+        </a>
+    </div>
+    <div class="doc-content">
+        
+        <h2 id="как-писать-полиморфические-программы">Как писать полиморфические программы</h2>
+
+<p class="advanced">advanced</p>
+
+<p><a href="../index.html">English</a></p>
+
+<p>Что если мы могли бы писать приложения не задумываясь о типах данных, которые будут использованы в рантайме, а просто описывать то, <strong>как эти данные будут обработаны</strong>?</p>
+
+<p>Представим, что у нас есть приложение, которое работает с типом <code class="highlighter-rouge">Observable</code> из библиотеки RxJava. Этот тип позволяет нам написать цепочки вызовов и манипуляций с данными, но в итоге не будет ли этот <code class="highlighter-rouge">Observable</code> просто контейнером с дополнительными свойствами?</p>
+
+<p>Та же история с типами вроде <code class="highlighter-rouge">Flowable</code>, <code class="highlighter-rouge">Deferred</code> (корутины), <code class="highlighter-rouge">Future</code>, <code class="highlighter-rouge">IO</code>, и множеством других.</p>
+
+<p>Концептуально все эти типы представляют собой операцию (уже сделанную или планируемую к выполнению в будущем), которая поддерживает манипуляции вроде приведения внутреннего значения к другому типу (<code class="highlighter-rouge">map</code>), использование <code class="highlighter-rouge">flatMap</code> для создания цепочки операций схожего типа, объединение с другими инстансами этого же типа (<code class="highlighter-rouge">zip</code>), и т.п.</p>
+
+<p>Для того, чтобы писать программы, основываясь на этих поведениях, при этом сохраняя декларативность описания, а также чтобы сделать свои программы независимыми от конкретных типов данных вроде <code class="highlighter-rouge">Observable</code> достаточно того, чтобы используемые типы данных соответствовали определенным контрактам, таким как <code class="highlighter-rouge">map</code>, <code class="highlighter-rouge">flatMap</code>, и прочие.</p>
+
+<p>Такой подход может показаться странным или чересчур усложненным, но у него есть интересные преимущества. Давай сначала рассмотрим простой пример, а потом поговорим о них.</p>
+
+<h3 id="каноническая-проблема">Каноническая проблема</h3>
+
+<p>Примеры кода взяты из статьи моего друга <a href="https://twitter.com/raulraja">Raúl Raja</a>, который помог с редактурой этого поста.</p>
+
+<p>Представим, что у нас есть приложение со списком дел, и мы хотели бы извлечь из локального кэша список объектов типа <code class="highlighter-rouge">Task</code>. Если они не будут найдены в локальном хранилище, мы попробуем запросить их по сети. Нам нужен единый контракт для обоих источников данных, чтобы они оба могли получить список объектов типа <code class="highlighter-rouge">Task</code> для подходящего объекта <code class="highlighter-rouge">User</code>, вне зависимости от источника:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">DataSource</span> <span class="p">{</span>
+  <span class="k">fun</span> <span class="nf">allTasksByUser</span><span class="p">(</span><span class="nv">user</span><span class="p">:</span> <span class="nc">User</span><span class="p">):</span> <span class="nc">Observable</span><span class="p">&lt;</span><span class="nc">List</span><span class="err">&lt;</span><span class="nc">Task</span><span class="p">&gt;&gt;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Здесь для простоты мы возвращаем <code class="highlighter-rouge">Observable</code>, но это может быть <code class="highlighter-rouge">Single</code>, <code class="highlighter-rouge">Maybe</code>, <code class="highlighter-rouge">Flowable</code>, <code class="highlighter-rouge">Deferred</code> - что угодно, подходящее для достижения цели.</p>
+
+<p>Добавим пару моковых имплементаций источников данных, одну для <strong>локального</strong>, вторую для <strong>дистанционного</strong>.</p>
+
+<pre><code class="language-Kotlin">class LocalDataSource : DataSource {
+  private val localCache: Map&lt;User, List&lt;Task&gt;&gt; =
+    mapOf(User(UserId("user1")) to listOf(Task("LocalTask assigned to user1")))
+
+  override fun allTasksByUser(user: User): Observable&lt;List&lt;Task&gt;&gt; = 
+    Observable.create { emitter -&gt;
+      val cachedUser = localCache[user]
+      if (cachedUser != null) {
+        emitter.onNext(cachedUser)
+      } else {
+        emitter.onError(UserNotInLocalStorage(user))
+      }
+    }
+}
+
+class RemoteDataSource : DataSource {
+  private val internetStorage: Map&lt;User, List&lt;Task&gt;&gt; =
+    mapOf(User(UserId("user2")) to listOf(Task("Remote Task assigned to user2")))
+
+  override fun allTasksByUser(user: User): Observable&lt;List&lt;Task&gt;&gt; = 
+    Observable.create { emitter -&gt;
+      val networkUser = internetStorage[user]
+      if (networkUser != null) {
+        emitter.onNext(networkUser)
+      } else {
+        emitter.onError(UserNotInRemoteStorage(user))
+      }
+    }
+}
+</code></pre>
+
+<p>Имплементации обоих источников данных практически идентичны. Это просто мокированные версии этих источников, которые в идеальном случае достают данные из локального хранилища или сетевого API. В обоих случаях для хранения данных используется сохраненный в память <code class="highlighter-rouge">Map&lt;User, List&lt;Task&gt;&gt;</code>.</p>
+
+<p>Т.к. у нас два источника данных, нам надо как-то их координировать. Давай создадим <code class="highlighter-rouge">репозиторий</code>:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">TaskRepository</span><span class="p">(</span><span class="k">private</span> <span class="kd">val</span> <span class="py">localDS</span><span class="p">:</span> <span class="n">DataSource</span><span class="p">,</span> 
+                     <span class="k">private</span> <span class="kd">val</span> <span class="py">remoteDS</span><span class="p">:</span> <span class="n">RemoteDataSource</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="k">fun</span> <span class="nf">allTasksByUser</span><span class="p">(</span><span class="nv">user</span><span class="p">:</span> <span class="nc">User</span><span class="p">):</span> <span class="nc">Observable</span><span class="p">&lt;</span><span class="nc">List</span><span class="err">&lt;</span><span class="nc">Task</span><span class="p">&gt;&gt;</span> <span class="p">=</span>
+    <span class="n">localDS</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+      <span class="p">.</span><span class="n">subscribeOn</span><span class="p">(</span><span class="n">Schedulers</span><span class="p">.</span><span class="n">io</span><span class="p">())</span>
+      <span class="p">.</span><span class="n">observeOn</span><span class="p">(</span><span class="n">Schedulers</span><span class="p">.</span><span class="n">computation</span><span class="p">())</span>
+      <span class="p">.</span><span class="n">onErrorResumeNext</span> <span class="p">{</span> <span class="nv">_</span><span class="p">:</span> <span class="nc">Throwable</span> <span class="p">-&gt;</span> <span class="n">remoteDS</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Он просто пытается загрузить <code class="highlighter-rouge">List&lt;Task&gt;</code> из <code class="highlighter-rouge">LocalDataSource</code>, и если тот не найден — пробует запросить их из Сети с помощью <code class="highlighter-rouge">RemoteDataSource</code>.</p>
+
+<p>Давай создадим простой модуль для предоставления зависимостей при этом не пользуясь никакими фреймворками для иньекции зависимостей (DI):</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Module</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="kd">val</span> <span class="py">localDataSource</span><span class="p">:</span> <span class="n">LocalDataSource</span> <span class="p">=</span> <span class="n">LocalDataSource</span><span class="p">()</span>
+  <span class="k">private</span> <span class="kd">val</span> <span class="py">remoteDataSource</span><span class="p">:</span> <span class="n">RemoteDataSource</span> <span class="p">=</span> <span class="n">RemoteDataSource</span><span class="p">()</span>
+  <span class="kd">val</span> <span class="py">repository</span><span class="p">:</span> <span class="n">TaskRepository</span> <span class="p">=</span> <span class="n">TaskRepository</span><span class="p">(</span><span class="n">localDataSource</span><span class="p">,</span> <span class="n">remoteDataSource</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>И наконец, нам нужен простой тест, прогоняющий весь стек операций:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">object</span> <span class="nc">test</span> <span class="p">{</span>
+
+  <span class="nd">@JvmStatic</span>
+  <span class="k">fun</span> <span class="nf">main</span><span class="p">(</span><span class="nv">args</span><span class="p">:</span> <span class="nc">Array</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;):</span> <span class="nc">Unit</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">user1</span> <span class="p">=</span> <span class="n">User</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="s">"user1"</span><span class="p">))</span>
+    <span class="kd">val</span> <span class="py">user2</span> <span class="p">=</span> <span class="n">User</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="s">"user2"</span><span class="p">))</span>
+    <span class="kd">val</span> <span class="py">user3</span> <span class="p">=</span> <span class="n">User</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="s">"unknown user"</span><span class="p">))</span>
+
+    <span class="kd">val</span> <span class="py">dependenciesModule</span> <span class="p">=</span> <span class="n">Module</span><span class="p">()</span>
+    <span class="n">dependenciesModule</span><span class="p">.</span><span class="n">run</span> <span class="p">{</span>
+      <span class="n">repository</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user1</span><span class="p">).</span><span class="n">subscribe</span><span class="p">({</span> <span class="n">println</span><span class="p">(</span><span class="n">it</span><span class="p">)</span> <span class="p">},</span> <span class="p">{</span> <span class="n">println</span><span class="p">(</span><span class="n">it</span><span class="p">)</span> <span class="p">})</span>
+      <span class="n">repository</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user2</span><span class="p">).</span><span class="n">subscribe</span><span class="p">({</span> <span class="n">println</span><span class="p">(</span><span class="n">it</span><span class="p">)</span> <span class="p">},</span> <span class="p">{</span> <span class="n">println</span><span class="p">(</span><span class="n">it</span><span class="p">)</span> <span class="p">})</span>
+      <span class="n">repository</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user3</span><span class="p">).</span><span class="n">subscribe</span><span class="p">({</span> <span class="n">println</span><span class="p">(</span><span class="n">it</span><span class="p">)</span> <span class="p">},</span> <span class="p">{</span> <span class="n">println</span><span class="p">(</span><span class="n">it</span><span class="p">)</span> <span class="p">})</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><a href="https://gist.github.com/JorgeCastilloPrz/05793f11497e0e31f207d2a3e6522bdb">Весь вышеприведенный код можно найти на гитхабе</a>.</p>
+
+<p>Эта программа композирует цепочку выполнения для трех пользователей, затем подписывается на полученный в результате <a href="https://next.arrow-kt.io/docs/integrations/rx2"><code class="highlighter-rouge">Observable</code></a>.</p>
+
+<p>Первые два объекта типа <code class="highlighter-rouge">User</code> доступны, с этим нам повезло. <code class="highlighter-rouge">User1</code> доступен в местном DataSource, и <code class="highlighter-rouge">User2</code> доступен на дистанционном.</p>
+
+<p>Но есть проблема с <code class="highlighter-rouge">User3</code>, т.к., он недоступен в локальном хранилище. Программа попытается загрузить его из дистанционного сервиса - но там его тоже нет. Поиск закончится неудачей и мы выведем в консоль сообщение о ошибке.</p>
+
+<p>Вот что будет выведено в консоль для всех трех случаев:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; [Task(value=LocalTask assigned to user1)]
+&gt; [Task(value=Remote Task assigned to user2)]
+&gt; UserNotInRemoteStorage(user=User(userId=UserId(value=unknown user)))
+</code></pre></div></div>
+
+<p>Мы закончили с примером. Давай теперь попробуем запрограммировать эту логику в стиле <strong>функционального полиморфизма</strong></p>
+
+<h3 id="абстрагирование-типов-данных">Абстрагирование типов данных</h3>
+
+<p>Теперь контракт для интерфейса <code class="highlighter-rouge">DataSource</code> будет выглядеть так:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">DataSource</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;</span> <span class="p">{</span>
+  <span class="k">fun</span> <span class="nf">allTasksByUser</span><span class="p">(</span><span class="nv">user</span><span class="p">:</span> <span class="nc">User</span><span class="p">):</span> <span class="nc">Kind</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">List</span><span class="err">&lt;</span><span class="nc">Task</span><span class="p">&gt;&gt;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Всё вроде бы похоже, но есть два важных отличия:</p>
+
+<ul>
+  <li>Появилось зависимость на обобщенный тип (generic) <code class="highlighter-rouge">F</code>.</li>
+  <li>Тип, возвращаемый функцией теперь <code class="highlighter-rouge">Kind&lt;F, List&lt;Task&gt;&gt;</code>.</li>
+</ul>
+
+<p><code class="highlighter-rouge">Kind</code> это <a href="../../glossary/index.html#type-constructors">то, как Arrow кодирует то, что обычно называеют <strong>высоким типом (higher kind)</strong></a>.
+Поясню этот концепт на простом примере.</p>
+
+<p>У <code class="highlighter-rouge">Observable&lt;A&gt;</code> есть 2 части:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">Observable</code>: контейнер, фиксированный тип.</li>
+  <li><code class="highlighter-rouge">A</code>: аргумент обобщенного типа. Абстракция, в которую можно передать другие типы.</li>
+</ul>
+
+<p>Мы привыкли воспринимать обобщенные типы вроде <code class="highlighter-rouge">A</code>, как абстракции. Но не многие знают, что мы можем также абстрагировать типы контейнеров вроде <code class="highlighter-rouge">Observable</code>. Для этого и существуют <strong>высокие типы</strong>.</p>
+
+<p>Идея в том, что у нас может быть конструктор вроде <code class="highlighter-rouge">F&lt;A&gt;</code> в котором и <code class="highlighter-rouge">F</code> и <code class="highlighter-rouge">A</code> могут быть параметризированным типом. Этот синтаксис еще не поддерживается компилятором Kotlin (<a href="https://github.com/Kotlin/KEEP/pull/87">всё ещё?</a>), поэтому мы мимикрируем его подобным подходом.</p>
+
+<p>Arrow поддерживает подобное через <a href="../../glossary/index.html#type-constructors">использование промежуточного мета интерфейса <code class="highlighter-rouge">Kind&lt;F, A&gt;</code></a>, который держит в себе ссылки на оба типа, а также во время компиляции генерирует конвертеры в обоих направлениям таким образом, чтобы можно было проделать путь от <code class="highlighter-rouge">Kind&lt;Observable, List&lt;Task&gt;&gt;</code> до <code class="highlighter-rouge">Observable&lt;List&lt;Task&gt;&gt;</code> и наоборот. Не идеальная решение, зато рабочее.</p>
+
+<p>Поэтому снова посмотрим на интерфес нашего репозитория:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">DataSource</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;</span> <span class="p">{</span>
+  <span class="k">fun</span> <span class="nf">allTasksByUser</span><span class="p">(</span><span class="nv">user</span><span class="p">:</span> <span class="nc">User</span><span class="p">):</span> <span class="nc">Kind</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">List</span><span class="err">&lt;</span><span class="nc">Task</span><span class="p">&gt;&gt;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Функция <code class="highlighter-rouge">DataSource</code> <strong>возвращает высокий тип</strong>: <code class="highlighter-rouge">Kind&lt;F, List&lt;Task&gt;&gt;</code>. Он транслируется в <code class="highlighter-rouge">F&lt;List&lt;Task&gt;&gt;</code>, где <code class="highlighter-rouge">F</code> остается обобщенным.</p>
+
+<p>Мы фиксируем в сигнатуре только<code class="highlighter-rouge">List&lt;Task&gt;</code>. Другими словами, нам всё равно, какой будет использован контейнер типа <code class="highlighter-rouge">F</code>, до тех пор, пока он содержит в себе <code class="highlighter-rouge">List&lt;Task&gt;</code>. Мы можем <strong>передавать в функцию разные контейнеры данных</strong>. Уже понятней? Идем дальше.</p>
+
+<p>Давай взглянем на имплементированные таким образом <code class="highlighter-rouge">DataSource</code>, но на этот раз на каждый по отдельности. Сначала на локальный:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">LocalDataSource</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;(</span><span class="nv">A</span><span class="p">:</span> <span class="nc">ApplicativeError</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">Throwable</span><span class="p">&gt;)</span> <span class="p">:</span> <span class="nc">DataSource</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">&gt;,</span> <span class="n">ApplicativeError</span><span class="p">&lt;</span><span class="n">F</span><span class="p">,</span> <span class="n">Throwable</span><span class="p">&gt;</span> <span class="k">by</span> <span class="n">A</span> <span class="p">{</span>
+      
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">localCache</span><span class="p">:</span> <span class="n">Map</span><span class="p">&lt;</span><span class="n">User</span><span class="p">,</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Task</span><span class="p">&gt;&gt;</span> <span class="p">=</span>
+      <span class="n">mapOf</span><span class="p">(</span><span class="n">User</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="s">"user1"</span><span class="p">))</span> <span class="n">to</span> <span class="n">listOf</span><span class="p">(</span><span class="n">Task</span><span class="p">(</span><span class="s">"LocalTask assigned to user1"</span><span class="p">)))</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">allTasksByUser</span><span class="p">(</span><span class="nv">user</span><span class="p">:</span> <span class="nc">User</span><span class="p">):</span> <span class="nc">Kind</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">List</span><span class="err">&lt;</span><span class="nc">Task</span><span class="p">&gt;&gt;</span> <span class="p">=</span>
+      <span class="n">Option</span><span class="p">.</span><span class="n">fromNullable</span><span class="p">(</span><span class="n">localCache</span><span class="p">[</span><span class="n">user</span><span class="p">]).</span><span class="n">fold</span><span class="p">(</span>
+        <span class="p">{</span> <span class="n">raiseError</span><span class="p">(</span><span class="n">UserNotInLocalStorage</span><span class="p">(</span><span class="n">user</span><span class="p">))</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">just</span><span class="p">(</span><span class="n">it</span><span class="p">)</span> <span class="p">}</span>
+      <span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Добавилось много нового, разберем все шаг за шагом.</p>
+
+<p>Этот <code class="highlighter-rouge">DataSource</code> сохраняет обобщенный тип <code class="highlighter-rouge">F</code> т.к., имплементирует <code class="highlighter-rouge">DataSource&lt;F&gt;</code>. Мы хотим сохранить возможность передачи этого типа извне.</p>
+
+<p>Теперь, забудь о возможно незнакомой <a href="https://next.arrow-kt.io/docs/arrow/typeclasses/applicativeerror"><code class="highlighter-rouge">ApplicativeError</code></a> в конструкторе и сфокусируйся на функции <code class="highlighter-rouge">allTasksByUser()</code>. А к <code class="highlighter-rouge">ApplicativeError</code> мы еще вернемся.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">override</span> <span class="k">fun</span> <span class="nf">allTasksByUser</span><span class="p">(</span><span class="nv">user</span><span class="p">:</span> <span class="nc">User</span><span class="p">):</span> <span class="nc">Kind</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">List</span><span class="err">&lt;</span><span class="nc">Task</span><span class="p">&gt;&gt;</span> <span class="p">=</span>
+    <span class="n">Option</span><span class="p">.</span><span class="n">fromNullable</span><span class="p">(</span><span class="n">localCache</span><span class="p">[</span><span class="n">user</span><span class="p">]).</span><span class="n">fold</span><span class="p">(</span>
+      <span class="p">{</span> <span class="n">raiseError</span><span class="p">(</span><span class="n">UserNotInLocalStorage</span><span class="p">(</span><span class="n">user</span><span class="p">))</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="n">just</span><span class="p">(</span><span class="n">it</span><span class="p">)</span> <span class="p">}</span>
+    <span class="p">)</span>
+</code></pre></div></div>
+
+<p>Как видишь она возвращает <code class="highlighter-rouge">Kind&lt;F, List&lt;Task&gt;&gt;</code>. Нам по прежнему все равно что из себя представляет контейнер <code class="highlighter-rouge">F</code> до тех пор, пока он содержит <code class="highlighter-rouge">List&lt;Task&gt;</code>.</p>
+
+<p>Но есть проблема. В зависимости от того, можем ли мы найти список объектов <code class="highlighter-rouge">Task</code> для нужного пользователя в локальном хранилище или нет, мы хотим <strong>сообщить о ошибке</strong> (<code class="highlighter-rouge">Task</code> не найдены) или **вернуть <code class="highlighter-rouge">Task</code> уже обернутыми в <code class="highlighter-rouge">F</code> (<code class="highlighter-rouge">Task</code> найдены).</p>
+
+<p>И для обоих случаев нам надо вернуть: <code class="highlighter-rouge">Kind&lt;F, List&lt;Task&gt;&gt;</code>.</p>
+
+<p>Другими словами: есть тип <strong>о котором мы ничего не знаем (<code class="highlighter-rouge">F</code>)</strong>, и нам нужен способ возвращения ошибки, завернутой в этот тип. Плюс, нам нужен способ создания инстанса этого типа, в который будет завернуто значение, полученное после успешного заверщения функции. Звучит как что-то невозможное?</p>
+
+<p>Давай вернемся к декларации класса и обратим внимание что <a href="https://next.arrow-kt.io/docs/arrow/typeclasses/applicativeerror"><code class="highlighter-rouge">ApplicativeError</code></a> передается в конструктор и потом используется как делегат для класса (<code class="highlighter-rouge">by A</code>).</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">LocalDataSource</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;(</span><span class="nv">A</span><span class="p">:</span> <span class="nc">ApplicativeError</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">Throwable</span><span class="p">&gt;)</span> <span class="p">:</span> <span class="nc">DataSource</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">&gt;,</span> <span class="n">ApplicativeError</span><span class="p">&lt;</span><span class="n">F</span><span class="p">,</span> <span class="n">Throwable</span><span class="p">&gt;</span> <span class="k">by</span> <span class="n">A</span> <span class="p">{</span>
+    <span class="c1">//...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><a href="https://next.arrow-kt.io/docs/arrow/typeclasses/applicativeerror"><code class="highlighter-rouge">ApplicativeError</code></a> наследуется от <a href="https://next.arrow-kt.io/docs/arrow/typeclasses/applicative"><code class="highlighter-rouge">Applicative</code></a>, они оба - <a href="https://next.arrow-kt.io/docs/typeclasses/intro"><strong>классы типа</strong></a>.</p>
+
+<p><strong>Классы типа определяют поведения (контракты)</strong>. Они закодированы как интерфейсы, которые работают с аргументами в виде обобщенных типов, как в <a href="https://next.arrow-kt.io/docs/arrow/typeclasses/monad"><code class="highlighter-rouge">Monad&lt;F&gt;</code></a>, <a href="https://next.arrow-kt.io/docs/arrow/typeclasses/functor"><code class="highlighter-rouge">Functor&lt;F&gt;</code></a> и многих других. Этот <code class="highlighter-rouge">F</code> является типом данных. Таким образом мы можем передать типы вроде <a href="https://next.arrow-kt.io/docs/arrow/core/either/ru"><code class="highlighter-rouge">Either</code></a>, <a href="../../../arrow/core/option/ru"><code class="highlighter-rouge">Option</code></a>, <a href="https://next.arrow-kt.io/docs/effects/io"><code class="highlighter-rouge">IO</code></a>, <a href="https://next.arrow-kt.io/docs/integrations/rx2"><code class="highlighter-rouge">Observable</code></a>, <a href="https://next.arrow-kt.io/docs/integrations/rx2"><code class="highlighter-rouge">Flowable</code></a> и множество других.</p>
+
+<p>Итак, вернемся к двум нашим проблемам:</p>
+
+<ul>
+  <li><strong>Обернуть значение, полученное после успешного завершения функции в <code class="highlighter-rouge">Kind&lt;F, List&lt;Task&gt;&gt;</code></strong></li>
+</ul>
+
+<p>Для этого мы можем использовать класс типа <a href="https://next.arrow-kt.io/docs/arrow/typeclasses/applicative"><code class="highlighter-rouge">Applicative</code></a>. Т.к., <a href="https://next.arrow-kt.io/docs/arrow/typeclasses/applicativeerror"><code class="highlighter-rouge">ApplicativeError</code></a> наследутеся от него, мы можем делегировать его свойства.</p>
+
+<p><a href="https://next.arrow-kt.io/docs/arrow/typeclasses/applicative"><code class="highlighter-rouge">Applicative</code></a> просто предоставляет функцию <code class="highlighter-rouge">just(a)</code>. <code class="highlighter-rouge">just(a)</code> <strong>оборачивает значение в контекст любого высокого типа</strong>. Таким образом, если у нас есть <code class="highlighter-rouge">Applicative&lt;F&gt;</code>, он может вызвать <code class="highlighter-rouge">just(a)</code>, чтобы обернуть значение в контейнер <code class="highlighter-rouge">F</code>, каким бы это значение не было. Допустим, мы используем <code class="highlighter-rouge">Observable</code>, у нас будет <code class="highlighter-rouge">Applicative&lt;Observable&gt;</code>, который знает, как обернуть <code class="highlighter-rouge">a</code> в <code class="highlighter-rouge">Observable</code>, чтобы в итоге получить <code class="highlighter-rouge">Observable.just(a)</code>.</p>
+
+<ul>
+  <li><strong>Обернуть ошибку в инстанс <code class="highlighter-rouge">Kind&lt;F, List&lt;Task&gt;&gt;</code></strong></li>
+</ul>
+
+<p>Для этого мы можем использовать <a href="https://next.arrow-kt.io/docs/arrow/typeclasses/applicativeerror"><code class="highlighter-rouge">ApplicativeError</code></a>. Он предоставляет функцию <code class="highlighter-rouge">raiseError(e)</code>, которая оборачивает ошибку в контейнер типа <code class="highlighter-rouge">F</code>. Для примера с <code class="highlighter-rouge">Observable</code>, появление ошибки создаст что-то вроде <code class="highlighter-rouge">Observable.error&lt;A&gt;(t)</code>, где <code class="highlighter-rouge">t</code> это <code class="highlighter-rouge">Throwable</code>, раз мы задекларировали наш тип ошибки в виде класса типа <code class="highlighter-rouge">ApplicativeError&lt;F, Throwable&gt;</code>.</p>
+
+<p>Посмотрим на нашу абстрактную имплементацию <code class="highlighter-rouge">LocalDataSource&lt;F&gt;</code>.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">LocalDataSource</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;(</span><span class="nv">A</span><span class="p">:</span> <span class="nc">ApplicativeError</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">Throwable</span><span class="p">&gt;)</span> <span class="p">:</span> 
+    <span class="nc">DataSource</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">&gt;,</span> <span class="n">ApplicativeError</span><span class="p">&lt;</span><span class="n">F</span><span class="p">,</span> <span class="n">Throwable</span><span class="p">&gt;</span> <span class="k">by</span> <span class="n">A</span> <span class="p">{</span>
+
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">localCache</span><span class="p">:</span> <span class="n">Map</span><span class="p">&lt;</span><span class="n">User</span><span class="p">,</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Task</span><span class="p">&gt;&gt;</span> <span class="p">=</span>
+      <span class="n">mapOf</span><span class="p">(</span><span class="n">User</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="s">"user1"</span><span class="p">))</span> <span class="n">to</span> <span class="n">listOf</span><span class="p">(</span><span class="n">Task</span><span class="p">(</span><span class="s">"LocalTask assigned to user1"</span><span class="p">)))</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">allTasksByUser</span><span class="p">(</span><span class="nv">user</span><span class="p">:</span> <span class="nc">User</span><span class="p">):</span> <span class="nc">Kind</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">List</span><span class="err">&lt;</span><span class="nc">Task</span><span class="p">&gt;&gt;</span> <span class="p">=</span>
+      <span class="n">Option</span><span class="p">.</span><span class="n">fromNullable</span><span class="p">(</span><span class="n">localCache</span><span class="p">[</span><span class="n">user</span><span class="p">]).</span><span class="n">fold</span><span class="p">(</span>
+        <span class="p">{</span> <span class="n">raiseError</span><span class="p">(</span><span class="n">UserNotInLocalStorage</span><span class="p">(</span><span class="n">user</span><span class="p">))</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">just</span><span class="p">(</span><span class="n">it</span><span class="p">)</span> <span class="p">}</span>
+      <span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Сохраненная в память <code class="highlighter-rouge">Map&lt;User, List&lt;Task&gt;&gt;</code> осталась той же, но теперь функция делает пару вещей, которые могут быть для тебя новыми:</p>
+
+<ul>
+  <li>
+    <p>Она пробует загрузить список <code class="highlighter-rouge">Task</code> из локального кэша и т.к., возвращаемое значение может быть <code class="highlighter-rouge">null</code> (<code class="highlighter-rouge">Task</code> могут быть не найдены), мы моделируем это через использование <a href="../../../arrow/core/option/ru"><code class="highlighter-rouge">Option</code></a>. Если непонятно, как работает <a href="../../../arrow/core/option/ru"><code class="highlighter-rouge">Option</code></a>, то он моделирует присутствие или отсутствие значения, которое в него завернуто.</p>
+  </li>
+  <li>
+    <p>После получения опционального значения, мы вызываем поверх него <code class="highlighter-rouge">fold</code>. Это эквивалент использования условного выражения <code class="highlighter-rouge">when</code> над опциональным значением. Если значение <strong>отсутствует</strong>, то <code class="highlighter-rouge">Option</code> оборвачивает ошибку в тип данных <code class="highlighter-rouge">F</code> (первая переданная лямбда). А если значение <strong>присутствует</strong> <code class="highlighter-rouge">Option</code> создает инстанс обертки для типа данных <code class="highlighter-rouge">F</code> (вторая лямбда). В обоих случаях используются свойства <a href="https://next.arrow-kt.io/docs/arrow/typeclasses/applicativeerror"><code class="highlighter-rouge">ApplicativeError</code></a> упомянутые до этого: <code class="highlighter-rouge">raiseError()</code> и <code class="highlighter-rouge">just()</code>.</p>
+  </li>
+</ul>
+
+<p>Таким образом мы абстрагировали имплементации источников данных с помощью классов так, что они не знают какой контейнер будет использован для используемого типа <code class="highlighter-rouge">F</code>.</p>
+
+<p>Имплеметация сетевого <code class="highlighter-rouge">DataSource</code> выглядит схожим образом:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">RemoteDataSource</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;(</span><span class="nv">A</span><span class="p">:</span> <span class="nc">Async</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">&gt;)</span> <span class="p">:</span> <span class="nc">DataSource</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">&gt;,</span> <span class="n">Async</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;</span> <span class="k">by</span> <span class="n">A</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="kd">val</span> <span class="py">internetStorage</span><span class="p">:</span> <span class="n">Map</span><span class="p">&lt;</span><span class="n">User</span><span class="p">,</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Task</span><span class="p">&gt;&gt;</span> <span class="p">=</span>
+    <span class="n">mapOf</span><span class="p">(</span><span class="n">User</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="s">"user2"</span><span class="p">))</span> <span class="n">to</span> <span class="n">listOf</span><span class="p">(</span><span class="n">Task</span><span class="p">(</span><span class="s">"Remote Task assigned to user2"</span><span class="p">)))</span>
+
+  <span class="k">override</span> <span class="k">fun</span> <span class="nf">allTasksByUser</span><span class="p">(</span><span class="nv">user</span><span class="p">:</span> <span class="nc">User</span><span class="p">):</span> <span class="nc">Kind</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">List</span><span class="err">&lt;</span><span class="nc">Task</span><span class="p">&gt;&gt;</span> <span class="p">=</span>
+    <span class="n">async</span> <span class="p">{</span> <span class="n">callback</span><span class="p">:</span> <span class="p">(</span><span class="n">Either</span><span class="p">&lt;</span><span class="n">Throwable</span><span class="p">,</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Task</span><span class="p">&gt;&gt;)</span> <span class="p">-&gt;</span> <span class="n">Unit</span> <span class="p">-&gt;</span>
+      <span class="n">Option</span><span class="p">.</span><span class="n">fromNullable</span><span class="p">(</span><span class="n">internetStorage</span><span class="p">[</span><span class="n">user</span><span class="p">]).</span><span class="n">fold</span><span class="p">(</span>
+        <span class="p">{</span> <span class="n">callback</span><span class="p">(</span><span class="n">UserNotInRemoteStorage</span><span class="p">(</span><span class="n">user</span><span class="p">).</span><span class="n">left</span><span class="p">())</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">callback</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="n">right</span><span class="p">())</span> <span class="p">}</span>
+      <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Но есть одно небольшое различие: вместо делегирования в инстанс <a href="https://next.arrow-kt.io/docs/arrow/typeclasses/applicativeerror"><code class="highlighter-rouge">ApplicativeError</code></a> мы используем другой класс типа: <a href="../../../effects/async/index.html"><code class="highlighter-rouge">Async</code></a>.</p>
+
+<p>Это делается из-за того, что по своей природе сетевые вызовы асинхронны. Мы хотим написать код, который будет исполняться асинхронно, логично использовать класс типа, предназначенный для этого.</p>
+
+<p><a href="../../../effects/async/index.html"><code class="highlighter-rouge">Async</code></a> используется для моделирования асинхронных операций. Он может моделировать любую операцию основанную на колбеках. Заметим, что нам все еще неизвестны конкретные типы данных, мы просто описываем <strong>асинхронную по природе</strong> операцию.</p>
+
+<p>Рассмотрим следующую функцию:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">override</span> <span class="k">fun</span> <span class="nf">allTasksByUser</span><span class="p">(</span><span class="nv">user</span><span class="p">:</span> <span class="nc">User</span><span class="p">):</span> <span class="nc">Kind</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">List</span><span class="err">&lt;</span><span class="nc">Task</span><span class="p">&gt;&gt;</span> <span class="p">=</span>
+    <span class="n">async</span> <span class="p">{</span> <span class="n">callback</span><span class="p">:</span> <span class="p">(</span><span class="n">Either</span><span class="p">&lt;</span><span class="n">Throwable</span><span class="p">,</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Task</span><span class="p">&gt;&gt;)</span> <span class="p">-&gt;</span> <span class="n">Unit</span> <span class="p">-&gt;</span>
+      <span class="n">Option</span><span class="p">.</span><span class="n">fromNullable</span><span class="p">(</span><span class="n">internetStorage</span><span class="p">[</span><span class="n">user</span><span class="p">]).</span><span class="n">fold</span><span class="p">(</span>
+        <span class="p">{</span> <span class="n">callback</span><span class="p">(</span><span class="n">UserNotInRemoteStorage</span><span class="p">(</span><span class="n">user</span><span class="p">).</span><span class="n">left</span><span class="p">())</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">callback</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="n">right</span><span class="p">())</span> <span class="p">}</span>
+      <span class="p">)</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Мы можем использовать функцию <code class="highlighter-rouge">async {}</code>, которую нам предоставляет класс типа <a href="../../../effects/async/index.html"><code class="highlighter-rouge">Async</code></a> для моделирования операции и создать инстанс типа <code class="highlighter-rouge">Kind&lt;F, List&lt;Task&gt;&gt;</code> который будет создан асинхронно.</p>
+
+<p>Если бы мы использовали фиксированных тип данных вроде <code class="highlighter-rouge">Observable</code>, <code class="highlighter-rouge">Async.async {}</code> был бы эквивалентен <code class="highlighter-rouge">Observable.create()</code>, т.е. созданию операции, которая может быть вызвана из синхронного или асинхронного кода, например <code class="highlighter-rouge">Thread</code> или <code class="highlighter-rouge">AsyncTask</code>.</p>
+
+<p>Параметр <code class="highlighter-rouge">callback</code> используется для связки результирующих колбеков в контекст контейнера <code class="highlighter-rouge">F</code>, который является высоким типом.</p>
+
+<p>Таким образом наш <code class="highlighter-rouge">RemoteDataSource</code> абстрагирован и зависит от всё ещё неизвестного контейнера типа <code class="highlighter-rouge">F</code>.</p>
+
+<p>Поднимемся на уровень абстракции повыше и еще раз взглянем на наш репозиторий. Если ты помнишь, сначала нам необходимо выполнить поиск объектов <code class="highlighter-rouge">Task</code> в <code class="highlighter-rouge">LocalDataSource</code>, и только затем (если их не было найдено локально) запросить их из <code class="highlighter-rouge">RemoteLocalDataSource</code>.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">TaskRepository</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;(</span>
+  <span class="k">private</span> <span class="kd">val</span> <span class="py">localDS</span><span class="p">:</span> <span class="n">DataSource</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;,</span>
+  <span class="k">private</span> <span class="kd">val</span> <span class="py">remoteDS</span><span class="p">:</span> <span class="n">RemoteDataSource</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;,</span>
+  <span class="nv">AE</span><span class="p">:</span> <span class="nc">ApplicativeError</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">Throwable</span><span class="p">&gt;)</span> <span class="p">:</span> <span class="nc">ApplicativeError</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">Throwable</span><span class="p">&gt;</span> <span class="k">by</span> <span class="n">AE</span> <span class="p">{</span>
+
+  <span class="k">fun</span> <span class="nf">allTasksByUser</span><span class="p">(</span><span class="nv">user</span><span class="p">:</span> <span class="nc">User</span><span class="p">):</span> <span class="nc">Kind</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">List</span><span class="err">&lt;</span><span class="nc">Task</span><span class="p">&gt;&gt;</span> <span class="p">=</span>
+    <span class="n">localDS</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user</span><span class="p">).</span><span class="n">handleErrorWith</span> <span class="p">{</span>
+      <span class="k">when</span> <span class="p">(</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">is</span> <span class="n">UserNotInLocalStorage</span> <span class="p">-&gt;</span> <span class="n">remoteDS</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+        <span class="k">else</span> <span class="p">-&gt;</span> <span class="n">raiseError</span><span class="p">(</span><span class="n">UnknownError</span><span class="p">(</span><span class="n">it</span><span class="p">))</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><a href="../../../arrow/typeclasses/applicativeerror/index.html"><code class="highlighter-rouge">ApplicativeError&lt;F, Throwable&gt;</code></a> снова с нами! Он также предоставляет функцию <code class="highlighter-rouge">handleErrorWith()</code>, которая работает поверх любого ресивера высокого типа.</p>
+
+<p>Выглядит она так:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="p">&lt;</span><span class="nc">A</span><span class="p">&gt;</span> <span class="nf">Kind</span><span class="p">&lt;</span><span class="n">F</span><span class="p">,</span> <span class="n">A</span><span class="p">&gt;.</span><span class="n">handleErrorWith</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="p">(</span><span class="n">E</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Kind</span><span class="p">&lt;</span><span class="n">F</span><span class="p">,</span> <span class="n">A</span><span class="p">&gt;):</span> <span class="nc">Kind</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">A</span><span class="p">&gt;</span>
+</code></pre></div></div>
+
+<p>Т.к. <code class="highlighter-rouge">localDS.allTasksByUser(user)</code> возвращает <code class="highlighter-rouge">Kind&lt;F, List&lt;Task&gt;&gt;</code>, который можно рассматривать как <code class="highlighter-rouge">F&lt;List&lt;Task&gt;&gt;</code>, где <code class="highlighter-rouge">F</code> остается обобщенным типом, мы можем вызвать <code class="highlighter-rouge">handleErrorWith()</code> поверх него.</p>
+
+<p><code class="highlighter-rouge">handleErrorWith()</code> позволяет реагировать на ошибки используя переданную лямбду. Рассмотрим функцию поближе:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">allTasksByUser</span><span class="p">(</span><span class="nv">user</span><span class="p">:</span> <span class="nc">User</span><span class="p">):</span> <span class="nc">Kind</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">List</span><span class="err">&lt;</span><span class="nc">Task</span><span class="p">&gt;&gt;</span> <span class="p">=</span>
+    <span class="n">localDS</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user</span><span class="p">).</span><span class="n">handleErrorWith</span> <span class="p">{</span>
+      <span class="k">when</span> <span class="p">(</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">is</span> <span class="n">UserNotInLocalStorage</span> <span class="p">-&gt;</span> <span class="n">remoteDS</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+        <span class="k">else</span> <span class="p">-&gt;</span> <span class="n">raiseError</span><span class="p">(</span><span class="n">UnknownError</span><span class="p">(</span><span class="n">it</span><span class="p">))</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Таким образом мы получаем результат первой операции за исключением случаев, когда было брошено исключение. Исключение будет обработано лямбдой. В случае если ошибка принадлежит к типу <code class="highlighter-rouge">UserNotInLocalStorage</code>, мы попробуем найти объекты типа <code class="highlighter-rouge">Tasks</code> в дистанционном <code class="highlighter-rouge">DataSource</code>. Во всех остальных случаях мы оборачиваем неизвестную ошибку в контейнер типа <code class="highlighter-rouge">F</code>.</p>
+
+<p>Модуль предоставления зависимостей остается очень похожим на прошлую версию:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Module</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;(</span><span class="nv">A</span><span class="p">:</span> <span class="nc">Async</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">&gt;)</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="kd">val</span> <span class="py">localDataSource</span><span class="p">:</span> <span class="n">LocalDataSource</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;</span> <span class="p">=</span> <span class="n">LocalDataSource</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+  <span class="k">private</span> <span class="kd">val</span> <span class="py">remoteDataSource</span><span class="p">:</span> <span class="n">RemoteDataSource</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;</span> <span class="p">=</span> <span class="n">RemoteDataSource</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+  <span class="kd">val</span> <span class="py">repository</span><span class="p">:</span> <span class="n">TaskRepository</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;</span> <span class="p">=</span> 
+      <span class="n">TaskRepository</span><span class="p">(</span><span class="n">localDataSource</span><span class="p">,</span> <span class="n">remoteDataSource</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Единственное отличие — теперь он абстрактен и зависит от <code class="highlighter-rouge">F</code>, которая остается полиморфной. Я осознанно не уделил этому внимание, чтобы снизить уровень шума, но <a href="../../../effects/async/index.html"><code class="highlighter-rouge">Async</code></a> наследуется от <a href="../../../arrow/typeclasses/applicativeerror/index.html"><code class="highlighter-rouge">ApplicativeError</code></a>, поэтому может быть использован как его инстанс на всех уровнях исполнения программы.</p>
+
+<h3 id="тестируя-полиморфизм">Тестируя полиморфизм</h3>
+
+<p>Наконец-то наше приложение <strong>полностью абстрагировано</strong> от использования конкрентных типов данных для контейнеров (<code class="highlighter-rouge">F</code>) и мы можем сфокусироваться на тестировании полиформизма в рантайме. Мы протестируем один и тот же участок кода передавая в него различные типы данных для типа <code class="highlighter-rouge">F</code>. Сценарий тот же самый, как когда мы использовали <code class="highlighter-rouge">Observable</code>.</p>
+
+<p>Программа написана таким образом, что мы полностью избавились от границ абстракций и можем передавать детали имплементации, как пожелается.</p>
+
+<p>Для начала попробуем использовать в качестве контейнера для <code class="highlighter-rouge">F</code> <code class="highlighter-rouge">Single</code> из RxJava.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">object</span> <span class="nc">test</span> <span class="p">{</span>
+
+  <span class="nd">@JvmStatic</span>
+  <span class="k">fun</span> <span class="nf">main</span><span class="p">(</span><span class="nv">args</span><span class="p">:</span> <span class="nc">Array</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;):</span> <span class="nc">Unit</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">user1</span> <span class="p">=</span> <span class="n">User</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="s">"user1"</span><span class="p">))</span>
+    <span class="kd">val</span> <span class="py">user2</span> <span class="p">=</span> <span class="n">User</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="s">"user2"</span><span class="p">))</span>
+    <span class="kd">val</span> <span class="py">user3</span> <span class="p">=</span> <span class="n">User</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="s">"unknown user"</span><span class="p">))</span>
+
+    <span class="kd">val</span> <span class="py">singleModule</span> <span class="p">=</span> <span class="n">Module</span><span class="p">(</span><span class="n">SingleK</span><span class="p">.</span><span class="n">async</span><span class="p">())</span>
+    <span class="n">singleModule</span><span class="p">.</span><span class="n">run</span> <span class="p">{</span>
+      <span class="n">repository</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user1</span><span class="p">).</span><span class="n">fix</span><span class="p">().</span><span class="n">single</span><span class="p">.</span><span class="n">subscribe</span><span class="p">(</span><span class="o">::</span><span class="n">println</span><span class="p">,</span> <span class="o">::</span><span class="n">println</span><span class="p">)</span>
+      <span class="n">repository</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user2</span><span class="p">).</span><span class="n">fix</span><span class="p">().</span><span class="n">single</span><span class="p">.</span><span class="n">subscribe</span><span class="p">(</span><span class="o">::</span><span class="n">println</span><span class="p">,</span> <span class="o">::</span><span class="n">println</span><span class="p">)</span>
+      <span class="n">repository</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user3</span><span class="p">).</span><span class="n">fix</span><span class="p">().</span><span class="n">single</span><span class="p">.</span><span class="n">subscribe</span><span class="p">(</span><span class="o">::</span><span class="n">println</span><span class="p">,</span> <span class="o">::</span><span class="n">println</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Совместимости ради Arrow предоставляет обертки для известных библиотечных типов данных. Например, есть удобная обертка <a href="../../../integrations/rx2/index.html"><code class="highlighter-rouge">SingleK</code></a>. Эти обертки <strong>позволяют использовать классы типа совместно с типами данных как высокими типами</strong>.</p>
+
+<p>На консоль будет выведено следующее:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Task(value=LocalTask assigned to user1)]
+[Task(value=Remote Task assigned to user2)]
+UserNotInRemoteStorage(user=User(userId=UserId(value=unknown user)))
+</code></pre></div></div>
+
+<p>Тот же результат будет, если использовать <code class="highlighter-rouge">Observable</code>. 🎉</p>
+
+<p>Теперь поработаем с <code class="highlighter-rouge">Maybe</code>, для которой доступна обертка <a href="../../../integrations/rx2/index.html"><code class="highlighter-rouge">MaybeK</code></a>:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@JvmStatic</span>
+<span class="k">fun</span> <span class="nf">main</span><span class="p">(</span><span class="nv">args</span><span class="p">:</span> <span class="nc">Array</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;):</span> <span class="nc">Unit</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">user1</span> <span class="p">=</span> <span class="n">User</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="s">"user1"</span><span class="p">))</span>
+    <span class="kd">val</span> <span class="py">user2</span> <span class="p">=</span> <span class="n">User</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="s">"user2"</span><span class="p">))</span>
+    <span class="kd">val</span> <span class="py">user3</span> <span class="p">=</span> <span class="n">User</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="s">"unknown user"</span><span class="p">))</span>
+
+    <span class="kd">val</span> <span class="py">maybeModule</span> <span class="p">=</span> <span class="n">Module</span><span class="p">(</span><span class="n">MaybeK</span><span class="p">.</span><span class="n">async</span><span class="p">())</span>
+    <span class="n">maybeModule</span><span class="p">.</span><span class="n">run</span> <span class="p">{</span>
+      <span class="n">repository</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user1</span><span class="p">).</span><span class="n">fix</span><span class="p">().</span><span class="n">maybe</span><span class="p">.</span><span class="n">subscribe</span><span class="p">(</span><span class="o">::</span><span class="n">println</span><span class="p">,</span> <span class="o">::</span><span class="n">println</span><span class="p">)</span>
+      <span class="n">repository</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user2</span><span class="p">).</span><span class="n">fix</span><span class="p">().</span><span class="n">maybe</span><span class="p">.</span><span class="n">subscribe</span><span class="p">(</span><span class="o">::</span><span class="n">println</span><span class="p">,</span> <span class="o">::</span><span class="n">println</span><span class="p">)</span>
+      <span class="n">repository</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user3</span><span class="p">).</span><span class="n">fix</span><span class="p">().</span><span class="n">maybe</span><span class="p">.</span><span class="n">subscribe</span><span class="p">(</span><span class="o">::</span><span class="n">println</span><span class="p">,</span> <span class="o">::</span><span class="n">println</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>На консоль будет выведен тот же результат, но теперь с использованием другого типа данных:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">[Task(value=LocalTask assigned to user1)]</span>
+<span class="na">[Task(value=Remote Task assigned to user2)]</span>
+<span class="n">UserNotInRemoteStorage</span><span class="p">(</span><span class="n">user</span><span class="p">=</span><span class="n">User</span><span class="p">(</span><span class="n">userId</span><span class="p">=</span><span class="n">UserId</span><span class="p">(</span><span class="n">value</span><span class="p">=</span><span class="n">unknown</span> <span class="n">user</span><span class="p">)))</span>
+</code></pre></div></div>
+
+<p>Что насчет <a href="../../../integrations/rx2/index.html"><code class="highlighter-rouge">ObservableK</code></a> / <a href="../../../integrations/rx2/index.html"><code class="highlighter-rouge">FlowableK</code></a>? 
+Давай попробуем:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">object</span> <span class="nc">test</span> <span class="p">{</span>
+
+  <span class="nd">@JvmStatic</span>
+  <span class="k">fun</span> <span class="nf">main</span><span class="p">(</span><span class="nv">args</span><span class="p">:</span> <span class="nc">Array</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;):</span> <span class="nc">Unit</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">user1</span> <span class="p">=</span> <span class="n">User</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="s">"user1"</span><span class="p">))</span>
+    <span class="kd">val</span> <span class="py">user2</span> <span class="p">=</span> <span class="n">User</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="s">"user2"</span><span class="p">))</span>
+    <span class="kd">val</span> <span class="py">user3</span> <span class="p">=</span> <span class="n">User</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="s">"unknown user"</span><span class="p">))</span>
+
+    <span class="kd">val</span> <span class="py">observableModule</span> <span class="p">=</span> <span class="n">Module</span><span class="p">(</span><span class="n">ObservableK</span><span class="p">.</span><span class="n">async</span><span class="p">())</span>
+    <span class="n">observableModule</span><span class="p">.</span><span class="n">run</span> <span class="p">{</span>
+      <span class="n">repository</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user1</span><span class="p">).</span><span class="n">fix</span><span class="p">().</span><span class="n">observable</span><span class="p">.</span><span class="n">subscribe</span><span class="p">(</span><span class="o">::</span><span class="n">println</span><span class="p">,</span> <span class="o">::</span><span class="n">println</span><span class="p">)</span>
+      <span class="n">repository</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user2</span><span class="p">).</span><span class="n">fix</span><span class="p">().</span><span class="n">observable</span><span class="p">.</span><span class="n">subscribe</span><span class="p">(</span><span class="o">::</span><span class="n">println</span><span class="p">,</span> <span class="o">::</span><span class="n">println</span><span class="p">)</span>
+      <span class="n">repository</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user3</span><span class="p">).</span><span class="n">fix</span><span class="p">().</span><span class="n">observable</span><span class="p">.</span><span class="n">subscribe</span><span class="p">(</span><span class="o">::</span><span class="n">println</span><span class="p">,</span> <span class="o">::</span><span class="n">println</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">val</span> <span class="py">flowableModule</span> <span class="p">=</span> <span class="n">Module</span><span class="p">(</span><span class="n">FlowableK</span><span class="p">.</span><span class="n">async</span><span class="p">())</span>
+    <span class="n">flowableModule</span><span class="p">.</span><span class="n">run</span> <span class="p">{</span>
+      <span class="n">repository</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user1</span><span class="p">).</span><span class="n">fix</span><span class="p">().</span><span class="n">flowable</span><span class="p">.</span><span class="n">subscribe</span><span class="p">(</span><span class="o">::</span><span class="n">println</span><span class="p">)</span>
+      <span class="n">repository</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user2</span><span class="p">).</span><span class="n">fix</span><span class="p">().</span><span class="n">flowable</span><span class="p">.</span><span class="n">subscribe</span><span class="p">(</span><span class="o">::</span><span class="n">println</span><span class="p">)</span>
+      <span class="n">repository</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user3</span><span class="p">).</span><span class="n">fix</span><span class="p">().</span><span class="n">flowable</span><span class="p">.</span><span class="n">subscribe</span><span class="p">(</span><span class="o">::</span><span class="n">println</span><span class="p">,</span> <span class="o">::</span><span class="n">println</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Увидим в консоли:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Task(value=LocalTask assigned to user1)]
+[Task(value=Remote Task assigned to user2)]
+UserNotInRemoteStorage(user=User(userId=UserId(value=unknown user)))
+
+[Task(value=LocalTask assigned to user1)]
+[Task(value=Remote Task assigned to user2)]
+UserNotInRemoteStorage(user=User(userId=UserId(value=unknown user)))
+</code></pre></div></div>
+
+<p>Всё работает, как и ожидалось. 💪</p>
+
+<p>Давай попробуем использовать <a href="../../../integrations/kotlinxcoroutines/index.html"><code class="highlighter-rouge">DeferredK</code></a>, обертку для типа
+<code class="highlighter-rouge">kotlinx.coroutines.Deferred</code>:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">object</span> <span class="nc">test</span> <span class="p">{</span>
+
+  <span class="nd">@JvmStatic</span>
+  <span class="k">fun</span> <span class="nf">main</span><span class="p">(</span><span class="nv">args</span><span class="p">:</span> <span class="nc">Array</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;):</span> <span class="nc">Unit</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">user1</span> <span class="p">=</span> <span class="n">User</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="s">"user1"</span><span class="p">))</span>
+    <span class="kd">val</span> <span class="py">user2</span> <span class="p">=</span> <span class="n">User</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="s">"user2"</span><span class="p">))</span>
+    <span class="kd">val</span> <span class="py">user3</span> <span class="p">=</span> <span class="n">User</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="s">"unknown user"</span><span class="p">))</span>
+
+    <span class="kd">val</span> <span class="py">deferredModule</span> <span class="p">=</span> <span class="n">Module</span><span class="p">(</span><span class="n">DeferredK</span><span class="p">.</span><span class="n">async</span><span class="p">())</span>
+    <span class="n">deferredModule</span><span class="p">.</span><span class="n">run</span> <span class="p">{</span>
+      <span class="n">runBlocking</span> <span class="p">{</span>
+        <span class="k">try</span> <span class="p">{</span>
+          <span class="n">println</span><span class="p">(</span><span class="n">repository</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user1</span><span class="p">).</span><span class="n">fix</span><span class="p">().</span><span class="n">deferred</span><span class="p">.</span><span class="n">await</span><span class="p">())</span>
+          <span class="n">println</span><span class="p">(</span><span class="n">repository</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user2</span><span class="p">).</span><span class="n">fix</span><span class="p">().</span><span class="n">deferred</span><span class="p">.</span><span class="n">await</span><span class="p">())</span>
+          <span class="n">println</span><span class="p">(</span><span class="n">repository</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user3</span><span class="p">).</span><span class="n">fix</span><span class="p">().</span><span class="n">deferred</span><span class="p">.</span><span class="n">await</span><span class="p">())</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nv">e</span><span class="p">:</span> <span class="nc">UserNotInRemoteStorage</span><span class="p">)</span> <span class="p">{</span>
+          <span class="n">println</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Как известно, обработку исключений при использовании корутин приходится прописывать явно. Такие детали имплементации, как обработка исключения зависят от используемого типа данных, а поэтому и определяются на высшем уровне абстракции.</p>
+
+<p>Еще раз — тот же результат:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Task(value=LocalTask assigned to user1)]
+[Task(value=Remote Task assigned to user2)]
+UserNotInRemoteStorage(user=User(userId=UserId(value=unknown user)))
+</code></pre></div></div>
+
+<p>В Arrow есть альтернативное API для более утонченного использования <a href="../../../integrations/kotlinxcoroutines/index.html"><code class="highlighter-rouge">DeferredK</code></a>. Оно берет заботу о <code class="highlighter-rouge">runBlocking</code> и отложенных операциях на себя:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">object</span> <span class="nc">test</span> <span class="p">{</span>
+
+  <span class="nd">@JvmStatic</span>
+  <span class="k">fun</span> <span class="nf">main</span><span class="p">(</span><span class="nv">args</span><span class="p">:</span> <span class="nc">Array</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;):</span> <span class="nc">Unit</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">user1</span> <span class="p">=</span> <span class="n">User</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="s">"user1"</span><span class="p">))</span>
+    <span class="kd">val</span> <span class="py">user2</span> <span class="p">=</span> <span class="n">User</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="s">"user2"</span><span class="p">))</span>
+    <span class="kd">val</span> <span class="py">user3</span> <span class="p">=</span> <span class="n">User</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="s">"unknown user"</span><span class="p">))</span>
+
+    <span class="kd">val</span> <span class="py">deferredModuleAlt</span> <span class="p">=</span> <span class="n">Module</span><span class="p">(</span><span class="n">DeferredK</span><span class="p">.</span><span class="n">async</span><span class="p">())</span>
+    <span class="n">deferredModuleAlt</span><span class="p">.</span><span class="n">run</span> <span class="p">{</span>
+      <span class="n">println</span><span class="p">(</span><span class="n">repository</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user1</span><span class="p">).</span><span class="n">fix</span><span class="p">().</span><span class="n">unsafeAttemptSync</span><span class="p">())</span>
+      <span class="n">println</span><span class="p">(</span><span class="n">repository</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user2</span><span class="p">).</span><span class="n">fix</span><span class="p">().</span><span class="n">unsafeAttemptSync</span><span class="p">())</span>
+      <span class="n">println</span><span class="p">(</span><span class="n">repository</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user3</span><span class="p">).</span><span class="n">fix</span><span class="p">().</span><span class="n">unsafeAttemptSync</span><span class="p">())</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Пример выше оборачивает результат в <a href="../../../arrow/core/try/ru"><code class="highlighter-rouge">Try</code></a> (т.е., может быть<code class="highlighter-rouge">Success</code> или  <code class="highlighter-rouge">Failure</code>).</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Success(value=[Task(value=LocalTask assigned to user1)])
+Success(value=[Task(value=Remote Task assigned to user2)])
+Failure(exception=UserNotInRemoteStorage(user=User(userId=UserId(value=unknown user))))
+</code></pre></div></div>
+
+<p>Напоследок, давай попробуем использовать такой известный в мире ФП тип данных, как <a href="https://next.arrow-kt.io/docs/effects/io"><code class="highlighter-rouge">IO</code></a>.
+<code class="highlighter-rouge">IO</code> существует, чтобы изолировать in/out операции, которые привносят в код нежелательные эффекты, и тем самым делать эти операции чистыми.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">object</span> <span class="nc">test</span> <span class="p">{</span>
+
+  <span class="nd">@JvmStatic</span>
+  <span class="k">fun</span> <span class="nf">main</span><span class="p">(</span><span class="nv">args</span><span class="p">:</span> <span class="nc">Array</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;):</span> <span class="nc">Unit</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">user1</span> <span class="p">=</span> <span class="n">User</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="s">"user1"</span><span class="p">))</span>
+    <span class="kd">val</span> <span class="py">user2</span> <span class="p">=</span> <span class="n">User</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="s">"user2"</span><span class="p">))</span>
+    <span class="kd">val</span> <span class="py">user3</span> <span class="p">=</span> <span class="n">User</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="s">"unknown user"</span><span class="p">))</span>
+
+    <span class="kd">val</span> <span class="py">ioModule</span> <span class="p">=</span> <span class="n">Module</span><span class="p">(</span><span class="n">IO</span><span class="p">.</span><span class="n">async</span><span class="p">())</span>
+    <span class="n">ioModule</span><span class="p">.</span><span class="n">run</span> <span class="p">{</span>
+      <span class="n">println</span><span class="p">(</span><span class="n">repository</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user1</span><span class="p">).</span><span class="n">fix</span><span class="p">().</span><span class="n">attempt</span><span class="p">().</span><span class="n">unsafeRunSync</span><span class="p">())</span>
+      <span class="n">println</span><span class="p">(</span><span class="n">repository</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user2</span><span class="p">).</span><span class="n">fix</span><span class="p">().</span><span class="n">attempt</span><span class="p">().</span><span class="n">unsafeRunSync</span><span class="p">())</span>
+      <span class="n">println</span><span class="p">(</span><span class="n">repository</span><span class="p">.</span><span class="n">allTasksByUser</span><span class="p">(</span><span class="n">user3</span><span class="p">).</span><span class="n">fix</span><span class="p">().</span><span class="n">attempt</span><span class="p">().</span><span class="n">unsafeRunSync</span><span class="p">())</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Right(b=[Task(value=LocalTask assigned to user1)])
+Right(b=[Task(value=Remote Task assigned to user2)])
+Left(a=UserNotInRemoteStorage(user=User(userId=UserId(value=unknown user))))
+</code></pre></div></div>
+
+<p><a href="https://next.arrow-kt.io/docs/effects/io"><code class="highlighter-rouge">IO</code></a> - особенный случай. Он возвращает ошибки или результат успешного выполнения с помощью <a href="https://next.arrow-kt.io/docs/arrow/core/either/ru"><code class="highlighter-rouge">Either&lt;L,R&gt;</code></a> (это другой тип данных). По конвенции, “левая” сторона <code class="highlighter-rouge">Either</code> содержит в себе ошибки, а “правая” хранит в себе данные, полученные в случае успеха. Именно поэтому результат успеха будет выведен в консоли как <code class="highlighter-rouge">Right(...)</code>, а неудача, как <code class="highlighter-rouge">Left(...)</code>.</p>
+
+<p>Но концептуально результат будет тем же.</p>
+
+<p>Всё, с тестированием покончено. Как ты видишь, мы смогли переиспользовать один и тот же участок кода, передавая в него различные типы данных, что сделало нашу программу полностью независимой от использования конкретного типа данных.</p>
+
+<p><a href="https://gist.github.com/JorgeCastilloPrz/c0a4604b9a5dedc89be82b13cfcc1315">Код полностью полиморфического приложения можно найти на гитхабе</a>.</p>
+
+<h3 id="всё-это-отлично-звучитно-стоит-ли-оно-того">Всё это отлично звучит…но стоит ли оно того?</h3>
+
+<p>Выбор всегда за тобой, но есть определенные преимущества, которые ФП привносит в кодовую базу. И о них полезно знать.</p>
+
+<ul>
+  <li>
+    <p>В итоге мы получаем полное разделение ответственностей: то, как данные обрабатываются и композируются (собственно, твоя программа) и отдельно — рантайм. Это значит, что наш код <strong>проще тестировать</strong>.</p>
+  </li>
+  <li>
+    <p>Твоя программа так или иначе будет подразумевать использование конкретных абстракций, подоходящих под её задачи. Поэтому естественно она может быть написана без использования ФП. Но средства ФП позволяют разделить декларативные вычисления (операции) от рантайма (и типов им используемых) именно там, где важны детали.</p>
+  </li>
+  <li>
+    <p>Композирование твоей программы с помощью алгебр (операций), основанных на абстракциях, позволяет сохранить твою кодовую базу детерминированной и свободной от эффектов (чистой). Если хочется узнать больше о чистоте кода и тому, как это помогает избежать ошибок или неожиданного поведения <a href="https://medium.com/@JorgeCastilloPr/kotlin-functional-programming-does-it-make-sense-36ad07e6bacf">можно взглянуть на этот пост</a>.</p>
+  </li>
+  <li>
+    <p>В продолжение сказанного, все сторонние эффекты твоей программы контролируются на высшем уровне абстракции. Эффекты, вызванные деталями имплементации приходят в исполнение программы из единой точки системы (вне высшего уровня программы всё остается чистым).</p>
+  </li>
+  <li>
+    <p>Если ты решишь работать с <a href="https://next.arrow-kt.io/docs/typeclasses/intro">классами типа</a>, то итогом этого станет унифицированное API для всех возможных типов данных. Воспроизводимость способствует глубокому пониманию изначальных концептов (воспроизводимость в данном случае это использование операций вроде <code class="highlighter-rouge">map</code>, <code class="highlighter-rouge">flatMap</code>, <code class="highlighter-rouge">fold</code>, во всех случаях вне зависимости от решаемой проблемы). Естественно, тут многое зависит от билиотек, которые позволяют писать функциональные программы средствами Kotlin, и Arrow - одна из них.</p>
+  </li>
+  <li>
+    <p>Эти паттерны <strong>убирают нужду в конкретном фреймворке для реализации DI (инъекции зависимостей)</strong>, т.к., поддерживают все концепци DI “из коробки”. За тобой оставется свобода предоставления деталей имплементации чуть позже, эти же детали могут быть заменены с большей прозрачностью, и до этого момента твоя программа не привязана ни к каким деталям сторонним эффектам. Этот подход можно рассматривать как собственно говоря DI, т.к., он основан на предоставлении абстракций, детали имплементации которых предоставляются из верхнего уровня абстракции.</p>
+  </li>
+  <li>
+    <p>В качестве заключения, я бы предложил использовать подход, более подходящий под конкретную задачу. ФП не решит всех твоих проблем, т.к., не существует серебрянной пули, но оно является проверенным временем подходом с кучей преимуществ.</p>
+  </li>
+</ul>
+
+<h3 id="дополнительно">Дополнительно</h3>
+
+<p>Если хочется ближе ознакомиться с <strong>классами типа</strong>, это можно сделать <a href="https://next.arrow-kt.io/docs/typeclasses/intro">в документации по ним</a>. 
+Я буду рад, если после прочтения статьи у тебя уложиться в голове, что <strong>они используются, как контракты для композиции полиморфических программ, основанных на абстракции</strong>.</p>
+
+<p>Если есть сомнения, незамедлительно связывайся со мной. Наиболее быстрый способ связи - через мой Twitter: <a href="https://www.twitter.com/JorgeCastilloPR">@JorgeCastilloPR</a>.</p>
+
+<p>Некоторые из озвученных концепций (например, чистота функций) описаны в следующих постах:</p>
+
+<ul>
+  <li><a href="https://medium.com/@JorgeCastilloPr/kotlin-functional-programming-does-it-make-sense-36ad07e6bacf">Kotlin Functional Programming: Does it make sense?</a> от <a href="https://www.twitter.com/JorgeCastilloPR">Jorge Castillo</a>)</li>
+  <li><a href="https://medium.com/@JorgeCastilloPr/kotlin-purity-and-function-memoization-b12ab35d70a5">Kotlin purity and Function Memoization</a> от <a href="https://www.twitter.com/JorgeCastilloPR">Jorge Castillo</a>)</li>
+</ul>
+
+<p>Также советую посмотреть видео <a href="https://youtu.be/sxudIMiOo68">FP to the max</a> от <a href="https://twitter.com/jdegoes">John De Goes</a> и ознакомиться с примером <code class="highlighter-rouge">FpToTheMax.kt</code>, расположенным в модуле <code class="highlighter-rouge">arrow-examples</code>. Использование данной техники может показаться чрезмерным для такого простого примера, но это потмоу, что она должна быть использована на праграммах намного большего масштаба.</p>
+
+    </div>
+</div>
+
+</div>
+<!-- Jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Arrow playground -->
+<script src="https://unpkg.com/arrow-playground@1" data-selector="[class^='language-kotlin']"></script>
+<!-- Highlight -->
+<script src="../../../../js/highlight.pack.js"></script>
+<script>
+  hljs.initHighlighting();
+</script>
+<!-- Docsearch -->
+<script type="text/javascript" src="../../../../js/docsearch.min.js"></script>
+<!-- Custom scripts for this template -->
+<script src="../../../../js/functions.js"></script>
+<!-- Gitter -->
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'arrow-kt/Lobby'
+  };
+
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+</body>
+</html>

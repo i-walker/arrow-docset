@@ -1,0 +1,1916 @@
+<!DOCTYPE html>
+<html>
+
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Arrow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Functional companion to Kotlin's Standard Library">
+    <meta name="keywords" content="functional-programming, kotlin-library, monads, monad-transformers, functional-data-structure, kotlin, fp-types, adt, free-monads, tagless-final, mtl, for-comprehension, category-theory">
+
+    <meta property="og:image" content="http://arrow-kt.io/img/poster.png"/>
+    <meta property="og:title" content="Arrow"/>
+    <meta property="og:site_name" content="Arrow"/>
+    <meta property="og:url" content="http://arrow-kt.io/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description" content="Functional companion to Kotlin's Standard Library"/>
+    <meta property="og:keywords" content="functional-programming, kotlin-library, monads, monad-transformers, functional-data-structure, kotlin, fp-types, adt, free-monads, tagless-final, mtl, for-comprehension, category-theory"/>
+
+    <meta name="twitter:text:description" content="Functional companion to Kotlin's Standard Library"/>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@arrow_kt">
+    <meta name="twitter:creator" content="@arrow_kt">
+    <meta name="twitter:image" content="http://arrow-kt.io/img/twitter-card.png"/>
+
+    <!-- Arrow versions metadata -->
+    <meta name="previous-version" data-title="" data-url="" />
+    <meta name="stable-version" data-title="" data-url="" />
+    <meta name="next-version" data-title="" data-url="" />
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"
+          type="text/css">
+    <!-- Animated -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <!-- Arrow main css -->
+    <link rel="shortcut icon" href="../../../img/favicon.png">
+    <!-- highlight  css -->
+    <link rel="stylesheet" type="text/css" href="../../../css/highlight/atom-one-light.css">
+    <!-- Arrow main css -->
+    <link rel="stylesheet" type="text/css" href="../../../css/arrow.css">
+
+    <!-- Code to manage version information -->
+    <script src="../../../js/docVersions.js" defer></script>
+
+    <!-- Diagrams support -->
+    <script src="../../../js/dagre.min.js"></script>
+    <script src="../../../js/lodash.min.js"></script>
+    <script src="../../../js/nomnoml.js"></script>
+    <script src="../../../js/diagrams.js" async></script>
+
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-18433785-18"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-18433785-18');
+</script>
+
+    
+</head>
+
+<body id="doc-body">
+<div id="wrapper">
+    <div id="sidebar-wrapper">
+    <div class="sidebar-brand">
+        <a class="brand" href="https://next.arrow-kt.io/">
+            <img src="../../../img/arrow-brand-sidebar.svg" alt="">
+            <span>Λrrow</span>
+        </a>
+        <button type="button" id="main-toggle" class="sidebar-toggle">
+            <span class="close"></span>
+        </button>
+    </div>
+
+    <ul class="sidebar-nav sidebar-doc-versions">
+  <li class="sidebar-nav-item">
+    <a href="index.html#">
+      <span>Arrow version</span>
+      <span id="arrow-version"></span>
+    </a>
+    <ul>
+      <li>
+        <a href="https://arrow-kt.io/docs/">
+          <span>
+            v0.9.0 - STABLE
+          </span>
+        </a>
+      </li>
+
+      <li>
+        <a href="../../index.html">
+            <span>
+              v0.9.1 - NEXT
+            </span>
+        </a>
+      </li>
+
+      <li>
+        <a href="https://0-8-2.arrow-kt.io/docs/">
+            <span>
+              v0.8.2 -
+              PREVIOUS
+            </span>
+        </a>
+      </li>
+
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </li>
+</ul>
+
+
+    <ul class="sidebar-nav">
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Quick Start</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Index</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../quickstart/libraries/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Libraries</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://next.arrow-kt.io/blog/">
+                        <i class="fa fa-circle"></i>
+                        <span>Blogs & Presentations</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../quickstart/projects/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Projects & Examples</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Arrow Fx</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../effects/fx/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Getting Started</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../effects/fx/async/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Asynchronous & Concurrent Programming</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../effects/fx/polymorphism/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Polymorphism. One Program multiple runtimes</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>API Docs</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../apidocs/arrow-typeclasses/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Type Classes</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-core-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Core Data Types</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-core-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Core Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-extras/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Core Extra Data Types</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-extras-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Core Extra Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-effects-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-effects-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-effects-kotlinx-coroutines-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Coroutines</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-effects-kotlinx-coroutines-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Coroutines Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-effects-rx2-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Rx2</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-effects-rx2-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Rx2 Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-effects-reactor-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Reactor</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-effects-reactor-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Reactor Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-streams/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Streams</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-mtl/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MTL</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-optics/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Optics</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-recursion-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Recursion</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-recursion-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Recursion Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-generic/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Generic</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-free-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Free</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-validation/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Validation</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Patterns</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../glossary/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Glossary</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Error Handling</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../dependency_injection/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Dependency Injection</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../monads/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>The Monad Tutorial</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../monad_comprehensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Monad Comprehensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../polymorphic_programs/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Polymorphic Programs</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../free_algebras/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Free Algebras</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Data Types</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../datatypes/intro/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Intro</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../datatypes/basic/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Basic Types</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/core/option/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Option</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/core/either/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Either</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/core/try/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Try</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/validated/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Validated</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/nonemptylist/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>NonEmptyList</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/listk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>ListK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/sequencek/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>SequenceK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/setk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>SetK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/mapk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MapK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/sortedmapk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>SortedMapK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/ior/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Ior</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/core/id/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Id</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/reader/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Reader</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/kleisli/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Kleisli</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/state/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>State</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/statet/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>StateT</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/store/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Store</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/moore/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Moore</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/sum/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Sum</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/day/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Day</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/writert/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>WriterT</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/free/trampoline/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Trampoline</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/coproduct/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Coproduct</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/core/eval/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Eval</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/optiont/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>OptionT</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/data/eithert/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>EitherT</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/core/function0/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Function0</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/core/function1/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Function1</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/const/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Const</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Type Classes</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../typeclasses/intro/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Intro</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/show/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Show</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/eq/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Eq</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/hash/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Hash</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/order/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Order</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/semigroup/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Semigroup</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-typeclasses/arrow.typeclasses/-semigroupal/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Semigroupal</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-typeclasses/arrow.typeclasses/-monoidal/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Monoidal</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/monoid/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Monoid</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-typeclasses/arrow.typeclasses/-semiring/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Semiring</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/foldable/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Foldable</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/bifoldable/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Bifoldable</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/traverse/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Traverse</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/reducible/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Reducible</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/mtl/typeclasses/traversefilter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>TraverseFilter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/functor/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Functor</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/mtl/typeclasses/functorfilter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>FunctorFilter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/applicative/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Applicative</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/applicativeerror/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>ApplicativeError</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/selective/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Selective</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/monad/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Monad</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/monaderror/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadError</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/effects/typeclasses/bracket/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Bracket</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/mtl/typeclasses/monadfilter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadFilter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/mtl/typeclasses/monadreader/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadReader</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/mtl/typeclasses/monadwriter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadWriter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/mtl/typeclasses/monadstate/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadState</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/mtl/typeclasses/monadcombine/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadCombine</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/comonad/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Comonad</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/bimonad/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Bimonad</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/bifunctor/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Bifunctor</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/profunctor/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Profunctor</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/semigroupk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>SemigroupK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/monoidk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonoidK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://next.arrow-kt.io/docs/typeclasses/inject/">
+                        <i class="fa fa-circle"></i>
+                        <span>Inject</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/alternative/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Alternative</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/divide/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Divide</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/divisible/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Divisible</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow/typeclasses/decidable/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Decidable</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Effects</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../effects/io/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>IO</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../effects/monaddefer/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadDefer</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../effects/async/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Async</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../effects/effect/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effect</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../effects/promise/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Promise</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../effects/ref/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Ref</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../effects/fiber/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Fiber</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../apidocs/arrow-effects-data/arrow.effects/-resource/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Resource</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Optics</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../optics/dsl/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Optics DSL</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/iso/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Iso</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/lens/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Lens</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/optional/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Optional</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/prism/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Prism</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/getter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Getter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/setter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Setter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/fold/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Fold</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/traversal/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Traversal</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/cons/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Cons</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/snoc/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Snoc</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/at/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>At</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/index/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Index</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/filterindex/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>FilterIndex</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../optics/each/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Each</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Λrrow Query Language</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../aql/intro/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Λrrow Query Language</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../aql/select/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>select</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../aql/from/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>from</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../aql/where/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>where</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../aql/groupby/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>groupBy</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../aql/orderby/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>orderBy</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../aql/sum/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>sum</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../aql/union/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>union</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../aql/custom/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Custom Data Types</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Generic</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../generic/coproduct/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Coproduct</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../generic/product/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Product</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Integrations</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../integrations/rx2/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Rx2</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../integrations/reactor/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Reactor</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../integrations/kotlinxcoroutines/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>kotlinx.coroutines</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../integrations/retrofit/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Retrofit</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../integrations/kindedj/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>KindedJ</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Free</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../free/free/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Free</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../free/freeapplicative/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>FreeApplicative</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../free/cofree/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Cofree</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../free/yoneda/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Yoneda</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../free/coyoneda/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Coyoneda</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Recursion Schemes</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../recursion/intro/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Intro</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../recursion/recursive/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Recursive</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../recursion/corecursive/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Corecursive</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../recursion/birecursive/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Birecursive</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../recursion/mu/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Mu</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../recursion/nu/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Nu</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../recursion/fix/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Fix</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Legal</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../legal/credits/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Credits</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../legal/licenses/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Licenses</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+    </ul>
+
+</div>
+
+    <div id="doc-wrapper">
+    <div class="doc-header">
+        <button type="button" id="main-toggle" class="sidebar-toggle">
+            <i class="fa fa-lg fa-bars menu-icon"></i>
+        </button>
+        <div class="search-wrapper">
+          <input id="docsearch" class="search" placeholder="Search documentation..." type="search">
+        </div>
+        <a target="_blank"
+          href="https://github.com/arrow-kt/arrow/edit/master/modules/docs/arrow-docs/docs/docs/patterns/errorhandling/README.md">
+          <i class="fa fa-pencil"></i>
+            Edit
+        </a>
+    </div>
+    <div class="doc-content">
+        
+        <h2 id="functional-error-handling">Functional Error Handling</h2>
+
+<p class="beginner">beginner</p>
+
+<p>When dealing with errors in a purely functional way we try as much as we can to avoid exceptions.
+Exceptions break referential transparency and lead to bugs when callers are unaware that they may happen until it’s too late at runtime.</p>
+
+<p>In the following example we are going to model a basic program and go over the different options we have for dealing with errors in Arrow.
+The program simulates the typical game scenario where we have to shoot a target and series of preconditions need to be met in order actually shot and hit it.</p>
+
+<h3 id="requirements">Requirements</h3>
+
+<ul>
+  <li>Arm a Nuke launcher</li>
+  <li>Aim toward a Target</li>
+  <li>Launch a Nuke and impact the Target</li>
+</ul>
+
+<h3 id="requirements-1">Requirements</h3>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="cm">/** model */</span>
+<span class="kd">object</span> <span class="nc">Nuke</span>
+<span class="kd">object</span> <span class="nc">Target</span>
+<span class="kd">object</span> <span class="nc">Impacted</span>
+
+<span class="k">fun</span> <span class="nf">arm</span><span class="p">():</span> <span class="nc">Nuke</span> <span class="p">=</span> <span class="n">TODO</span><span class="p">()</span>
+<span class="k">fun</span> <span class="nf">aim</span><span class="p">():</span> <span class="nc">Target</span> <span class="p">=</span> <span class="n">TODO</span><span class="p">()</span>
+<span class="k">fun</span> <span class="nf">launch</span><span class="p">(</span><span class="nv">target</span><span class="p">:</span> <span class="nc">Target</span><span class="p">,</span> <span class="nv">nuke</span><span class="p">:</span> <span class="nc">Nuke</span><span class="p">):</span> <span class="nc">Impacted</span> <span class="p">=</span> <span class="n">TODO</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="exceptions">Exceptions</h3>
+
+<p>A naive implementation that uses exceptions may look like this</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">fun</span> <span class="nf">arm</span><span class="p">():</span> <span class="nc">Nuke</span> <span class="p">=</span> <span class="k">throw</span> <span class="n">RuntimeException</span><span class="p">(</span><span class="s">"SystemOffline"</span><span class="p">)</span>
+<span class="k">fun</span> <span class="nf">aim</span><span class="p">():</span> <span class="nc">Target</span> <span class="p">=</span> <span class="k">throw</span> <span class="n">RuntimeException</span><span class="p">(</span><span class="s">"RotationNeedsOil"</span><span class="p">)</span>
+<span class="k">fun</span> <span class="nf">launch</span><span class="p">(</span><span class="nv">target</span><span class="p">:</span> <span class="nc">Target</span><span class="p">,</span> <span class="nv">nuke</span><span class="p">:</span> <span class="nc">Nuke</span><span class="p">):</span> <span class="nc">Impacted</span> <span class="p">=</span> <span class="n">Impacted</span>
+</code></pre></div></div>
+
+<p>As you may have noticed the function signatures include no clue that when asking for <code class="highlighter-rouge">arm()</code> or <code class="highlighter-rouge">aim()</code>
+an exception may be thrown.</p>
+
+<h4 id="the-issues-with-exceptions">The issues with exceptions</h4>
+
+<p>Exceptions can be seen as GOTO statement given they interrupt the program flow by jumping back to the caller.
+Exceptions are not consistent as throwing an exception may not survive async boundaries, that is to say that one can’t rely on exceptions for error handling
+in async code since invoking a function that is async inside a <code class="highlighter-rouge">try/catch</code> may not capture the exception potentially thrown in a different thread.</p>
+
+<p>Because of this extreme power of stopping computation and jumping to other areas, Exceptions have been abused even in core libraries to signal events.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>at java.lang.Throwable.fillInStackTrace(Throwable.java:-1)
+at java.lang.Throwable.fillInStackTrace(Throwable.java:782)
+- locked &lt;0x6c&gt; (a sun.misc.CEStreamExhausted)
+at java.lang.Throwable.&lt;init&gt;(Throwable.java:250)
+at java.lang.Exception.&lt;init&gt;(Exception.java:54)
+at java.io.IOException.&lt;init&gt;(IOException.java:47)
+at sun.misc.CEStreamExhausted.&lt;init&gt;(CEStreamExhausted.java:30)
+at sun.misc.BASE64Decoder.decodeAtom(BASE64Decoder.java:117)
+at sun.misc.CharacterDecoder.decodeBuffer(CharacterDecoder.java:163)
+at sun.misc.CharacterDecoder.decodeBuffer(CharacterDecoder.java:194)
+</code></pre></div></div>
+
+<p>They often lead to incorrect and dangerous code because <code class="highlighter-rouge">Throwable</code> is an open hierarchy where you may catch more than you originally intended to.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="p">{</span>
+  <span class="n">doExceptionalStuff</span><span class="p">()</span> <span class="c1">//throws IllegalArgumentException</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nv">e</span><span class="p">:</span> <span class="nc">Throwable</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//too broad matches:</span>
+    <span class="cm">/*
+    VirtualMachineError
+    OutOfMemoryError
+    ThreadDeath
+    LinkageError
+    InterruptedException
+    ControlThrowable
+    NotImplementedError
+    */</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Furthermore exceptions are costly to create. <code class="highlighter-rouge">Throwable#fillInStackTrace</code> attempts to gather all stack information to present you with a meaningful stacktrace.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Throwable</span> <span class="o">{</span>
+    <span class="cm">/**
+    * Fills in the execution stack trace.
+    * This method records within this Throwable object information
+    * about the current state of the stack frames for the current thread.
+    */</span>
+    <span class="n">Throwable</span> <span class="nf">fillInStackTrace</span><span class="o">()</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Constructing an exception may be as costly as your current Thread stack size and it’s also platform dependent since <code class="highlighter-rouge">fillInStackTrace</code> calls into native code.</p>
+
+<p>More info in the cost of instantiating Throwables and throwing exceptions in generals can be found in the links below.</p>
+
+<blockquote>
+  <p><a href="http://normanmaurer.me/blog/2013/11/09/The-hidden-performance-costs-of-instantiating-Throwables/">The Hidden Performance costs of instantiating Throwables</a></p>
+  <ul>
+    <li>New: Creating a new Throwable each time</li>
+    <li>Lazy: Reusing a created Throwable in the method invocation.</li>
+    <li>Static: Reusing a static Throwable with an empty stacktrace.</li>
+  </ul>
+</blockquote>
+
+<p>Exceptions may be considered generally a poor choice in Functional Programming when:</p>
+
+<ul>
+  <li>Modeling absence</li>
+  <li>Modeling known business cases that result in alternate paths</li>
+  <li>Used in async boundaries over unprincipled APIs (callbacks)</li>
+  <li>In general when people have no access to your source code</li>
+</ul>
+
+<h3 id="how-do-we-model-exceptional-cases-then">How do we model exceptional cases then?</h3>
+
+<p>Arrow provide proper datatypes and typeclasses to represent exceptional cases.</p>
+
+<h3 id="option">Option</h3>
+
+<p>We use <a href="https://next.arrow-kt.io/docs/arrow/core/option"><code class="highlighter-rouge">Option</code></a> to model the potential absence of a value</p>
+
+<p>When using <code class="highlighter-rouge">Option</code> our previous example may look like:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">import</span> <span class="nn">arrow.*</span>
+<span class="k">import</span> <span class="nn">arrow.core.*</span>
+
+<span class="k">fun</span> <span class="nf">arm</span><span class="p">():</span> <span class="nc">Option</span><span class="p">&lt;</span><span class="nc">Nuke</span><span class="p">&gt;</span> <span class="p">=</span> <span class="n">None</span>
+<span class="k">fun</span> <span class="nf">aim</span><span class="p">():</span> <span class="nc">Option</span><span class="p">&lt;</span><span class="nc">Target</span><span class="p">&gt;</span> <span class="p">=</span> <span class="n">None</span>
+<span class="k">fun</span> <span class="nf">launch</span><span class="p">(</span><span class="nv">target</span><span class="p">:</span> <span class="nc">Target</span><span class="p">,</span> <span class="nv">nuke</span><span class="p">:</span> <span class="nc">Nuke</span><span class="p">):</span> <span class="nc">Option</span><span class="p">&lt;</span><span class="nc">Impacted</span><span class="p">&gt;</span> <span class="p">=</span> <span class="n">Some</span><span class="p">(</span><span class="n">Impacted</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>It’s easy to work with <a href="https://next.arrow-kt.io/docs/arrow/core/option"><code class="highlighter-rouge">Option</code></a> if your lang supports <a href="https://next.arrow-kt.io/docs/patterns/monad_comprehensions">Monad Comprehensions</a> or special syntax for them.
+Arrow provides <a href="https://next.arrow-kt.io/docs/patterns/monad_comprehensions">monadic comprehensions</a>  for all datatypes for which a <a href="https://next.arrow-kt.io/docs/arrow/typeclasses/monad"><code class="highlighter-rouge">Monad</code></a> instance exists built atop coroutines.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">arrow.typeclasses.*</span>
+<span class="k">import</span> <span class="nn">arrow.data.extensions.*</span>
+<span class="k">import</span> <span class="nn">arrow.data.extensions.option.monad.binding</span>
+
+<span class="k">fun</span> <span class="nf">attackOption</span><span class="p">():</span> <span class="nc">Option</span><span class="p">&lt;</span><span class="nc">Impacted</span><span class="p">&gt;</span> <span class="p">=</span>
+  <span class="n">binding</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="p">(</span><span class="py">nuke</span><span class="p">)</span> <span class="p">=</span> <span class="n">arm</span><span class="p">()</span>
+    <span class="kd">val</span> <span class="p">(</span><span class="py">target</span><span class="p">)</span> <span class="p">=</span> <span class="n">aim</span><span class="p">()</span>
+    <span class="kd">val</span> <span class="p">(</span><span class="py">impact</span><span class="p">)</span> <span class="p">=</span> <span class="n">launch</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">nuke</span><span class="p">)</span>
+    <span class="n">impact</span>
+  <span class="p">}</span>
+
+<span class="n">attackOption</span><span class="p">()</span>
+<span class="c1">//None</span>
+</code></pre></div></div>
+
+<p>While we could model this problem using <code class="highlighter-rouge">Option</code> and forgetting about exceptions we are still unable to determine the reasons why <code class="highlighter-rouge">arm()</code> and <code class="highlighter-rouge">aim()</code> returned empty values in the form of <code class="highlighter-rouge">None</code>.
+For this reason using <code class="highlighter-rouge">Option</code> is only a good idea when we know that values may be absent but we don’t really care about the reason why.
+Additionally <code class="highlighter-rouge">Option</code> is unable to capture exceptions so if an exception was thrown internally it would still bubble up and result in a runtime exception.</p>
+
+<p>In the next example we are going to use <code class="highlighter-rouge">Try</code> to deal with potentially thrown exceptions that are outside the control of the caller.</p>
+
+<h3 id="try">Try</h3>
+
+<p>We use <a href="https://next.arrow-kt.io/docs/arrow/core/try"><code class="highlighter-rouge">Try</code></a> when we want to be defensive about a computation that may fail with a runtime exception</p>
+
+<p>How would our example look like implemented with <code class="highlighter-rouge">Try</code>?</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+<span class="k">fun</span> <span class="nf">arm</span><span class="p">():</span> <span class="nc">Try</span><span class="p">&lt;</span><span class="nc">Nuke</span><span class="p">&gt;</span> <span class="p">=</span>
+  <span class="n">Try</span> <span class="p">{</span> <span class="k">throw</span> <span class="n">RuntimeException</span><span class="p">(</span><span class="s">"SystemOffline"</span><span class="p">)</span> <span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">aim</span><span class="p">():</span> <span class="nc">Try</span><span class="p">&lt;</span><span class="nc">Target</span><span class="p">&gt;</span> <span class="p">=</span>
+  <span class="n">Try</span> <span class="p">{</span> <span class="k">throw</span> <span class="n">RuntimeException</span><span class="p">(</span><span class="s">"RotationNeedsOil"</span><span class="p">)</span> <span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">launch</span><span class="p">(</span><span class="nv">target</span><span class="p">:</span> <span class="nc">Target</span><span class="p">,</span> <span class="nv">nuke</span><span class="p">:</span> <span class="nc">Nuke</span><span class="p">):</span> <span class="nc">Try</span><span class="p">&lt;</span><span class="nc">Impacted</span><span class="p">&gt;</span> <span class="p">=</span>
+  <span class="n">Try</span> <span class="p">{</span> <span class="k">throw</span> <span class="n">RuntimeException</span><span class="p">(</span><span class="s">"MissedByMeters"</span><span class="p">)</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>As you can see by the examples below exceptions are now controlled and caught inside of a <code class="highlighter-rouge">Try</code>.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">arm</span><span class="p">()</span>
+<span class="c1">// Failure(exception=java.lang.RuntimeException: SystemOffline)</span>
+</code></pre></div></div>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">aim</span><span class="p">()</span>
+<span class="c1">// Failure(exception=java.lang.RuntimeException: RotationNeedsOil)</span>
+</code></pre></div></div>
+
+<p>Unlike in the <code class="highlighter-rouge">Option</code> example here we can fold over the resulting value accessing the runtime exception.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">val</span> <span class="py">result</span> <span class="p">=</span> <span class="n">arm</span><span class="p">()</span>
+<span class="n">result</span><span class="p">.</span><span class="n">fold</span><span class="p">({</span> <span class="n">ex</span> <span class="p">-&gt;</span> <span class="s">"BOOM!: $ex"</span><span class="p">},</span> <span class="p">{</span> <span class="s">"Got: $it"</span> <span class="p">})</span>
+<span class="c1">// BOOM!: java.lang.RuntimeException: SystemOffline</span>
+</code></pre></div></div>
+
+<p>Just like it does for <code class="highlighter-rouge">Option</code>, Arrow also provides <code class="highlighter-rouge">Monad</code> instances for <code class="highlighter-rouge">Try</code> and we can use it exactly in the same way</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">arrow.typeclasses.*</span>
+<span class="k">import</span> <span class="nn">arrow.data.extensions.*</span>
+
+<span class="k">fun</span> <span class="nf">attackTry</span><span class="p">():</span> <span class="nc">Try</span><span class="p">&lt;</span><span class="nc">Impacted</span><span class="p">&gt;</span> <span class="p">=</span>
+  <span class="n">binding</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="p">(</span><span class="py">nuke</span><span class="p">)</span> <span class="p">=</span> <span class="n">arm</span><span class="p">()</span>
+    <span class="kd">val</span> <span class="p">(</span><span class="py">target</span><span class="p">)</span> <span class="p">=</span> <span class="n">aim</span><span class="p">()</span>
+    <span class="kd">val</span> <span class="p">(</span><span class="py">impact</span><span class="p">)</span> <span class="p">=</span> <span class="n">launch</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">nuke</span><span class="p">)</span>
+    <span class="n">impact</span>
+  <span class="p">}.</span><span class="n">fix</span><span class="p">()</span>
+
+<span class="n">attackTry</span><span class="p">()</span>
+<span class="c1">//Failure(RuntimeException("SystemOffline"))</span>
+</code></pre></div></div>
+
+<p>While <code class="highlighter-rouge">Try</code> gives us the ability to control both the <code class="highlighter-rouge">Success</code> and <code class="highlighter-rouge">Failure</code> cases there is still nothing in the function signatures that indicate the type of exception.
+We are still subject to guess what the exception is using Kotlin <code class="highlighter-rouge">when</code> expressions or runtime lookups over the unsealed hierarchy of Throwable.</p>
+
+<p>It turns out that all exceptions thrown in our example are actually known to the system so there is no point in modeling these exceptional cases as
+<code class="highlighter-rouge">java.lang.Exception</code></p>
+
+<p>We should redefine our functions to express that their result is not just a <code class="highlighter-rouge">Nuke</code>, <code class="highlighter-rouge">Target</code> or <code class="highlighter-rouge">Impact</code> but those potential values or other exceptional ones.</p>
+
+<h3 id="either">Either</h3>
+
+<p>When dealing with a known alternate path we model return types as <a href="https://next.arrow-kt.io/docs/arrow/core/either"><code class="highlighter-rouge">Either</code></a>
+Either represents the presence of either a <code class="highlighter-rouge">Left</code> value or a <code class="highlighter-rouge">Right</code> value.
+By convention most functional programing libraries choose <code class="highlighter-rouge">Left</code> as the exceptional case and <code class="highlighter-rouge">Right</code> as the success value.</p>
+
+<p>We can now assign proper types and values to the exceptional cases.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">sealed</span> <span class="kd">class</span> <span class="nc">NukeException</span> <span class="p">{</span>
+  <span class="kd">object</span> <span class="nc">SystemOffline</span><span class="p">:</span> <span class="n">NukeException</span><span class="p">()</span>
+  <span class="kd">object</span> <span class="nc">RotationNeedsOil</span><span class="p">:</span> <span class="n">NukeException</span><span class="p">()</span>
+  <span class="kd">data class</span> <span class="nc">MissedByMeters</span><span class="p">(</span><span class="kd">val</span> <span class="py">meters</span> <span class="p">:</span> <span class="n">Int</span><span class="p">):</span> <span class="nc">NukeException</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">typealias</span> <span class="n">SystemOffline</span> <span class="p">=</span> <span class="n">NukeException</span><span class="p">.</span><span class="n">SystemOffline</span>
+<span class="k">typealias</span> <span class="n">RotationNeedsOil</span> <span class="p">=</span> <span class="n">NukeException</span><span class="p">.</span><span class="n">RotationNeedsOil</span>
+<span class="k">typealias</span> <span class="n">MissedByMeters</span> <span class="p">=</span> <span class="n">NukeException</span><span class="p">.</span><span class="n">MissedByMeters</span>
+</code></pre></div></div>
+
+<p>This type of definition is commonly known as an Algebraic Data Type or Sum Type in most FP capable languages.
+In Kotlin it is encoded using sealed hierarchies. We can think of sealed hierarchies as a declaration of a type and all it’
+s possible states.</p>
+
+<p>Once we have an ADT defined to model our known errors we can redefine our functions.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">fun</span> <span class="nf">arm</span><span class="p">():</span> <span class="nc">Either</span><span class="p">&lt;</span><span class="nc">SystemOffline</span><span class="p">,</span> <span class="nc">Nuke</span><span class="p">&gt;</span> <span class="p">=</span> <span class="n">Right</span><span class="p">(</span><span class="n">Nuke</span><span class="p">)</span>
+<span class="k">fun</span> <span class="nf">aim</span><span class="p">():</span> <span class="nc">Either</span><span class="p">&lt;</span><span class="nc">RotationNeedsOil</span><span class="p">,</span> <span class="nc">Target</span><span class="p">&gt;</span> <span class="p">=</span> <span class="n">Right</span><span class="p">(</span><span class="n">Target</span><span class="p">)</span>
+<span class="k">fun</span> <span class="nf">launch</span><span class="p">(</span><span class="nv">target</span><span class="p">:</span> <span class="nc">Target</span><span class="p">,</span> <span class="nv">nuke</span><span class="p">:</span> <span class="nc">Nuke</span><span class="p">):</span> <span class="nc">Either</span><span class="p">&lt;</span><span class="nc">MissedByMeters</span><span class="p">,</span> <span class="nc">Impacted</span><span class="p">&gt;</span> <span class="p">=</span> <span class="n">Left</span><span class="p">(</span><span class="n">MissedByMeters</span><span class="p">(</span><span class="m">5</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Arrow also provides a <code class="highlighter-rouge">Monad</code> instance for <code class="highlighter-rouge">Either</code> in the same it did for <code class="highlighter-rouge">Option</code> and <code class="highlighter-rouge">Try</code>.
+Except for the types signatures our program remains unchanged when we compute over <code class="highlighter-rouge">Either</code>.
+All values on the left side assume to be <code class="highlighter-rouge">Right</code> biased and whenever a <code class="highlighter-rouge">Left</code> value is found the computation short-circuits producing a result that is compatible with the function type signature.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">arrow.core.extensions.either.monad.binding</span>
+
+<span class="k">fun</span> <span class="nf">attackEither</span><span class="p">():</span> <span class="nc">Either</span><span class="p">&lt;</span><span class="nc">NukeException</span><span class="p">,</span> <span class="nc">Impacted</span><span class="p">&gt;</span> <span class="p">=</span>
+  <span class="n">binding</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="p">(</span><span class="py">nuke</span><span class="p">)</span> <span class="p">=</span> <span class="n">arm</span><span class="p">()</span>
+    <span class="kd">val</span> <span class="p">(</span><span class="py">target</span><span class="p">)</span> <span class="p">=</span> <span class="n">aim</span><span class="p">()</span>
+    <span class="kd">val</span> <span class="p">(</span><span class="py">impact</span><span class="p">)</span> <span class="p">=</span> <span class="n">launch</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">nuke</span><span class="p">)</span>
+    <span class="n">impact</span>
+  <span class="p">}</span>
+  
+<span class="n">attackEither</span><span class="p">()</span>
+<span class="c1">//Left(MissedByMeters(5))</span>
+</code></pre></div></div>
+
+<p>We have seen so far how we can use <code class="highlighter-rouge">Option</code>, <code class="highlighter-rouge">Try</code> and <code class="highlighter-rouge">Either</code> to handle exceptions in a purely functional way.</p>
+
+<p>The question now is, can we further generalize error handling and write this code in a way that is abstract from the actual datatypes that it uses.
+Since Arrow supports typeclasses, emulated higher kinds and higher order abstractions we can rewrite this in a fully polymorphic way thanks to <a href="https://next.arrow-kt.io/docs/arrow/typeclasses/monaderror"><code class="highlighter-rouge">MonadError</code></a></p>
+
+<h3 id="monaderror">MonadError</h3>
+
+<p><a href="https://next.arrow-kt.io/docs/arrow/typeclasses/monaderror"><code class="highlighter-rouge">MonadError</code></a> is a typeclass that allows us to handle error cases inside monadic contexts such as the ones we have seen with <code class="highlighter-rouge">Either</code>, <code class="highlighter-rouge">Try</code> and <code class="highlighter-rouge">Option</code>.
+Typeclasses allows us to code focusing on the behaviors and not the datatypes that implements them.</p>
+
+<p>Arrow provides the following <code class="highlighter-rouge">MonadError</code> instances for <code class="highlighter-rouge">Option</code>, <code class="highlighter-rouge">Try</code> and <code class="highlighter-rouge">Either</code></p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">import</span> <span class="nn">arrow.core.extensions.option.monadError.*</span>
+
+<span class="n">Option</span><span class="p">.</span><span class="n">monadError</span><span class="p">()</span>
+<span class="c1">// arrow.core.extensions.option.monadError.OptionMonadErrorKt$monadError$1@7339b97f</span>
+</code></pre></div></div>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">import</span> <span class="nn">arrow.core.extensions.`try`.monadError.*</span>
+
+<span class="n">Try</span><span class="p">.</span><span class="n">monadError</span><span class="p">()</span>
+<span class="c1">// arrow.core.extensions.try.monadError.TryMonadErrorKt$monadError$1@608edf41</span>
+</code></pre></div></div>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">import</span> <span class="nn">arrow.core.extensions.either.monadError.*</span>
+
+<span class="n">Either</span><span class="p">.</span><span class="n">monadError</span><span class="p">&lt;</span><span class="n">NukeException</span><span class="p">&gt;()</span>
+<span class="c1">// arrow.core.extensions.either.monadError.EitherMonadErrorKt$monadError$1@7cda9fc5</span>
+</code></pre></div></div>
+
+<p>Let’s now rewrite our program as a polymorphic function that will work over any datatype for which a <code class="highlighter-rouge">MonadError</code> instance exists.
+Polymorphic code in Arrow is based on emulated <code class="highlighter-rouge">Higher Kinds</code> as described in <a href="https://www.cl.cam.ac.uk/~jdy22/papers/lightweight-higher-kinded-polymorphism.pdf">Lightweight higher-kinded polymorphism</a> and applied to Kotlin, a lang which does not yet support Higher Kinded Types.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="p">&lt;</span><span class="nc">f</span><span class="p">&gt;</span> <span class="nf">arm</span><span class="p">(</span><span class="nv">ME</span><span class="p">:</span> <span class="nc">MonadError</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">NukeException</span><span class="p">&gt;):</span> <span class="nc">Kind</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">Nuke</span><span class="p">&gt;</span> <span class="p">=</span> <span class="n">ME</span><span class="p">.</span><span class="n">just</span><span class="p">(</span><span class="n">Nuke</span><span class="p">)</span>
+<span class="k">fun</span> <span class="p">&lt;</span><span class="nc">f</span><span class="p">&gt;</span> <span class="nf">aim</span><span class="p">(</span><span class="nv">ME</span><span class="p">:</span> <span class="nc">MonadError</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">NukeException</span><span class="p">&gt;):</span> <span class="nc">Kind</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">Target</span><span class="p">&gt;</span> <span class="p">=</span> <span class="n">ME</span><span class="p">.</span><span class="n">just</span><span class="p">(</span><span class="n">Target</span><span class="p">)</span>
+<span class="k">fun</span> <span class="p">&lt;</span><span class="nc">f</span><span class="p">&gt;</span> <span class="nf">launch</span><span class="p">(</span><span class="nv">target</span><span class="p">:</span> <span class="nc">Target</span><span class="p">,</span> <span class="nv">nuke</span><span class="p">:</span> <span class="nc">Nuke</span><span class="p">,</span> <span class="nv">ME</span><span class="p">:</span> <span class="nc">MonadError</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">NukeException</span><span class="p">&gt;):</span>
+  <span class="nc">Kind</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">Impacted</span><span class="p">&gt;</span> <span class="p">=</span> <span class="n">ME</span><span class="p">.</span><span class="n">raiseError</span><span class="p">(</span><span class="n">MissedByMeters</span><span class="p">(</span><span class="m">5</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>We can now express the same program as before in a fully polymorphic context</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="p">&lt;</span><span class="nc">F</span><span class="p">&gt;</span> <span class="nf">MonadError</span><span class="p">&lt;</span><span class="n">F</span><span class="p">,</span> <span class="n">NukeException</span><span class="p">&gt;.</span><span class="n">attack</span><span class="p">():</span><span class="n">Kind</span><span class="p">&lt;</span><span class="n">F</span><span class="p">,</span> <span class="n">Impacted</span><span class="p">&gt;</span> <span class="p">=</span>
+  <span class="n">binding</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="p">(</span><span class="py">nuke</span><span class="p">)</span> <span class="p">=</span> <span class="n">arm</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;()</span>
+    <span class="kd">val</span> <span class="p">(</span><span class="py">target</span><span class="p">)</span> <span class="p">=</span> <span class="n">aim</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;()</span>
+    <span class="kd">val</span> <span class="p">(</span><span class="py">impact</span><span class="p">)</span> <span class="p">=</span> <span class="n">launch</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;(</span><span class="n">target</span><span class="p">,</span> <span class="n">nuke</span><span class="p">)</span>
+    <span class="n">impact</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Or since <code class="highlighter-rouge">arm()</code> and <code class="highlighter-rouge">bind()</code> are operations that do not depend on each other we don’t need the <a href="https://next.arrow-kt.io/docs/patterns/monad_comprehensions">Monad Comprehensions</a> here and we can express our logic as:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="p">&lt;</span><span class="nc">F</span><span class="p">&gt;</span> <span class="nf">MonadError</span><span class="p">&lt;</span><span class="n">F</span><span class="p">,</span> <span class="n">NukeException</span><span class="p">&gt;.</span><span class="n">attack1</span><span class="p">(</span><span class="n">ME</span><span class="p">):</span> <span class="nc">Kind</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">Impacted</span><span class="p">&gt;</span> <span class="p">=</span>
+  <span class="n">ME</span><span class="p">.</span><span class="n">tupled</span><span class="p">(</span><span class="n">aim</span><span class="p">(),</span> <span class="n">arm</span><span class="p">()).</span><span class="n">flatMap</span><span class="p">(</span><span class="n">ME</span><span class="p">,</span> <span class="p">{</span> <span class="p">(</span><span class="n">nuke</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">launch</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;(</span><span class="n">nuke</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span> <span class="p">})</span>
+
+<span class="kd">val</span> <span class="py">result</span> <span class="p">=</span> <span class="n">Either</span><span class="p">.</span><span class="n">monadError</span><span class="p">&lt;</span><span class="n">NukeException</span><span class="p">&gt;.</span><span class="n">attack</span><span class="p">()</span>
+<span class="n">result</span><span class="p">.</span><span class="n">fix</span><span class="p">()</span>
+<span class="c1">//Left(MissedByMeters(5))</span>
+<span class="c1">// or</span>
+<span class="kd">val</span> <span class="py">result1</span> <span class="p">=</span> <span class="n">Either</span><span class="p">.</span><span class="n">monadError</span><span class="p">&lt;</span><span class="n">NukeException</span><span class="p">&gt;.</span><span class="n">attack1</span><span class="p">()</span>
+<span class="n">result1</span><span class="p">.</span><span class="n">fix</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Note that <code class="highlighter-rouge">MonadError</code> also has a function <code class="highlighter-rouge">bindingCatch</code> that automatically captures and wraps exceptions in its binding block.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="p">&lt;</span><span class="nc">f</span><span class="p">&gt;</span> <span class="nf">MonadError</span><span class="p">&lt;</span><span class="n">F</span><span class="p">,</span> <span class="n">NukeException</span><span class="p">&gt;.</span><span class="n">launchImjust</span><span class="p">(</span><span class="nv">target</span><span class="p">:</span> <span class="nc">Target</span><span class="p">,</span> <span class="nv">nuke</span><span class="p">:</span> <span class="nc">Nuke</span><span class="p">):</span> <span class="nc">Impacted</span> <span class="p">{</span>
+  <span class="k">throw</span> <span class="n">MissedByMeters</span><span class="p">(</span><span class="m">5</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="p">&lt;</span><span class="nc">f</span><span class="p">&gt;</span> <span class="nf">MonadError</span><span class="p">&lt;</span><span class="n">F</span><span class="p">,</span> <span class="n">NukeException</span><span class="p">&gt;.</span><span class="n">attack</span><span class="p">():</span> <span class="nc">Kind</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">Impacted</span><span class="p">&gt;</span> <span class="p">=</span>
+  <span class="n">bindingCatch</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="p">(</span><span class="py">nuke</span><span class="p">)</span> <span class="p">=</span> <span class="n">arm</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;()</span>
+    <span class="kd">val</span> <span class="p">(</span><span class="py">target</span><span class="p">)</span> <span class="p">=</span> <span class="n">aim</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;()</span>
+    <span class="kd">val</span> <span class="py">impact</span> <span class="p">=</span> <span class="n">launchImpure</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;(</span><span class="n">target</span><span class="p">,</span> <span class="n">nuke</span><span class="p">)</span>
+    <span class="n">impact</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="example--alternative-validation-strategies-using-applicativeerror">Example : Alternative validation strategies using <code class="highlighter-rouge">ApplicativeError</code></h3>
+
+<p>In this validation example we demonstrate how we can use <code class="highlighter-rouge">ApplicativeError</code> instead of <code class="highlighter-rouge">Validated</code> to abstract away validation strategies and raising errors in the context we are computing in.</p>
+
+<p><em>Model</em></p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">arrow.*</span>
+<span class="k">import</span> <span class="nn">arrow.core.*</span>
+<span class="k">import</span> <span class="nn">arrow.typeclasses.*</span>
+<span class="k">import</span> <span class="nn">arrow.data.*</span>
+
+<span class="k">sealed</span> <span class="kd">class</span> <span class="nc">ValidationError</span><span class="p">(</span><span class="kd">val</span> <span class="py">msg</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">data class</span> <span class="nc">DoesNotContain</span><span class="p">(</span><span class="kd">val</span> <span class="py">value</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">:</span> <span class="nc">ValidationError</span><span class="p">(</span><span class="s">"Did not contain $value"</span><span class="p">)</span>
+  <span class="kd">data class</span> <span class="nc">MaxLength</span><span class="p">(</span><span class="kd">val</span> <span class="py">value</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">:</span> <span class="nc">ValidationError</span><span class="p">(</span><span class="s">"Exceeded length of $value"</span><span class="p">)</span>
+  <span class="kd">data class</span> <span class="nc">NotAnEmail</span><span class="p">(</span><span class="kd">val</span> <span class="py">reasons</span><span class="p">:</span> <span class="n">Nel</span><span class="p">&lt;</span><span class="n">ValidationError</span><span class="p">&gt;)</span> <span class="p">:</span> <span class="nc">ValidationError</span><span class="p">(</span><span class="s">"Not a valid email"</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">data class</span> <span class="nc">FormField</span><span class="p">(</span><span class="kd">val</span> <span class="py">label</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="kd">val</span> <span class="py">value</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span>
+<span class="kd">data class</span> <span class="nc">Email</span><span class="p">(</span><span class="kd">val</span> <span class="py">value</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><em>Rules</em></p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">sealed</span> <span class="kd">class</span> <span class="nc">Rules</span><span class="p">&lt;</span><span class="n">F</span><span class="p">&gt;(</span><span class="nv">A</span><span class="p">:</span> <span class="nc">ApplicativeError</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">Nel</span><span class="err">&lt;</span><span class="nc">ValidationError</span><span class="p">&gt;&gt;)</span> <span class="p">:</span> <span class="nc">ApplicativeError</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">Nel</span><span class="err">&lt;</span><span class="nc">ValidationError</span><span class="p">&gt;&gt;</span> <span class="k">by</span> <span class="n">A</span> <span class="p">{</span>
+
+  <span class="k">private</span> <span class="k">fun</span> <span class="nc">FormField</span><span class="p">.</span><span class="nf">contains</span><span class="p">(</span><span class="nv">needle</span><span class="p">:</span> <span class="nc">String</span><span class="p">):</span> <span class="nc">Kind</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">FormField</span><span class="p">&gt;</span> <span class="p">=</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="n">needle</span><span class="p">,</span> <span class="k">false</span><span class="p">))</span> <span class="n">just</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+    <span class="k">else</span> <span class="n">raiseError</span><span class="p">(</span><span class="n">ValidationError</span><span class="p">.</span><span class="n">DoesNotContain</span><span class="p">(</span><span class="n">needle</span><span class="p">).</span><span class="n">nel</span><span class="p">())</span>
+
+  <span class="k">private</span> <span class="k">fun</span> <span class="nc">FormField</span><span class="p">.</span><span class="nf">maxLength</span><span class="p">(</span><span class="nv">maxLength</span><span class="p">:</span> <span class="nc">Int</span><span class="p">):</span> <span class="nc">Kind</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">FormField</span><span class="p">&gt;</span> <span class="p">=</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="n">length</span> <span class="p">&lt;=</span> <span class="n">maxLength</span><span class="p">)</span> <span class="n">just</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+    <span class="k">else</span> <span class="n">raiseError</span><span class="p">(</span><span class="n">ValidationError</span><span class="p">.</span><span class="n">MaxLength</span><span class="p">(</span><span class="n">maxLength</span><span class="p">).</span><span class="n">nel</span><span class="p">())</span>
+
+  <span class="k">fun</span> <span class="nc">FormField</span><span class="p">.</span><span class="nf">validateEmail</span><span class="p">():</span> <span class="nc">Kind</span><span class="p">&lt;</span><span class="nc">F</span><span class="p">,</span> <span class="nc">Email</span><span class="p">&gt;</span> <span class="p">=</span>
+    <span class="n">map</span><span class="p">(</span><span class="n">contains</span><span class="p">(</span><span class="s">"@"</span><span class="p">),</span> <span class="n">maxLength</span><span class="p">(</span><span class="m">250</span><span class="p">),</span> <span class="p">{</span>
+      <span class="n">Email</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="p">}).</span><span class="n">handleErrorWith</span> <span class="p">{</span> <span class="n">raiseError</span><span class="p">(</span><span class="n">ValidationError</span><span class="p">.</span><span class="n">NotAnEmail</span><span class="p">(</span><span class="n">it</span><span class="p">).</span><span class="n">nel</span><span class="p">())</span> <span class="p">}</span>
+
+  <span class="kd">object</span> <span class="nc">ErrorAccumulationStrategy</span> <span class="p">:</span>
+    <span class="n">Rules</span><span class="p">&lt;</span><span class="n">ValidatedPartialOf</span><span class="p">&lt;</span><span class="n">Nel</span><span class="p">&lt;</span><span class="n">ValidationError</span><span class="p">&gt;&gt;&gt;(</span><span class="n">Validated</span><span class="p">.</span><span class="n">applicativeError</span><span class="p">(</span><span class="n">NonEmptyList</span><span class="p">.</span><span class="n">semigroup</span><span class="p">()))</span>
+  
+  <span class="kd">object</span> <span class="nc">FailFastStrategy</span> <span class="p">:</span>
+    <span class="n">Rules</span><span class="p">&lt;</span><span class="n">EitherPartialOf</span><span class="p">&lt;</span><span class="n">Nel</span><span class="p">&lt;</span><span class="n">ValidationError</span><span class="p">&gt;&gt;&gt;(</span><span class="n">Either</span><span class="p">.</span><span class="n">applicativeError</span><span class="p">())</span>
+  
+  <span class="k">companion</span> <span class="k">object</span> <span class="p">{</span>
+    <span class="k">infix</span> <span class="k">fun</span> <span class="p">&lt;</span><span class="nc">A</span><span class="p">&gt;</span> <span class="nf">failFast</span><span class="p">(</span><span class="nv">f</span><span class="p">:</span> <span class="nc">FailFastStrategy</span><span class="p">.()</span> <span class="p">-&gt;</span> <span class="n">A</span><span class="p">):</span> <span class="nc">A</span> <span class="p">=</span> <span class="n">f</span><span class="p">(</span><span class="n">FailFastStrategy</span><span class="p">)</span>
+    <span class="k">infix</span> <span class="k">fun</span> <span class="p">&lt;</span><span class="nc">A</span><span class="p">&gt;</span> <span class="nf">accumulateErrors</span><span class="p">(</span><span class="nv">f</span><span class="p">:</span> <span class="nc">ErrorAccumulationStrategy</span><span class="p">.()</span> <span class="p">-&gt;</span> <span class="n">A</span><span class="p">):</span> <span class="nc">A</span> <span class="p">=</span> <span class="n">f</span><span class="p">(</span><span class="n">ErrorAccumulationStrategy</span><span class="p">)</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">Rules</code> defines abstract behaviors that can be composed and have access to the scope of <code class="highlighter-rouge">ApplicativeError</code> where we can invoke <code class="highlighter-rouge">just</code> to lift values in to the positive result and <code class="highlighter-rouge">raiseError</code> into the error context.</p>
+
+<p>Once we have such abstract algebra defined we can simply materialize it to data types that support different error strategies:</p>
+
+<p><em>Error accumulation</em></p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Rules</span> <span class="n">accumulateErrors</span> <span class="p">{</span>
+  <span class="n">listOf</span><span class="p">(</span>
+    <span class="n">FormField</span><span class="p">(</span><span class="s">"Invalid Email Domain Label"</span><span class="p">,</span> <span class="s">"nowhere.com"</span><span class="p">),</span>
+    <span class="n">FormField</span><span class="p">(</span><span class="s">"Too Long Email Label"</span><span class="p">,</span> <span class="s">"nowheretoolong${(0..251).map { "</span><span class="n">g</span><span class="s">" }}"</span><span class="p">),</span> <span class="c1">//this accumulates N errors</span>
+    <span class="n">FormField</span><span class="p">(</span><span class="s">"Valid Email Label"</span><span class="p">,</span> <span class="s">"getlost@nowhere.com"</span><span class="p">)</span>
+  <span class="p">).</span><span class="n">map</span> <span class="p">{</span> <span class="n">it</span><span class="p">.</span><span class="n">validateEmail</span><span class="p">()</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><em>Fail Fast</em></p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Rules</span> <span class="n">failFast</span> <span class="p">{</span>
+  <span class="n">listOf</span><span class="p">(</span>
+    <span class="n">FormField</span><span class="p">(</span><span class="s">"Invalid Email Domain Label"</span><span class="p">,</span> <span class="s">"nowhere.com"</span><span class="p">),</span>
+    <span class="n">FormField</span><span class="p">(</span><span class="s">"Too Long Email Label"</span><span class="p">,</span> <span class="s">"nowheretoolong${(0..251).map { "</span><span class="n">g</span><span class="s">" }}"</span><span class="p">),</span> <span class="c1">//this fails fast </span>
+    <span class="n">FormField</span><span class="p">(</span><span class="s">"Valid Email Label"</span><span class="p">,</span> <span class="s">"getlost@nowhere.com"</span><span class="p">)</span>
+  <span class="p">).</span><span class="n">map</span> <span class="p">{</span> <span class="n">it</span><span class="p">.</span><span class="n">validateEmail</span><span class="p">()</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="credits">Credits</h3>
+
+<p>Tutorial adapted from the 47 Degrees blog <a href="https://www.47deg.com/presentations/2017/02/18/Functional-error-handling/"><code class="highlighter-rouge">Functional Error Handling</code></a></p>
+
+<p>Deck:</p>
+
+<ul>
+  <li>https://speakerdeck.com/raulraja/functional-error-handling</li>
+  <li>https://github.com/47deg/functional-error-handling</li>
+</ul>
+
+    </div>
+</div>
+
+</div>
+<!-- Jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Arrow playground -->
+<script src="https://unpkg.com/arrow-playground@1" data-selector="[class^='language-kotlin']"></script>
+<!-- Highlight -->
+<script src="../../../js/highlight.pack.js"></script>
+<script>
+  hljs.initHighlighting();
+</script>
+<!-- Docsearch -->
+<script type="text/javascript" src="../../../js/docsearch.min.js"></script>
+<!-- Custom scripts for this template -->
+<script src="../../../js/functions.js"></script>
+<!-- Gitter -->
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'arrow-kt/Lobby'
+  };
+
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+</body>
+</html>
