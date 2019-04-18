@@ -47,4 +47,66 @@ Here is an Haskell example:
 
 ## Contributions
 Your development environment is the [next.arrow-kt.io file](https://github.com/i-walker/Arrow-Docset/tree/master/next.arrow-kt.io). 
-Add the appropriate mappings to dashing.json under selector. Check-out the issues
+Add the appropriate mappings to dashing.json under selector. Check-out the issues.
+
+Dowload dashing:
+```
+$ brew install dashing
+```
+or 
+```
+$ go get -u github.com/technosophos/dashing
+```
+Here are the [sources](https://github.com/technosophos/dashing/releases)
+
+```
+## Docset Datatypes
+
+Annotation  Attribute   Binding     Builtin     Callback    Category
+    
+Class   Command     Component   Constant    Constructor   Define   
+ 
+Delegate   Diagram     Directive       Element     Entry       Enum 
+
+Environment     Error       Event       Exception       Extension  
+
+Field       File        Filter      Framework       Function     
+
+Global      Guide       Hook        Instance        Instruction     
+
+Interface       Keyword     Library     Literal     Macro       Method
+
+Mixin       Modifier        Module      Namespace       Notation 
+
+Object      Operator        Option      Package     Parameter       Plugin
+
+Procedure       Property        Protocol        Provider     Provisioner
+
+Query       Record      Resource        Sample      Section     Service  
+   
+Setting     Shortcut        Statement       Struct      Style         Subroutine 
+
+Tag     Test        Trait       Type        Union       Value       Variable        Word
+
+```
+
+You then specify the exact place in the HTML where Dash can find the Datatype, e.g.:
+"<html xpath>": "<Docset Datatype>"
+
+```
+dashing.json
+{
+  //...
+  "selectors": {
+          "title": "Interface"
+      },
+      //...
+}
+```
+
+
+- Debugging 
+
+```bash
+$ dashing build
+```
