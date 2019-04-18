@@ -91,7 +91,7 @@ Tag     Test        Trait       Type        Union       Value       Variable    
 ```
 
 You then specify the exact place in the HTML where Dash can find the Datatype, e.g.:
-"<html xpath>": "<Docset Datatype>"
+"html xpath": "Docset Datatype"
 
 ```
 dashing.json
