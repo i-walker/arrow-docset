@@ -18,6 +18,20 @@ Visit the [dashing website](https://github.com/technosophos/dashing) to get star
 - Under the Thread Docsets in the left corner there is a plus and go to -> Add Local Docs
 
 - Currently it is a bit verbose because every link is specified as a class named Arrow, but that won't stay that long
+
+### Dash a powerful time saver
+- You will have Arrow Offline 
+![minimal](Screenshot%202019-04-18%20at%2010.24.45.png)
+
+- Combined with Alfredo - You can quick-search through the whole library without breaking a sweat
+
+Here is an Haskell example:
+![Haskell example](Screenshot%202019-04-18%20at%2010.30.01.png)
+
+- Search with tags and filters
+
+![Haskell example](Screenshot%202019-04-18%20at%2010.39.19.png)
+
 ### Features
 
 - [X] Enable arrow-playground
