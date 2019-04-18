@@ -10,6 +10,15 @@ to Arrow.
 PR's are very welcomed ! 
 Visit the [dashing website](https://github.com/technosophos/dashing) to get started and add
 the appropriate mappings to dashing.json under selector.
+
+### How to use it
+
+- Go to Download Docsets 
+-> Main Docsets 
+
+- Under the Thread Docsets in the left corner there is a plus and go to -> Add Local Docs
+
+- Currently it is a bit verbose because every link is specified as a class named Arrow, but that won't stay that long
 ### Features
 
 - [X] Enable arrow-playground
