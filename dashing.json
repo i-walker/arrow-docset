@@ -1,0 +1,15 @@
+{
+    "name": "Arrow",
+    "package": "next.arrow-kt.io",
+    "index": "index.html",
+    "selectors": {
+        "dt a": "Command",
+        "title": "Package"
+    },
+    "ignore": [
+        "ABOUT"
+    ],
+    "icon32x32": "next.arrow-kt.io/img/favicon.png",
+    "allowJS": true,
+    "ExternalURL": "https://next.arrow-kt.io/docs/"
+}

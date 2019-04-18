@@ -1,0 +1,1474 @@
+<!DOCTYPE html><html><head>
+    <meta charset="UTF-8"/>
+    <a class="dashingAutolink" name="autolink-1885"></a><a class="dashAnchor" name="//apple_ref/cpp/Package/Arrow"></a><title>Arrow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Functional companion to Kotlin&#39;s Standard Library"/>
+    <meta name="keywords" content="functional-programming, kotlin-library, monads, monad-transformers, functional-data-structure, kotlin, fp-types, adt, free-monads, tagless-final, mtl, for-comprehension, category-theory"/>
+
+    <meta property="og:image" content="http://arrow-kt.io/img/poster.png"/>
+    <meta property="og:title" content="Arrow"/>
+    <meta property="og:site_name" content="Arrow"/>
+    <meta property="og:url" content="http://arrow-kt.io/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description" content="Functional companion to Kotlin&#39;s Standard Library"/>
+    <meta property="og:keywords" content="functional-programming, kotlin-library, monads, monad-transformers, functional-data-structure, kotlin, fp-types, adt, free-monads, tagless-final, mtl, for-comprehension, category-theory"/>
+
+    <meta name="twitter:text:description" content="Functional companion to Kotlin&#39;s Standard Library"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@arrow_kt"/>
+    <meta name="twitter:creator" content="@arrow_kt"/>
+    <meta name="twitter:image" content="http://arrow-kt.io/img/twitter-card.png"/>
+
+    <!-- Arrow versions metadata -->
+    <meta name="previous-version" data-title="" data-url=""/>
+    <meta name="stable-version" data-title="" data-url=""/>
+    <meta name="next-version" data-title="" data-url=""/>
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+    <!-- Animated -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"/>
+    <!-- Arrow main css -->
+    <link rel="shortcut icon" href="../../../../../img/favicon.png"/>
+    <!-- highlight  css -->
+    <link rel="stylesheet" type="text/css" href="../../../../../css/highlight/atom-one-light.css"/>
+    <!-- Arrow main css -->
+    <link rel="stylesheet" type="text/css" href="../../../../../css/arrow.css"/>
+
+    <!-- Code to manage version information -->
+    <script src="../../../../../js/docVersions.js" defer=""></script>
+
+    <!-- Diagrams support -->
+    <script src="../../../../../js/dagre.min.js"></script>
+    <script src="../../../../../js/lodash.min.js"></script>
+    <script src="../../../../../js/nomnoml.js"></script>
+    <script src="../../../../../js/diagrams.js" async=""></script>
+
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-18433785-18"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-18433785-18');
+</script>
+
+    
+</head>
+
+<body id="doc-body">
+<div id="wrapper">
+    <div id="sidebar-wrapper">
+    <div class="sidebar-brand">
+        <a class="brand" href="https://next.arrow-kt.io/">
+            <img src="../../../../../img/arrow-brand-sidebar.svg" alt=""/>
+            <span>&Lambda;rrow</span>
+        </a>
+        <button type="button" id="main-toggle" class="sidebar-toggle">
+            <span class="close"></span>
+        </button>
+    </div>
+
+    <ul class="sidebar-nav sidebar-doc-versions">
+  <li class="sidebar-nav-item">
+    <a href="contramap.html#">
+      <span>Arrow version</span>
+      <span id="arrow-version"></span>
+    </a>
+    <ul>
+      <li>
+        <a href="https://arrow-kt.io/docs/">
+          <span>
+            v0.9.0 - STABLE
+          </span>
+        </a>
+      </li>
+
+      <li>
+        <a href="../../../../index.html">
+            <span>
+              v0.9.1 - NEXT
+            </span>
+        </a>
+      </li>
+
+      <li>
+        <a href="https://0-8-2.arrow-kt.io/docs/">
+            <span>
+              v0.8.2 -
+              PREVIOUS
+            </span>
+        </a>
+      </li>
+
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </li>
+</ul>
+
+
+    <ul class="sidebar-nav">
+        
+        <li class="sidebar-nav-item">
+            <a href="contramap.html#">
+                <span>Quick Start</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../../index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Index</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../quickstart/libraries/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Libraries</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://next.arrow-kt.io/blog/">
+                        <i class="fa fa-circle"></i>
+                        <span>Blogs &amp; Presentations</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../quickstart/projects/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Projects &amp; Examples</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="contramap.html#">
+                <span>Arrow Fx</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../../effects/fx/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Getting Started</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../effects/fx/async/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Asynchronous &amp; Concurrent Programming</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../effects/fx/polymorphism/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Polymorphism. One Program multiple runtimes</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="contramap.html#">
+                <span>API Docs</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../arrow-typeclasses/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Type Classes</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow-core-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Core Data Types</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Core Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow-extras/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Core Extra Data Types</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow-extras-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Core Extra Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow-effects-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow-effects-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow-effects-kotlinx-coroutines-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Coroutines</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow-effects-kotlinx-coroutines-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Coroutines Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow-effects-rx2-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Rx2</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow-effects-rx2-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Rx2 Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow-effects-reactor-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Reactor</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow-effects-reactor-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Reactor Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow-streams/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Streams</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow-mtl/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MTL</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow-optics/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Optics</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow-recursion-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Recursion</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow-recursion-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Recursion Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow-generic/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Generic</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow-free-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Free</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow-validation/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Validation</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="contramap.html#">
+                <span>Patterns</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../../patterns/glossary/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Glossary</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../patterns/error_handling/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Error Handling</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../patterns/dependency_injection/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Dependency Injection</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../patterns/monads/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>The Monad Tutorial</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../patterns/monad_comprehensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Monad Comprehensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../patterns/polymorphic_programs/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Polymorphic Programs</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../patterns/free_algebras/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Free Algebras</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="contramap.html#">
+                <span>Data Types</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../../datatypes/intro/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Intro</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../datatypes/basic/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Basic Types</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/core/option/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Option</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/core/either/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Either</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/core/try/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Try</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/data/validated/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Validated</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/data/nonemptylist/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>NonEmptyList</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/data/listk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>ListK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/data/sequencek/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>SequenceK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/data/setk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>SetK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/data/mapk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MapK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/data/sortedmapk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>SortedMapK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/data/ior/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Ior</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/core/id/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Id</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/data/reader/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Reader</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/data/kleisli/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Kleisli</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/data/state/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>State</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/data/statet/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>StateT</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/data/store/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Store</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/data/moore/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Moore</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/data/sum/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Sum</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/data/day/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Day</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/data/writert/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>WriterT</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/free/trampoline/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Trampoline</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/data/coproduct/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Coproduct</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/core/eval/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Eval</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/data/optiont/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>OptionT</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/data/eithert/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>EitherT</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/core/function0/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Function0</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/core/function1/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Function1</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/const/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Const</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="contramap.html#">
+                <span>Type Classes</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../../typeclasses/intro/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Intro</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/show/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Show</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/eq/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Eq</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/hash/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Hash</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/order/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Order</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/semigroup/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Semigroup</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow-typeclasses/arrow.typeclasses/-semigroupal/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Semigroupal</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow-typeclasses/arrow.typeclasses/-monoidal/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Monoidal</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/monoid/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Monoid</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow-typeclasses/arrow.typeclasses/-semiring/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Semiring</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/foldable/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Foldable</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/bifoldable/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Bifoldable</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/traverse/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Traverse</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/reducible/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Reducible</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/mtl/typeclasses/traversefilter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>TraverseFilter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/functor/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Functor</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/mtl/typeclasses/functorfilter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>FunctorFilter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/applicative/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Applicative</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/applicativeerror/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>ApplicativeError</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/selective/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Selective</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/monad/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Monad</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/monaderror/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadError</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/effects/typeclasses/bracket/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Bracket</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/mtl/typeclasses/monadfilter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadFilter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/mtl/typeclasses/monadreader/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadReader</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/mtl/typeclasses/monadwriter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadWriter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/mtl/typeclasses/monadstate/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadState</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/mtl/typeclasses/monadcombine/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadCombine</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/comonad/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Comonad</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/bimonad/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Bimonad</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/bifunctor/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Bifunctor</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/profunctor/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Profunctor</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/semigroupk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>SemigroupK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/monoidk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonoidK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://next.arrow-kt.io/docs/typeclasses/inject/">
+                        <i class="fa fa-circle"></i>
+                        <span>Inject</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/alternative/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Alternative</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/divide/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Divide</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/divisible/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Divisible</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../arrow/typeclasses/decidable/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Decidable</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="contramap.html#">
+                <span>Effects</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../../effects/io/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>IO</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../effects/monaddefer/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadDefer</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../effects/async/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Async</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../effects/effect/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effect</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../effects/promise/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Promise</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../effects/ref/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Ref</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../effects/fiber/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Fiber</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow-effects-data/arrow.effects/-resource/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Resource</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="contramap.html#">
+                <span>Optics</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../../optics/dsl/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Optics DSL</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../optics/iso/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Iso</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../optics/lens/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Lens</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../optics/optional/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Optional</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../optics/prism/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Prism</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../optics/getter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Getter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../optics/setter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Setter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../optics/fold/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Fold</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../optics/traversal/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Traversal</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../optics/cons/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Cons</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../optics/snoc/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Snoc</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../optics/at/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>At</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../optics/index/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Index</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../optics/filterindex/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>FilterIndex</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../optics/each/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Each</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="contramap.html#">
+                <span>&Lambda;rrow Query Language</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../../aql/intro/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>&Lambda;rrow Query Language</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../aql/select/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>select</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../aql/from/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>from</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../aql/where/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>where</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../aql/groupby/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>groupBy</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../aql/orderby/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>orderBy</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../aql/sum/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>sum</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../aql/union/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>union</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../aql/custom/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Custom Data Types</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="contramap.html#">
+                <span>Generic</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../../generic/coproduct/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Coproduct</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../generic/product/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Product</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="contramap.html#">
+                <span>Integrations</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../../integrations/rx2/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Rx2</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../integrations/reactor/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Reactor</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../integrations/kotlinxcoroutines/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>kotlinx.coroutines</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../integrations/retrofit/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Retrofit</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../integrations/kindedj/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>KindedJ</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="contramap.html#">
+                <span>Free</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../../free/free/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Free</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../free/freeapplicative/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>FreeApplicative</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../free/cofree/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Cofree</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../free/yoneda/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Yoneda</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../free/coyoneda/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Coyoneda</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="contramap.html#">
+                <span>Recursion Schemes</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../../recursion/intro/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Intro</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../recursion/recursive/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Recursive</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../recursion/corecursive/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Corecursive</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../recursion/birecursive/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Birecursive</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../recursion/mu/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Mu</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../recursion/nu/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Nu</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../recursion/fix/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Fix</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="contramap.html#">
+                <span>Legal</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../../legal/credits/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Credits</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../../legal/licenses/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Licenses</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+    </ul>
+
+</div>
+
+    <div id="doc-wrapper">
+    <div class="doc-header">
+        <button type="button" id="main-toggle" class="sidebar-toggle">
+            <i class="fa fa-lg fa-bars menu-icon"></i>
+        </button>
+        <div class="search-wrapper">
+          <input id="docsearch" class="search" placeholder="Search documentation..." type="search"/>
+        </div>
+        <a target="_blank" href="https://github.com/arrow-kt/arrow/edit/master/modules/docs/arrow-docs/docs/docs/apidocs/arrow-core-extensions/arrow.core.extensions.function1.contravariant/arrow.-kind/contramap.htmlREADME.md">
+          <i class="fa fa-pencil"></i>
+            Edit
+        </a>
+    </div>
+    <div class="doc-content">
+        
+        <p><a href="../../index.html">arrow-core-extensions</a> / <a href="../index.html">arrow.core.extensions.function1.contravariant</a> / <a href="index.html">arrow.Kind</a> / <a href="contramap.html">contramap</a></p>
+
+<h1 id="contramap">contramap</h1>
+
+<p><code class="highlighter-rouge">@JvmName(&#34;contramap&#34;) fun &lt;O, A, B&gt; Kind&lt;Conested&lt;ForFunction1, </code><a href="contramap.html#O"><code class="highlighter-rouge">O</code></a><code class="highlighter-rouge">&gt;, </code><a href="contramap.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;.contramap(arg1: (</code><a href="contramap.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">) -&gt; </code><a href="contramap.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">): Kind&lt;Conested&lt;ForFunction1, </code><a href="contramap.html#O"><code class="highlighter-rouge">O</code></a><code class="highlighter-rouge">&gt;, </code><a href="contramap.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">&gt;</code></p>
+
+    </div>
+</div>
+
+</div>
+<!-- Jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Arrow playground -->
+<script src="https://unpkg.com/arrow-playground@1" data-selector="[class^=&#39;language-kotlin&#39;]"></script>
+<!-- Highlight -->
+<script src="../../../../../js/highlight.pack.js"></script>
+<script>
+  hljs.initHighlighting();
+</script>
+<!-- Docsearch -->
+<script type="text/javascript" src="../../../../../js/docsearch.min.js"></script>
+<!-- Custom scripts for this template -->
+<script src="../../../../../js/functions.js"></script>
+<!-- Gitter -->
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'arrow-kt/Lobby'
+  };
+
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="" defer=""></script>
+
+
+
+</body></html>
