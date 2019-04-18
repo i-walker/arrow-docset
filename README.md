@@ -8,8 +8,7 @@ It is pretty straight-forward, we map [Dash Datatypes](https://kapeli.com/docset
 to Arrow. 
 
 PR's are very welcomed ! 
-Visit the [dashing website](https://github.com/technosophos/dashing) to get started and add
-the appropriate mappings to dashing.json under selector.
+Visit the [dashing website](https://github.com/technosophos/dashing) to get started.
 
 ### How to use it
 
@@ -32,3 +31,6 @@ the appropriate mappings to dashing.json under selector.
 - [ ] Searchable Free
 - [ ] Searchable Recursion Schemes
 
+## Contributions
+Your development environment is the [next.arrow-kt.io file](https://github.com/i-walker/Arrow-Docset/tree/master/next.arrow-kt.io). 
+Add the appropriate mappings to dashing.json under selector. Check-out the issues
