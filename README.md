@@ -13,7 +13,7 @@ Visit the [dashing website](https://github.com/technosophos/dashing) to get star
 ### How to use it
 
 - Download the [current docset](https://github.com/i-walker/Arrow-Docset/releases)
-- Open Dash and Go to Download Docsets 
+- Open [Dash](https://kapeli.com/dash) and Go to Download Docsets 
 -> Main Docsets 
 
 - Under the Thread Docsets in the left corner there is a plus and go to -> Add Local Docs
@@ -24,7 +24,7 @@ Visit the [dashing website](https://github.com/technosophos/dashing) to get star
 - You will have Arrow Offline 
 ![minimal](Screenshot%202019-04-18%20at%2010.24.45.png)
 
-- Combined with Alfredo - You can quick-search through the whole library without breaking a sweat
+- Combined with [Alfredo](https://github.com/Kapeli/Dash-Alfred-Workflow) - You can quick-search through the whole library without breaking a sweat
 
 Here is an Haskell example:
 ![Haskell example](Screenshot%202019-04-18%20at%2010.30.01.png)
