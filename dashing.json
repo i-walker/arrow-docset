@@ -3,11 +3,10 @@
     "package": "next.arrow-kt.io",
     "index": "index.html",
     "selectors": {
-        "dt a": "Command",
-        "title": "Package"
+        "div>h2:first-of-type:not([id*=package]):not([id*=type])[id], div+h2:first-of-type:not([id*=package]):not([id*=type])[id]": "Guide"
     },
     "ignore": [
-        "ABOUT"
+        "API Docs", "Packages"
     ],
     "icon32x32": "next.arrow-kt.io/img/favicon.png",
     "allowJS": true,
