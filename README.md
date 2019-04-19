@@ -12,7 +12,8 @@ Visit the [dashing website](https://github.com/technosophos/dashing) to get star
 
 ### How to use it
 
-- Go to Download Docsets 
+- Download the [current docset](https://github.com/i-walker/Arrow-Docset/releases)
+- Open Dash and Go to Download Docsets 
 -> Main Docsets 
 
 - Under the Thread Docsets in the left corner there is a plus and go to -> Add Local Docs
