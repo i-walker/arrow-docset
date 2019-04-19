@@ -1,0 +1,2319 @@
+<!DOCTYPE html><html><head>
+    <meta charset="UTF-8"/>
+    <a class="dashingAutolink" name="autolink-1411"></a><a class="dashAnchor" name="//apple_ref/cpp/Package/Arrow"></a><title>Arrow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Functional companion to Kotlin&#39;s Standard Library"/>
+    <meta name="keywords" content="functional-programming, kotlin-library, monads, monad-transformers, functional-data-structure, kotlin, fp-types, adt, free-monads, tagless-final, mtl, for-comprehension, category-theory"/>
+
+    <meta property="og:image" content="http://arrow-kt.io/img/poster.png"/>
+    <meta property="og:title" content="Arrow"/>
+    <meta property="og:site_name" content="Arrow"/>
+    <meta property="og:url" content="http://arrow-kt.io/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description" content="Functional companion to Kotlin&#39;s Standard Library"/>
+    <meta property="og:keywords" content="functional-programming, kotlin-library, monads, monad-transformers, functional-data-structure, kotlin, fp-types, adt, free-monads, tagless-final, mtl, for-comprehension, category-theory"/>
+
+    <meta name="twitter:text:description" content="Functional companion to Kotlin&#39;s Standard Library"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@arrow_kt"/>
+    <meta name="twitter:creator" content="@arrow_kt"/>
+    <meta name="twitter:image" content="http://arrow-kt.io/img/twitter-card.png"/>
+
+    <!-- Arrow versions metadata -->
+    <meta name="previous-version" data-title="" data-url=""/>
+    <meta name="stable-version" data-title="" data-url=""/>
+    <meta name="next-version" data-title="" data-url=""/>
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+    <!-- Animated -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"/>
+    <!-- Arrow main css -->
+    <link rel="shortcut icon" href="../../../../img/favicon.png"/>
+    <!-- highlight  css -->
+    <link rel="stylesheet" type="text/css" href="../../../../css/highlight/atom-one-light.css"/>
+    <!-- Arrow main css -->
+    <link rel="stylesheet" type="text/css" href="../../../../css/arrow.css"/>
+
+    <!-- Code to manage version information -->
+    <script src="../../../../js/docVersions.js" defer=""></script>
+
+    <!-- Diagrams support -->
+    <script src="../../../../js/dagre.min.js"></script>
+    <script src="../../../../js/lodash.min.js"></script>
+    <script src="../../../../js/nomnoml.js"></script>
+    <script src="../../../../js/diagrams.js" async=""></script>
+
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-18433785-18"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-18433785-18');
+</script>
+
+    
+</head>
+
+<body id="doc-body">
+<div id="wrapper">
+    <div id="sidebar-wrapper">
+    <div class="sidebar-brand">
+        <a class="brand" href="https://next.arrow-kt.io/">
+            <img src="../../../../img/arrow-brand-sidebar.svg" alt=""/>
+            <span>&Lambda;rrow</span>
+        </a>
+        <button type="button" id="main-toggle" class="sidebar-toggle">
+            <span class="close"></span>
+        </button>
+    </div>
+
+    <ul class="sidebar-nav sidebar-doc-versions">
+  <li class="sidebar-nav-item">
+    <a href="index.html#">
+      <span>Arrow version</span>
+      <span id="arrow-version"></span>
+    </a>
+    <ul>
+      <li>
+        <a href="https://arrow-kt.io/docs/">
+          <span>
+            v0.9.0 - STABLE
+          </span>
+        </a>
+      </li>
+
+      <li>
+        <a href="../../../index.html">
+            <span>
+              v0.9.1 - NEXT
+            </span>
+        </a>
+      </li>
+
+      <li>
+        <a href="https://0-8-2.arrow-kt.io/docs/">
+            <span>
+              v0.8.2 -
+              PREVIOUS
+            </span>
+        </a>
+      </li>
+
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </li>
+</ul>
+
+
+    <ul class="sidebar-nav">
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Quick Start</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Index</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../quickstart/libraries/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Libraries</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://next.arrow-kt.io/blog/">
+                        <i class="fa fa-circle"></i>
+                        <span>Blogs &amp; Presentations</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../quickstart/projects/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Projects &amp; Examples</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Arrow Fx</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../effects/fx/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Getting Started</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../effects/fx/async/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Asynchronous &amp; Concurrent Programming</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../effects/fx/polymorphism/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Polymorphism. One Program multiple runtimes</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>API Docs</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../arrow-typeclasses/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Type Classes</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow-core-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Core Data Types</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Core Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow-extras/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Core Extra Data Types</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow-extras-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Core Extra Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow-effects-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow-effects-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow-effects-kotlinx-coroutines-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Coroutines</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow-effects-kotlinx-coroutines-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Coroutines Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow-effects-rx2-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Rx2</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow-effects-rx2-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Rx2 Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow-effects-reactor-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Reactor</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow-effects-reactor-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effects Reactor Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow-streams/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Streams</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow-mtl/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MTL</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow-optics/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Optics</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow-recursion-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Recursion</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow-recursion-extensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Recursion Extensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow-generic/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Generic</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow-free-data/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Free</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow-validation/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Validation</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Patterns</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../patterns/glossary/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Glossary</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../patterns/error_handling/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Error Handling</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../patterns/dependency_injection/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Dependency Injection</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../patterns/monads/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>The Monad Tutorial</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../patterns/monad_comprehensions/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Monad Comprehensions</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../patterns/polymorphic_programs/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Polymorphic Programs</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../patterns/free_algebras/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Free Algebras</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Data Types</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../datatypes/intro/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Intro</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../datatypes/basic/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Basic Types</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/core/option/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Option</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/core/either/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Either</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/core/try/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Try</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/validated/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Validated</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/nonemptylist/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>NonEmptyList</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/listk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>ListK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/sequencek/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>SequenceK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/setk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>SetK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/mapk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MapK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/sortedmapk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>SortedMapK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/ior/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Ior</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/core/id/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Id</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/reader/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Reader</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/kleisli/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Kleisli</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/state/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>State</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/statet/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>StateT</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/store/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Store</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/moore/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Moore</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/sum/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Sum</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/day/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Day</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/writert/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>WriterT</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/free/trampoline/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Trampoline</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/coproduct/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Coproduct</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/core/eval/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Eval</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/optiont/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>OptionT</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/data/eithert/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>EitherT</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/core/function0/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Function0</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/core/function1/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Function1</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/const/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Const</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Type Classes</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../typeclasses/intro/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Intro</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/show/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Show</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/eq/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Eq</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/hash/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Hash</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/order/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Order</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/semigroup/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Semigroup</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow-typeclasses/arrow.typeclasses/-semigroupal/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Semigroupal</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow-typeclasses/arrow.typeclasses/-monoidal/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Monoidal</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/monoid/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Monoid</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow-typeclasses/arrow.typeclasses/-semiring/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Semiring</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/foldable/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Foldable</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/bifoldable/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Bifoldable</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/traverse/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Traverse</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/reducible/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Reducible</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/mtl/typeclasses/traversefilter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>TraverseFilter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/functor/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Functor</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/mtl/typeclasses/functorfilter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>FunctorFilter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/applicative/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Applicative</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/applicativeerror/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>ApplicativeError</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/selective/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Selective</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/monad/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Monad</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/monaderror/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadError</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/effects/typeclasses/bracket/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Bracket</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/mtl/typeclasses/monadfilter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadFilter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/mtl/typeclasses/monadreader/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadReader</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/mtl/typeclasses/monadwriter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadWriter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/mtl/typeclasses/monadstate/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadState</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/mtl/typeclasses/monadcombine/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadCombine</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/comonad/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Comonad</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/bimonad/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Bimonad</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/bifunctor/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Bifunctor</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/profunctor/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Profunctor</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/semigroupk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>SemigroupK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/monoidk/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonoidK</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://next.arrow-kt.io/docs/typeclasses/inject/">
+                        <i class="fa fa-circle"></i>
+                        <span>Inject</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/alternative/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Alternative</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/divide/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Divide</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/divisible/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Divisible</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../arrow/typeclasses/decidable/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Decidable</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Effects</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../effects/io/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>IO</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../effects/monaddefer/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>MonadDefer</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../effects/async/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Async</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../effects/effect/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Effect</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../effects/promise/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Promise</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../effects/ref/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Ref</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../effects/fiber/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Fiber</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../arrow-effects-data/arrow.effects/-resource/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Resource</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Optics</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../optics/dsl/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Optics DSL</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/iso/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Iso</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/lens/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Lens</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/optional/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Optional</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/prism/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Prism</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/getter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Getter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/setter/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Setter</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/fold/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Fold</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/traversal/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Traversal</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/cons/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Cons</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/snoc/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Snoc</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/at/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>At</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/index/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Index</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/filterindex/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>FilterIndex</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../optics/each/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Each</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>&Lambda;rrow Query Language</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../aql/intro/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>&Lambda;rrow Query Language</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../aql/select/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>select</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../aql/from/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>from</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../aql/where/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>where</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../aql/groupby/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>groupBy</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../aql/orderby/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>orderBy</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../aql/sum/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>sum</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../aql/union/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>union</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../aql/custom/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Custom Data Types</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Generic</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../generic/coproduct/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Coproduct</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../generic/product/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Product</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Integrations</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../integrations/rx2/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Rx2</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../integrations/reactor/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Reactor</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../integrations/kotlinxcoroutines/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>kotlinx.coroutines</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../integrations/retrofit/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Retrofit</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../integrations/kindedj/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>KindedJ</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Free</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../free/free/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Free</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../free/freeapplicative/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>FreeApplicative</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../free/cofree/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Cofree</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../free/yoneda/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Yoneda</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../free/coyoneda/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Coyoneda</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Recursion Schemes</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../recursion/intro/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Intro</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../recursion/recursive/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Recursive</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../recursion/corecursive/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Corecursive</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../recursion/birecursive/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Birecursive</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../recursion/mu/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Mu</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../recursion/nu/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Nu</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../recursion/fix/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Fix</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+        <li class="sidebar-nav-item">
+            <a href="index.html#">
+                <span>Legal</span>
+                
+                <i class="fa fa-angle-right"></i>
+                
+            </a>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../../legal/credits/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Credits</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../../../legal/licenses/index.html">
+                        <i class="fa fa-circle"></i>
+                        <span>Licenses</span>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+    </ul>
+
+</div>
+
+    <div id="doc-wrapper">
+    <div class="doc-header">
+        <button type="button" id="main-toggle" class="sidebar-toggle">
+            <i class="fa fa-lg fa-bars menu-icon"></i>
+        </button>
+        <div class="search-wrapper">
+          <input id="docsearch" class="search" placeholder="Search documentation..." type="search"/>
+        </div>
+        <a target="_blank" href="https://github.com/arrow-kt/arrow/edit/master/modules/docs/arrow-docs/docs/docs/apidocs/arrow-core-extensions/arrow.core.extensions/README.md">
+          <i class="fa fa-pencil"></i>
+            Edit
+        </a>
+    </div>
+    <div class="doc-content">
+        
+        <p><a href="../index.html">arrow-core-extensions</a> / <a href="index.html">arrow.core.extensions</a></p>
+
+<h2 id="package-arrowcoreextensions">Package arrow.core.extensions</h2>
+
+<h3 id="types">Types</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="-boolean-eq/index.html">BooleanEq</a></td>
+      <td><code class="highlighter-rouge">interface BooleanEq : Eq&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><code class="highlighter-rouge">Boolean</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-boolean-hash/index.html">BooleanHash</a></td>
+      <td><code class="highlighter-rouge">interface BooleanHash : Hash&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><code class="highlighter-rouge">Boolean</code></a><code class="highlighter-rouge">&gt;, </code><a href="-boolean-eq/index.html"><code class="highlighter-rouge">BooleanEq</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-boolean-show/index.html">BooleanShow</a></td>
+      <td><code class="highlighter-rouge">interface BooleanShow : Show&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><code class="highlighter-rouge">Boolean</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-byte-eq/index.html">ByteEq</a></td>
+      <td><code class="highlighter-rouge">interface ByteEq : Eq&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte/index.html"><code class="highlighter-rouge">Byte</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-byte-hash/index.html">ByteHash</a></td>
+      <td><code class="highlighter-rouge">interface ByteHash : Hash&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte/index.html"><code class="highlighter-rouge">Byte</code></a><code class="highlighter-rouge">&gt;, </code><a href="-byte-eq/index.html"><code class="highlighter-rouge">ByteEq</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-byte-monoid/index.html">ByteMonoid</a></td>
+      <td><code class="highlighter-rouge">interface ByteMonoid : Monoid&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte/index.html"><code class="highlighter-rouge">Byte</code></a><code class="highlighter-rouge">&gt;, </code><a href="-byte-semigroup/index.html"><code class="highlighter-rouge">ByteSemigroup</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-byte-order/index.html">ByteOrder</a></td>
+      <td><code class="highlighter-rouge">interface ByteOrder : Order&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte/index.html"><code class="highlighter-rouge">Byte</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-byte-semigroup/index.html">ByteSemigroup</a></td>
+      <td><code class="highlighter-rouge">interface ByteSemigroup : Semigroup&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte/index.html"><code class="highlighter-rouge">Byte</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-byte-semiring/index.html">ByteSemiring</a></td>
+      <td><code class="highlighter-rouge">interface ByteSemiring : Semiring&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte/index.html"><code class="highlighter-rouge">Byte</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-byte-show/index.html">ByteShow</a></td>
+      <td><code class="highlighter-rouge">interface ByteShow : Show&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte/index.html"><code class="highlighter-rouge">Byte</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-char-eq/index.html">CharEq</a></td>
+      <td><code class="highlighter-rouge">interface CharEq : Eq&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html"><code class="highlighter-rouge">Char</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-char-hash/index.html">CharHash</a></td>
+      <td><code class="highlighter-rouge">interface CharHash : Hash&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html"><code class="highlighter-rouge">Char</code></a><code class="highlighter-rouge">&gt;, </code><a href="-char-eq/index.html"><code class="highlighter-rouge">CharEq</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-char-order/index.html">CharOrder</a></td>
+      <td><code class="highlighter-rouge">interface CharOrder : Order&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html"><code class="highlighter-rouge">Char</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-char-show/index.html">CharShow</a></td>
+      <td><code class="highlighter-rouge">interface CharShow : Show&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html"><code class="highlighter-rouge">Char</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-const-applicative/index.html">ConstApplicative</a></td>
+      <td><code class="highlighter-rouge">interface ConstApplicative&lt;A&gt; : Applicative&lt;ConstPartialOf&lt;</code><a href="-const-applicative/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-const-contravariant/index.html">ConstContravariant</a></td>
+      <td><code class="highlighter-rouge">interface ConstContravariant&lt;A&gt; : Contravariant&lt;ConstPartialOf&lt;</code><a href="-const-contravariant/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-const-divide-instance/index.html">ConstDivideInstance</a></td>
+      <td><code class="highlighter-rouge">interface ConstDivideInstance&lt;O&gt; : Divide&lt;ConstPartialOf&lt;</code><a href="-const-divide-instance/index.html#O"><code class="highlighter-rouge">O</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-const-contravariant/index.html"><code class="highlighter-rouge">ConstContravariant</code></a><code class="highlighter-rouge">&lt;</code><a href="-const-divide-instance/index.html#O"><code class="highlighter-rouge">O</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-const-divisible-instance/index.html">ConstDivisibleInstance</a></td>
+      <td><code class="highlighter-rouge">interface ConstDivisibleInstance&lt;O&gt; : Divisible&lt;ConstPartialOf&lt;</code><a href="-const-divisible-instance/index.html#O"><code class="highlighter-rouge">O</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-const-divide-instance/index.html"><code class="highlighter-rouge">ConstDivideInstance</code></a><code class="highlighter-rouge">&lt;</code><a href="-const-divisible-instance/index.html#O"><code class="highlighter-rouge">O</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-const-eq/index.html">ConstEq</a></td>
+      <td><code class="highlighter-rouge">interface ConstEq&lt;A, T&gt; : Eq&lt;Const&lt;</code><a href="-const-eq/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-const-eq/index.html#T"><code class="highlighter-rouge">T</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-const-foldable/index.html">ConstFoldable</a></td>
+      <td><code class="highlighter-rouge">interface ConstFoldable&lt;A&gt; : Foldable&lt;ConstPartialOf&lt;</code><a href="-const-foldable/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-const-functor/index.html">ConstFunctor</a></td>
+      <td><code class="highlighter-rouge">interface ConstFunctor&lt;A&gt; : Functor&lt;ConstPartialOf&lt;</code><a href="-const-functor/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-const-hash/index.html">ConstHash</a></td>
+      <td><code class="highlighter-rouge">interface ConstHash&lt;A, T&gt; : Hash&lt;Const&lt;</code><a href="-const-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-const-hash/index.html#T"><code class="highlighter-rouge">T</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-const-eq/index.html"><code class="highlighter-rouge">ConstEq</code></a><code class="highlighter-rouge">&lt;</code><a href="-const-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-const-hash/index.html#T"><code class="highlighter-rouge">T</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-const-invariant/index.html">ConstInvariant</a></td>
+      <td><code class="highlighter-rouge">interface ConstInvariant&lt;A&gt; : Invariant&lt;ConstPartialOf&lt;</code><a href="-const-invariant/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-const-monoid/index.html">ConstMonoid</a></td>
+      <td><code class="highlighter-rouge">interface ConstMonoid&lt;A, T&gt; : Monoid&lt;ConstOf&lt;</code><a href="-const-monoid/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-const-monoid/index.html#T"><code class="highlighter-rouge">T</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-const-semigroup/index.html"><code class="highlighter-rouge">ConstSemigroup</code></a><code class="highlighter-rouge">&lt;</code><a href="-const-monoid/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-const-monoid/index.html#T"><code class="highlighter-rouge">T</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-const-semigroup/index.html">ConstSemigroup</a></td>
+      <td><code class="highlighter-rouge">interface ConstSemigroup&lt;A, T&gt; : Semigroup&lt;ConstOf&lt;</code><a href="-const-semigroup/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-const-semigroup/index.html#T"><code class="highlighter-rouge">T</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-const-show/index.html">ConstShow</a></td>
+      <td><code class="highlighter-rouge">interface ConstShow&lt;A, T&gt; : Show&lt;Const&lt;</code><a href="-const-show/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-const-show/index.html#T"><code class="highlighter-rouge">T</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-const-traverse/index.html">ConstTraverse</a></td>
+      <td><code class="highlighter-rouge">interface ConstTraverse&lt;X&gt; : Traverse&lt;ConstPartialOf&lt;</code><a href="-const-traverse/index.html#X"><code class="highlighter-rouge">X</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-const-foldable/index.html"><code class="highlighter-rouge">ConstFoldable</code></a><code class="highlighter-rouge">&lt;</code><a href="-const-traverse/index.html#X"><code class="highlighter-rouge">X</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-double-eq/index.html">DoubleEq</a></td>
+      <td><code class="highlighter-rouge">interface DoubleEq : Eq&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><code class="highlighter-rouge">Double</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-double-hash/index.html">DoubleHash</a></td>
+      <td><code class="highlighter-rouge">interface DoubleHash : Hash&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><code class="highlighter-rouge">Double</code></a><code class="highlighter-rouge">&gt;, </code><a href="-double-eq/index.html"><code class="highlighter-rouge">DoubleEq</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-double-monoid/index.html">DoubleMonoid</a></td>
+      <td><code class="highlighter-rouge">interface DoubleMonoid : Monoid&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><code class="highlighter-rouge">Double</code></a><code class="highlighter-rouge">&gt;, </code><a href="-double-semigroup/index.html"><code class="highlighter-rouge">DoubleSemigroup</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-double-order/index.html">DoubleOrder</a></td>
+      <td><code class="highlighter-rouge">interface DoubleOrder : Order&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><code class="highlighter-rouge">Double</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-double-semigroup/index.html">DoubleSemigroup</a></td>
+      <td><code class="highlighter-rouge">interface DoubleSemigroup : Semigroup&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><code class="highlighter-rouge">Double</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-double-semiring/index.html">DoubleSemiring</a></td>
+      <td><code class="highlighter-rouge">interface DoubleSemiring : Semiring&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><code class="highlighter-rouge">Double</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-double-show/index.html">DoubleShow</a></td>
+      <td><code class="highlighter-rouge">interface DoubleShow : Show&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><code class="highlighter-rouge">Double</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-either-applicative/index.html">EitherApplicative</a></td>
+      <td><code class="highlighter-rouge">interface EitherApplicative&lt;L&gt; : Applicative&lt;EitherPartialOf&lt;</code><a href="-either-applicative/index.html#L"><code class="highlighter-rouge">L</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-either-functor/index.html"><code class="highlighter-rouge">EitherFunctor</code></a><code class="highlighter-rouge">&lt;</code><a href="-either-applicative/index.html#L"><code class="highlighter-rouge">L</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-either-applicative-error/index.html">EitherApplicativeError</a></td>
+      <td><code class="highlighter-rouge">interface EitherApplicativeError&lt;L&gt; : ApplicativeError&lt;EitherPartialOf&lt;</code><a href="-either-applicative-error/index.html#L"><code class="highlighter-rouge">L</code></a><code class="highlighter-rouge">&gt;, </code><a href="-either-applicative-error/index.html#L"><code class="highlighter-rouge">L</code></a><code class="highlighter-rouge">&gt;, </code><a href="-either-applicative/index.html"><code class="highlighter-rouge">EitherApplicative</code></a><code class="highlighter-rouge">&lt;</code><a href="-either-applicative-error/index.html#L"><code class="highlighter-rouge">L</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-either-bifunctor/index.html">EitherBifunctor</a></td>
+      <td><code class="highlighter-rouge">interface EitherBifunctor : Bifunctor&lt;ForEither&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-either-eq/index.html">EitherEq</a></td>
+      <td><code class="highlighter-rouge">interface EitherEq&lt;in L, in R&gt; : Eq&lt;Either&lt;</code><a href="-either-eq/index.html#L"><code class="highlighter-rouge">L</code></a><code class="highlighter-rouge">, </code><a href="-either-eq/index.html#R"><code class="highlighter-rouge">R</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-either-foldable/index.html">EitherFoldable</a></td>
+      <td><code class="highlighter-rouge">interface EitherFoldable&lt;L&gt; : Foldable&lt;EitherPartialOf&lt;</code><a href="-either-foldable/index.html#L"><code class="highlighter-rouge">L</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-either-functor/index.html">EitherFunctor</a></td>
+      <td><code class="highlighter-rouge">interface EitherFunctor&lt;L&gt; : Functor&lt;EitherPartialOf&lt;</code><a href="-either-functor/index.html#L"><code class="highlighter-rouge">L</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-either-fx/index.html">EitherFx</a></td>
+      <td><code class="highlighter-rouge">interface EitherFx&lt;L&gt; : Fx&lt;EitherPartialOf&lt;</code><a href="-either-fx/index.html#L"><code class="highlighter-rouge">L</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-either-hash/index.html">EitherHash</a></td>
+      <td><code class="highlighter-rouge">interface EitherHash&lt;L, R&gt; : Hash&lt;Either&lt;</code><a href="-either-hash/index.html#L"><code class="highlighter-rouge">L</code></a><code class="highlighter-rouge">, </code><a href="-either-hash/index.html#R"><code class="highlighter-rouge">R</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-either-eq/index.html"><code class="highlighter-rouge">EitherEq</code></a><code class="highlighter-rouge">&lt;</code><a href="-either-hash/index.html#L"><code class="highlighter-rouge">L</code></a><code class="highlighter-rouge">, </code><a href="-either-hash/index.html#R"><code class="highlighter-rouge">R</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-either-monad/index.html">EitherMonad</a></td>
+      <td><code class="highlighter-rouge">interface EitherMonad&lt;L&gt; : Monad&lt;EitherPartialOf&lt;</code><a href="-either-monad/index.html#L"><code class="highlighter-rouge">L</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-either-applicative/index.html"><code class="highlighter-rouge">EitherApplicative</code></a><code class="highlighter-rouge">&lt;</code><a href="-either-monad/index.html#L"><code class="highlighter-rouge">L</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-either-monad-error.html">EitherMonadError</a></td>
+      <td><code class="highlighter-rouge">interface EitherMonadError&lt;L&gt; : MonadError&lt;EitherPartialOf&lt;</code><a href="-either-monad-error.html#L"><code class="highlighter-rouge">L</code></a><code class="highlighter-rouge">&gt;, </code><a href="-either-monad-error.html#L"><code class="highlighter-rouge">L</code></a><code class="highlighter-rouge">&gt;, </code><a href="-either-applicative-error/index.html"><code class="highlighter-rouge">EitherApplicativeError</code></a><code class="highlighter-rouge">&lt;</code><a href="-either-monad-error.html#L"><code class="highlighter-rouge">L</code></a><code class="highlighter-rouge">&gt;, </code><a href="-either-monad/index.html"><code class="highlighter-rouge">EitherMonad</code></a><code class="highlighter-rouge">&lt;</code><a href="-either-monad-error.html#L"><code class="highlighter-rouge">L</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-either-monoid/index.html">EitherMonoid</a></td>
+      <td><code class="highlighter-rouge">interface EitherMonoid&lt;L, R&gt; : Monoid&lt;Either&lt;</code><a href="-either-monoid/index.html#L"><code class="highlighter-rouge">L</code></a><code class="highlighter-rouge">, </code><a href="-either-monoid/index.html#R"><code class="highlighter-rouge">R</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-either-semigroup/index.html"><code class="highlighter-rouge">EitherSemigroup</code></a><code class="highlighter-rouge">&lt;</code><a href="-either-monoid/index.html#L"><code class="highlighter-rouge">L</code></a><code class="highlighter-rouge">, </code><a href="-either-monoid/index.html#R"><code class="highlighter-rouge">R</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-either-semigroup/index.html">EitherSemigroup</a></td>
+      <td><code class="highlighter-rouge">interface EitherSemigroup&lt;L, R&gt; : Semigroup&lt;Either&lt;</code><a href="-either-semigroup/index.html#L"><code class="highlighter-rouge">L</code></a><code class="highlighter-rouge">, </code><a href="-either-semigroup/index.html#R"><code class="highlighter-rouge">R</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-either-semigroup-k/index.html">EitherSemigroupK</a></td>
+      <td><code class="highlighter-rouge">interface EitherSemigroupK&lt;L&gt; : SemigroupK&lt;EitherPartialOf&lt;</code><a href="-either-semigroup-k/index.html#L"><code class="highlighter-rouge">L</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-either-show/index.html">EitherShow</a></td>
+      <td><code class="highlighter-rouge">interface EitherShow&lt;L, R&gt; : Show&lt;Either&lt;</code><a href="-either-show/index.html#L"><code class="highlighter-rouge">L</code></a><code class="highlighter-rouge">, </code><a href="-either-show/index.html#R"><code class="highlighter-rouge">R</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-either-traverse/index.html">EitherTraverse</a></td>
+      <td><code class="highlighter-rouge">interface EitherTraverse&lt;L&gt; : Traverse&lt;EitherPartialOf&lt;</code><a href="-either-traverse/index.html#L"><code class="highlighter-rouge">L</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-either-foldable/index.html"><code class="highlighter-rouge">EitherFoldable</code></a><code class="highlighter-rouge">&lt;</code><a href="-either-traverse/index.html#L"><code class="highlighter-rouge">L</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-eval-applicative/index.html">EvalApplicative</a></td>
+      <td><code class="highlighter-rouge">interface EvalApplicative : Applicative&lt;ForEval&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-eval-bimonad/index.html">EvalBimonad</a></td>
+      <td><code class="highlighter-rouge">interface EvalBimonad : Bimonad&lt;ForEval&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-eval-comonad/index.html">EvalComonad</a></td>
+      <td><code class="highlighter-rouge">interface EvalComonad : Comonad&lt;ForEval&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-eval-functor/index.html">EvalFunctor</a></td>
+      <td><code class="highlighter-rouge">interface EvalFunctor : Functor&lt;ForEval&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-eval-fx/index.html">EvalFx</a></td>
+      <td><code class="highlighter-rouge">interface EvalFx&lt;A&gt; : Fx&lt;ForEval&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-eval-monad/index.html">EvalMonad</a></td>
+      <td><code class="highlighter-rouge">interface EvalMonad : Monad&lt;ForEval&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-float-eq/index.html">FloatEq</a></td>
+      <td><code class="highlighter-rouge">interface FloatEq : Eq&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><code class="highlighter-rouge">Float</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-float-hash/index.html">FloatHash</a></td>
+      <td><code class="highlighter-rouge">interface FloatHash : Hash&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><code class="highlighter-rouge">Float</code></a><code class="highlighter-rouge">&gt;, </code><a href="-float-eq/index.html"><code class="highlighter-rouge">FloatEq</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-float-monoid/index.html">FloatMonoid</a></td>
+      <td><code class="highlighter-rouge">interface FloatMonoid : Monoid&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><code class="highlighter-rouge">Float</code></a><code class="highlighter-rouge">&gt;, </code><a href="-float-semigroup/index.html"><code class="highlighter-rouge">FloatSemigroup</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-float-order/index.html">FloatOrder</a></td>
+      <td><code class="highlighter-rouge">interface FloatOrder : Order&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><code class="highlighter-rouge">Float</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-float-semigroup/index.html">FloatSemigroup</a></td>
+      <td><code class="highlighter-rouge">interface FloatSemigroup : Semigroup&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><code class="highlighter-rouge">Float</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-float-semiring/index.html">FloatSemiring</a></td>
+      <td><code class="highlighter-rouge">interface FloatSemiring : Semiring&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><code class="highlighter-rouge">Float</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-float-show/index.html">FloatShow</a></td>
+      <td><code class="highlighter-rouge">interface FloatShow : Show&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><code class="highlighter-rouge">Float</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-for-string/index.html">ForString</a></td>
+      <td><code class="highlighter-rouge">object ForString</code></td>
+    </tr>
+    <tr>
+      <td><a href="-function0-applicative/index.html">Function0Applicative</a></td>
+      <td><code class="highlighter-rouge">interface Function0Applicative : Applicative&lt;ForFunction0&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-function0-bimonad/index.html">Function0Bimonad</a></td>
+      <td><code class="highlighter-rouge">interface Function0Bimonad : Bimonad&lt;ForFunction0&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-function0-comonad/index.html">Function0Comonad</a></td>
+      <td><code class="highlighter-rouge">interface Function0Comonad : Comonad&lt;ForFunction0&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-function0-functor/index.html">Function0Functor</a></td>
+      <td><code class="highlighter-rouge">interface Function0Functor : Functor&lt;ForFunction0&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-function0-fx/index.html">Function0Fx</a></td>
+      <td><code class="highlighter-rouge">interface Function0Fx&lt;A&gt; : Fx&lt;ForFunction0&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-function0-monad/index.html">Function0Monad</a></td>
+      <td><code class="highlighter-rouge">interface Function0Monad : Monad&lt;ForFunction0&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-function0-monoid/index.html">Function0Monoid</a></td>
+      <td><code class="highlighter-rouge">interface Function0Monoid&lt;A&gt; : Monoid&lt;() -&gt; </code><a href="-function0-monoid/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;, </code><a href="-function0-semigroup/index.html"><code class="highlighter-rouge">Function0Semigroup</code></a><code class="highlighter-rouge">&lt;</code><a href="-function0-monoid/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-function0-selective/index.html">Function0Selective</a></td>
+      <td><code class="highlighter-rouge">interface Function0Selective : Selective&lt;ForFunction0&gt;, </code><a href="-function0-applicative/index.html"><code class="highlighter-rouge">Function0Applicative</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-function0-semigroup/index.html">Function0Semigroup</a></td>
+      <td><code class="highlighter-rouge">interface Function0Semigroup&lt;A&gt; : Semigroup&lt;() -&gt; </code><a href="-function0-semigroup/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-function1-applicative/index.html">Function1Applicative</a></td>
+      <td><code class="highlighter-rouge">interface Function1Applicative&lt;I&gt; : Applicative&lt;Function1PartialOf&lt;</code><a href="-function1-applicative/index.html#I"><code class="highlighter-rouge">I</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-function1-functor/index.html"><code class="highlighter-rouge">Function1Functor</code></a><code class="highlighter-rouge">&lt;</code><a href="-function1-applicative/index.html#I"><code class="highlighter-rouge">I</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-function1-category/index.html">Function1Category</a></td>
+      <td><code class="highlighter-rouge">interface Function1Category : Category&lt;ForFunction1&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-function1-contravariant/index.html">Function1Contravariant</a></td>
+      <td><code class="highlighter-rouge">interface Function1Contravariant&lt;O&gt; : Contravariant&lt;Conested&lt;ForFunction1, </code><a href="-function1-contravariant/index.html#O"><code class="highlighter-rouge">O</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-function1-decidable/index.html">Function1Decidable</a></td>
+      <td><code class="highlighter-rouge">interface Function1Decidable&lt;O&gt; : Decidable&lt;Conested&lt;ForFunction1, </code><a href="-function1-decidable/index.html#O"><code class="highlighter-rouge">O</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-function1-divisible/index.html"><code class="highlighter-rouge">Function1Divisible</code></a><code class="highlighter-rouge">&lt;</code><a href="-function1-decidable/index.html#O"><code class="highlighter-rouge">O</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-function1-divide/index.html">Function1Divide</a></td>
+      <td><code class="highlighter-rouge">interface Function1Divide&lt;O&gt; : Divide&lt;Conested&lt;ForFunction1, </code><a href="-function1-divide/index.html#O"><code class="highlighter-rouge">O</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-function1-contravariant/index.html"><code class="highlighter-rouge">Function1Contravariant</code></a><code class="highlighter-rouge">&lt;</code><a href="-function1-divide/index.html#O"><code class="highlighter-rouge">O</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-function1-divisible/index.html">Function1Divisible</a></td>
+      <td><code class="highlighter-rouge">interface Function1Divisible&lt;O&gt; : Divisible&lt;Conested&lt;ForFunction1, </code><a href="-function1-divisible/index.html#O"><code class="highlighter-rouge">O</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-function1-divide/index.html"><code class="highlighter-rouge">Function1Divide</code></a><code class="highlighter-rouge">&lt;</code><a href="-function1-divisible/index.html#O"><code class="highlighter-rouge">O</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-function1-functor/index.html">Function1Functor</a></td>
+      <td><code class="highlighter-rouge">interface Function1Functor&lt;I&gt; : Functor&lt;Function1PartialOf&lt;</code><a href="-function1-functor/index.html#I"><code class="highlighter-rouge">I</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-function1-fx/index.html">Function1Fx</a></td>
+      <td><code class="highlighter-rouge">interface Function1Fx&lt;A&gt; : Fx&lt;Function1PartialOf&lt;</code><a href="-function1-fx/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-function1-monad/index.html">Function1Monad</a></td>
+      <td><code class="highlighter-rouge">interface Function1Monad&lt;I&gt; : Monad&lt;Function1PartialOf&lt;</code><a href="-function1-monad/index.html#I"><code class="highlighter-rouge">I</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-function1-applicative/index.html"><code class="highlighter-rouge">Function1Applicative</code></a><code class="highlighter-rouge">&lt;</code><a href="-function1-monad/index.html#I"><code class="highlighter-rouge">I</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-function1-monoid/index.html">Function1Monoid</a></td>
+      <td><code class="highlighter-rouge">interface Function1Monoid&lt;A, B&gt; : Monoid&lt;(</code><a href="-function1-monoid/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">) -&gt; </code><a href="-function1-monoid/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">&gt;, </code><a href="-function1-semigroup/index.html"><code class="highlighter-rouge">Function1Semigroup</code></a><code class="highlighter-rouge">&lt;</code><a href="-function1-monoid/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-function1-monoid/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-function1-profunctor/index.html">Function1Profunctor</a></td>
+      <td><code class="highlighter-rouge">interface Function1Profunctor : Profunctor&lt;ForFunction1&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-function1-semigroup/index.html">Function1Semigroup</a></td>
+      <td><code class="highlighter-rouge">interface Function1Semigroup&lt;A, B&gt; : Semigroup&lt;(</code><a href="-function1-semigroup/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">) -&gt; </code><a href="-function1-semigroup/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-id-applicative/index.html">IdApplicative</a></td>
+      <td><code class="highlighter-rouge">interface IdApplicative : Applicative&lt;ForId&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-id-bimonad/index.html">IdBimonad</a></td>
+      <td><code class="highlighter-rouge">interface IdBimonad : Bimonad&lt;ForId&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-id-comonad/index.html">IdComonad</a></td>
+      <td><code class="highlighter-rouge">interface IdComonad : Comonad&lt;ForId&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-id-eq/index.html">IdEq</a></td>
+      <td><code class="highlighter-rouge">interface IdEq&lt;A&gt; : Eq&lt;Id&lt;</code><a href="-id-eq/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-id-foldable/index.html">IdFoldable</a></td>
+      <td><code class="highlighter-rouge">interface IdFoldable : Foldable&lt;ForId&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-id-functor/index.html">IdFunctor</a></td>
+      <td><code class="highlighter-rouge">interface IdFunctor : Functor&lt;ForId&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-id-fx/index.html">IdFx</a></td>
+      <td><code class="highlighter-rouge">interface IdFx&lt;A&gt; : Fx&lt;ForId&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-id-hash/index.html">IdHash</a></td>
+      <td><code class="highlighter-rouge">interface IdHash&lt;A&gt; : Hash&lt;Id&lt;</code><a href="-id-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-id-eq/index.html"><code class="highlighter-rouge">IdEq</code></a><code class="highlighter-rouge">&lt;</code><a href="-id-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-id-monad/index.html">IdMonad</a></td>
+      <td><code class="highlighter-rouge">interface IdMonad : Monad&lt;ForId&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-id-monoid/index.html">IdMonoid</a></td>
+      <td><code class="highlighter-rouge">interface IdMonoid&lt;A&gt; : Monoid&lt;Id&lt;</code><a href="-id-monoid/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-id-semigroup/index.html"><code class="highlighter-rouge">IdSemigroup</code></a><code class="highlighter-rouge">&lt;</code><a href="-id-monoid/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-id-selective/index.html">IdSelective</a></td>
+      <td><code class="highlighter-rouge">interface IdSelective : Selective&lt;ForId&gt;, </code><a href="-id-applicative/index.html"><code class="highlighter-rouge">IdApplicative</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-id-semigroup/index.html">IdSemigroup</a></td>
+      <td><code class="highlighter-rouge">interface IdSemigroup&lt;A&gt; : Semigroup&lt;Id&lt;</code><a href="-id-semigroup/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-id-show/index.html">IdShow</a></td>
+      <td><code class="highlighter-rouge">interface IdShow&lt;A&gt; : Show&lt;Id&lt;</code><a href="-id-show/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-id-traverse/index.html">IdTraverse</a></td>
+      <td><code class="highlighter-rouge">interface IdTraverse : Traverse&lt;ForId&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-int-eq/index.html">IntEq</a></td>
+      <td><code class="highlighter-rouge">interface IntEq : Eq&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><code class="highlighter-rouge">Int</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-int-hash/index.html">IntHash</a></td>
+      <td><code class="highlighter-rouge">interface IntHash : Hash&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><code class="highlighter-rouge">Int</code></a><code class="highlighter-rouge">&gt;, </code><a href="-int-eq/index.html"><code class="highlighter-rouge">IntEq</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-int-monoid/index.html">IntMonoid</a></td>
+      <td><code class="highlighter-rouge">interface IntMonoid : Monoid&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><code class="highlighter-rouge">Int</code></a><code class="highlighter-rouge">&gt;, </code><a href="-int-semigroup/index.html"><code class="highlighter-rouge">IntSemigroup</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-int-order/index.html">IntOrder</a></td>
+      <td><code class="highlighter-rouge">interface IntOrder : Order&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><code class="highlighter-rouge">Int</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-int-semigroup/index.html">IntSemigroup</a></td>
+      <td><code class="highlighter-rouge">interface IntSemigroup : Semigroup&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><code class="highlighter-rouge">Int</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-int-semiring/index.html">IntSemiring</a></td>
+      <td><code class="highlighter-rouge">interface IntSemiring : Semiring&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><code class="highlighter-rouge">Int</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-int-show/index.html">IntShow</a></td>
+      <td><code class="highlighter-rouge">interface IntShow : Show&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><code class="highlighter-rouge">Int</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-long-eq/index.html">LongEq</a></td>
+      <td><code class="highlighter-rouge">interface LongEq : Eq&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><code class="highlighter-rouge">Long</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-long-hash/index.html">LongHash</a></td>
+      <td><code class="highlighter-rouge">interface LongHash : Hash&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><code class="highlighter-rouge">Long</code></a><code class="highlighter-rouge">&gt;, </code><a href="-long-eq/index.html"><code class="highlighter-rouge">LongEq</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-long-monoid/index.html">LongMonoid</a></td>
+      <td><code class="highlighter-rouge">interface LongMonoid : Monoid&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><code class="highlighter-rouge">Long</code></a><code class="highlighter-rouge">&gt;, </code><a href="-long-semigroup/index.html"><code class="highlighter-rouge">LongSemigroup</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-long-order/index.html">LongOrder</a></td>
+      <td><code class="highlighter-rouge">interface LongOrder : Order&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><code class="highlighter-rouge">Long</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-long-semigroup/index.html">LongSemigroup</a></td>
+      <td><code class="highlighter-rouge">interface LongSemigroup : Semigroup&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><code class="highlighter-rouge">Long</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-long-semiring/index.html">LongSemiring</a></td>
+      <td><code class="highlighter-rouge">interface LongSemiring : Semiring&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><code class="highlighter-rouge">Long</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-long-show/index.html">LongShow</a></td>
+      <td><code class="highlighter-rouge">interface LongShow : Show&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><code class="highlighter-rouge">Long</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-monoid-invariant/index.html">MonoidInvariant</a></td>
+      <td><code class="highlighter-rouge">interface MonoidInvariant&lt;A&gt; : Invariant&lt;ForMonoid&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-option-applicative/index.html">OptionApplicative</a></td>
+      <td><code class="highlighter-rouge">interface OptionApplicative : Applicative&lt;ForOption&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-option-applicative-error/index.html">OptionApplicativeError</a></td>
+      <td><code class="highlighter-rouge">interface OptionApplicativeError : ApplicativeError&lt;ForOption, </code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><code class="highlighter-rouge">Unit</code></a><code class="highlighter-rouge">&gt;, </code><a href="-option-applicative/index.html"><code class="highlighter-rouge">OptionApplicative</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-option-eq/index.html">OptionEq</a></td>
+      <td><code class="highlighter-rouge">interface OptionEq&lt;A&gt; : Eq&lt;Option&lt;</code><a href="-option-eq/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-option-foldable/index.html">OptionFoldable</a></td>
+      <td><code class="highlighter-rouge">interface OptionFoldable : Foldable&lt;ForOption&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-option-functor/index.html">OptionFunctor</a></td>
+      <td><code class="highlighter-rouge">interface OptionFunctor : Functor&lt;ForOption&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-option-fx/index.html">OptionFx</a></td>
+      <td><code class="highlighter-rouge">interface OptionFx : Fx&lt;ForOption&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-option-hash/index.html">OptionHash</a></td>
+      <td><code class="highlighter-rouge">interface OptionHash&lt;A&gt; : Hash&lt;Option&lt;</code><a href="-option-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-option-eq/index.html"><code class="highlighter-rouge">OptionEq</code></a><code class="highlighter-rouge">&lt;</code><a href="-option-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-option-monad/index.html">OptionMonad</a></td>
+      <td><code class="highlighter-rouge">interface OptionMonad : Monad&lt;ForOption&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-option-monad-error/index.html">OptionMonadError</a></td>
+      <td><code class="highlighter-rouge">interface OptionMonadError : MonadError&lt;ForOption, </code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><code class="highlighter-rouge">Unit</code></a><code class="highlighter-rouge">&gt;, </code><a href="-option-monad/index.html"><code class="highlighter-rouge">OptionMonad</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-option-monoid/index.html">OptionMonoid</a></td>
+      <td><code class="highlighter-rouge">interface OptionMonoid&lt;A&gt; : Monoid&lt;Option&lt;</code><a href="-option-monoid/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-option-semigroup/index.html"><code class="highlighter-rouge">OptionSemigroup</code></a><code class="highlighter-rouge">&lt;</code><a href="-option-monoid/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-option-monoidal/index.html">OptionMonoidal</a></td>
+      <td><code class="highlighter-rouge">interface OptionMonoidal : Monoidal&lt;ForOption&gt;, </code><a href="-option-semigroupal/index.html"><code class="highlighter-rouge">OptionSemigroupal</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-option-monoid-k/index.html">OptionMonoidK</a></td>
+      <td><code class="highlighter-rouge">interface OptionMonoidK : MonoidK&lt;ForOption&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-option-selective/index.html">OptionSelective</a></td>
+      <td><code class="highlighter-rouge">interface OptionSelective : Selective&lt;ForOption&gt;, </code><a href="-option-applicative/index.html"><code class="highlighter-rouge">OptionApplicative</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-option-semigroup/index.html">OptionSemigroup</a></td>
+      <td><code class="highlighter-rouge">interface OptionSemigroup&lt;A&gt; : Semigroup&lt;Option&lt;</code><a href="-option-semigroup/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-option-semigroupal/index.html">OptionSemigroupal</a></td>
+      <td><code class="highlighter-rouge">interface OptionSemigroupal : Semigroupal&lt;ForOption&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-option-semigroup-k/index.html">OptionSemigroupK</a></td>
+      <td><code class="highlighter-rouge">interface OptionSemigroupK : SemigroupK&lt;ForOption&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-option-semiring/index.html">OptionSemiring</a></td>
+      <td><code class="highlighter-rouge">interface OptionSemiring&lt;A&gt; : Semiring&lt;Option&lt;</code><a href="-option-semiring/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-option-show/index.html">OptionShow</a></td>
+      <td><code class="highlighter-rouge">interface OptionShow&lt;A&gt; : Show&lt;Option&lt;</code><a href="-option-show/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-option-traverse/index.html">OptionTraverse</a></td>
+      <td><code class="highlighter-rouge">interface OptionTraverse : Traverse&lt;ForOption&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-short-eq/index.html">ShortEq</a></td>
+      <td><code class="highlighter-rouge">interface ShortEq : Eq&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-short/index.html"><code class="highlighter-rouge">Short</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-short-hash/index.html">ShortHash</a></td>
+      <td><code class="highlighter-rouge">interface ShortHash : Hash&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-short/index.html"><code class="highlighter-rouge">Short</code></a><code class="highlighter-rouge">&gt;, </code><a href="-short-eq/index.html"><code class="highlighter-rouge">ShortEq</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-short-monoid/index.html">ShortMonoid</a></td>
+      <td><code class="highlighter-rouge">interface ShortMonoid : Monoid&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-short/index.html"><code class="highlighter-rouge">Short</code></a><code class="highlighter-rouge">&gt;, </code><a href="-short-semigroup/index.html"><code class="highlighter-rouge">ShortSemigroup</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-short-order/index.html">ShortOrder</a></td>
+      <td><code class="highlighter-rouge">interface ShortOrder : Order&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-short/index.html"><code class="highlighter-rouge">Short</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-short-semigroup/index.html">ShortSemigroup</a></td>
+      <td><code class="highlighter-rouge">interface ShortSemigroup : Semigroup&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-short/index.html"><code class="highlighter-rouge">Short</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-short-semiring/index.html">ShortSemiring</a></td>
+      <td><code class="highlighter-rouge">interface ShortSemiring : Semiring&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-short/index.html"><code class="highlighter-rouge">Short</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-short-show/index.html">ShortShow</a></td>
+      <td><code class="highlighter-rouge">interface ShortShow : Show&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-short/index.html"><code class="highlighter-rouge">Short</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-string-context.html">StringContext</a></td>
+      <td><code class="highlighter-rouge">object StringContext : </code><a href="-string-show/index.html"><code class="highlighter-rouge">StringShow</code></a><code class="highlighter-rouge">, </code><a href="-string-order/index.html"><code class="highlighter-rouge">StringOrder</code></a><code class="highlighter-rouge">, </code><a href="-string-monoid/index.html"><code class="highlighter-rouge">StringMonoid</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-string-eq/index.html">StringEq</a></td>
+      <td><code class="highlighter-rouge">interface StringEq : Eq&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><code class="highlighter-rouge">String</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-string-hash/index.html">StringHash</a></td>
+      <td><code class="highlighter-rouge">interface StringHash : Hash&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><code class="highlighter-rouge">String</code></a><code class="highlighter-rouge">&gt;, </code><a href="-string-eq/index.html"><code class="highlighter-rouge">StringEq</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-string-monoid/index.html">StringMonoid</a></td>
+      <td><code class="highlighter-rouge">interface StringMonoid : Monoid&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><code class="highlighter-rouge">String</code></a><code class="highlighter-rouge">&gt;, </code><a href="-string-semigroup/index.html"><code class="highlighter-rouge">StringSemigroup</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-string-order/index.html">StringOrder</a></td>
+      <td><code class="highlighter-rouge">interface StringOrder : Order&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><code class="highlighter-rouge">String</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-string-semigroup/index.html">StringSemigroup</a></td>
+      <td><code class="highlighter-rouge">interface StringSemigroup : Semigroup&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><code class="highlighter-rouge">String</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-string-show/index.html">StringShow</a></td>
+      <td><code class="highlighter-rouge">interface StringShow : Show&lt;</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><code class="highlighter-rouge">String</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-try-applicative/index.html">TryApplicative</a></td>
+      <td><code class="highlighter-rouge">interface TryApplicative : Applicative&lt;ForTry&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-try-applicative-error/index.html">TryApplicativeError</a></td>
+      <td><code class="highlighter-rouge">interface TryApplicativeError : ApplicativeError&lt;ForTry, </code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html"><code class="highlighter-rouge">Throwable</code></a><code class="highlighter-rouge">&gt;, </code><a href="-try-applicative/index.html"><code class="highlighter-rouge">TryApplicative</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-try-eq/index.html">TryEq</a></td>
+      <td><code class="highlighter-rouge">interface TryEq&lt;A&gt; : Eq&lt;Try&lt;</code><a href="-try-eq/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-try-foldable/index.html">TryFoldable</a></td>
+      <td><code class="highlighter-rouge">interface TryFoldable : Foldable&lt;ForTry&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-try-functor/index.html">TryFunctor</a></td>
+      <td><code class="highlighter-rouge">interface TryFunctor : Functor&lt;ForTry&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-try-fx/index.html">TryFx</a></td>
+      <td><code class="highlighter-rouge">interface TryFx : Fx&lt;ForTry&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-try-hash/index.html">TryHash</a></td>
+      <td><code class="highlighter-rouge">interface TryHash&lt;A&gt; : Hash&lt;Try&lt;</code><a href="-try-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-try-eq/index.html"><code class="highlighter-rouge">TryEq</code></a><code class="highlighter-rouge">&lt;</code><a href="-try-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-try-monad/index.html">TryMonad</a></td>
+      <td><code class="highlighter-rouge">interface TryMonad : Monad&lt;ForTry&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-try-monad-error/index.html">TryMonadError</a></td>
+      <td><code class="highlighter-rouge">interface TryMonadError : MonadError&lt;ForTry, </code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html"><code class="highlighter-rouge">Throwable</code></a><code class="highlighter-rouge">&gt;, </code><a href="-try-monad/index.html"><code class="highlighter-rouge">TryMonad</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-try-monad-throw.html">TryMonadThrow</a></td>
+      <td><code class="highlighter-rouge">interface TryMonadThrow : MonadThrow&lt;ForTry&gt;, </code><a href="-try-monad-error/index.html"><code class="highlighter-rouge">TryMonadError</code></a></td>
+    </tr>
+    <tr>
+      <td><a href="-try-monoid/index.html">TryMonoid</a></td>
+      <td><code class="highlighter-rouge">interface TryMonoid&lt;A&gt; : Monoid&lt;Try&lt;</code><a href="-try-monoid/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-try-semigroup/index.html"><code class="highlighter-rouge">TrySemigroup</code></a><code class="highlighter-rouge">&lt;</code><a href="-try-monoid/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-try-semigroup/index.html">TrySemigroup</a></td>
+      <td><code class="highlighter-rouge">interface TrySemigroup&lt;A&gt; : Semigroup&lt;Try&lt;</code><a href="-try-semigroup/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-try-show/index.html">TryShow</a></td>
+      <td><code class="highlighter-rouge">interface TryShow&lt;A&gt; : Show&lt;Try&lt;</code><a href="-try-show/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-try-traverse/index.html">TryTraverse</a></td>
+      <td><code class="highlighter-rouge">interface TryTraverse : Traverse&lt;ForTry&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple10-eq/index.html">Tuple10Eq</a></td>
+      <td><code class="highlighter-rouge">interface Tuple10Eq&lt;A, B, C, D, E, F, G, H, I, J&gt; : Eq&lt;Tuple10&lt;</code><a href="-tuple10-eq/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-eq/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-eq/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-eq/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-eq/index.html#E"><code class="highlighter-rouge">E</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-eq/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-eq/index.html#G"><code class="highlighter-rouge">G</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-eq/index.html#H"><code class="highlighter-rouge">H</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-eq/index.html#I"><code class="highlighter-rouge">I</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-eq/index.html#J"><code class="highlighter-rouge">J</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple10-hash/index.html">Tuple10Hash</a></td>
+      <td><code class="highlighter-rouge">interface Tuple10Hash&lt;A, B, C, D, E, F, G, H, I, J&gt; : Hash&lt;Tuple10&lt;</code><a href="-tuple10-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-hash/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-hash/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-hash/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-hash/index.html#E"><code class="highlighter-rouge">E</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-hash/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-hash/index.html#G"><code class="highlighter-rouge">G</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-hash/index.html#H"><code class="highlighter-rouge">H</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-hash/index.html#I"><code class="highlighter-rouge">I</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-hash/index.html#J"><code class="highlighter-rouge">J</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-tuple10-eq/index.html"><code class="highlighter-rouge">Tuple10Eq</code></a><code class="highlighter-rouge">&lt;</code><a href="-tuple10-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-hash/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-hash/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-hash/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-hash/index.html#E"><code class="highlighter-rouge">E</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-hash/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-hash/index.html#G"><code class="highlighter-rouge">G</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-hash/index.html#H"><code class="highlighter-rouge">H</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-hash/index.html#I"><code class="highlighter-rouge">I</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-hash/index.html#J"><code class="highlighter-rouge">J</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple10-show/index.html">Tuple10Show</a></td>
+      <td><code class="highlighter-rouge">interface Tuple10Show&lt;A, B, C, D, E, F, G, H, I, J&gt; : Show&lt;Tuple10&lt;</code><a href="-tuple10-show/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-show/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-show/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-show/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-show/index.html#E"><code class="highlighter-rouge">E</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-show/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-show/index.html#G"><code class="highlighter-rouge">G</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-show/index.html#H"><code class="highlighter-rouge">H</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-show/index.html#I"><code class="highlighter-rouge">I</code></a><code class="highlighter-rouge">, </code><a href="-tuple10-show/index.html#J"><code class="highlighter-rouge">J</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple2-applicative/index.html">Tuple2Applicative</a></td>
+      <td><code class="highlighter-rouge">interface Tuple2Applicative&lt;F&gt; : Applicative&lt;Tuple2PartialOf&lt;</code><a href="-tuple2-applicative/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-tuple2-functor/index.html"><code class="highlighter-rouge">Tuple2Functor</code></a><code class="highlighter-rouge">&lt;</code><a href="-tuple2-applicative/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple2-bifunctor/index.html">Tuple2Bifunctor</a></td>
+      <td><code class="highlighter-rouge">interface Tuple2Bifunctor : Bifunctor&lt;ForTuple2&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple2-comonad/index.html">Tuple2Comonad</a></td>
+      <td><code class="highlighter-rouge">interface Tuple2Comonad&lt;F&gt; : Comonad&lt;Tuple2PartialOf&lt;</code><a href="-tuple2-comonad/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-tuple2-functor/index.html"><code class="highlighter-rouge">Tuple2Functor</code></a><code class="highlighter-rouge">&lt;</code><a href="-tuple2-comonad/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple2-eq/index.html">Tuple2Eq</a></td>
+      <td><code class="highlighter-rouge">interface Tuple2Eq&lt;A, B&gt; : Eq&lt;Tuple2&lt;</code><a href="-tuple2-eq/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple2-eq/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple2-foldable/index.html">Tuple2Foldable</a></td>
+      <td><code class="highlighter-rouge">interface Tuple2Foldable&lt;F&gt; : Foldable&lt;Tuple2PartialOf&lt;</code><a href="-tuple2-foldable/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple2-functor/index.html">Tuple2Functor</a></td>
+      <td><code class="highlighter-rouge">interface Tuple2Functor&lt;F&gt; : Functor&lt;Tuple2PartialOf&lt;</code><a href="-tuple2-functor/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple2-hash/index.html">Tuple2Hash</a></td>
+      <td><code class="highlighter-rouge">interface Tuple2Hash&lt;A, B&gt; : Hash&lt;Tuple2&lt;</code><a href="-tuple2-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple2-hash/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-tuple2-eq/index.html"><code class="highlighter-rouge">Tuple2Eq</code></a><code class="highlighter-rouge">&lt;</code><a href="-tuple2-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple2-hash/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple2-monad/index.html">Tuple2Monad</a></td>
+      <td><code class="highlighter-rouge">interface Tuple2Monad&lt;F&gt; : Monad&lt;Tuple2PartialOf&lt;</code><a href="-tuple2-monad/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-tuple2-applicative/index.html"><code class="highlighter-rouge">Tuple2Applicative</code></a><code class="highlighter-rouge">&lt;</code><a href="-tuple2-monad/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple2-monoid/index.html">Tuple2Monoid</a></td>
+      <td><code class="highlighter-rouge">interface Tuple2Monoid&lt;A, B&gt; : Monoid&lt;Tuple2&lt;</code><a href="-tuple2-monoid/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple2-monoid/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-tuple2-semigroup/index.html"><code class="highlighter-rouge">Tuple2Semigroup</code></a><code class="highlighter-rouge">&lt;</code><a href="-tuple2-monoid/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple2-monoid/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple2-semigroup/index.html">Tuple2Semigroup</a></td>
+      <td><code class="highlighter-rouge">interface Tuple2Semigroup&lt;A, B&gt; : Semigroup&lt;Tuple2&lt;</code><a href="-tuple2-semigroup/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple2-semigroup/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple2-show/index.html">Tuple2Show</a></td>
+      <td><code class="highlighter-rouge">interface Tuple2Show&lt;A, B&gt; : Show&lt;Tuple2&lt;</code><a href="-tuple2-show/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple2-show/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple2-traverse/index.html">Tuple2Traverse</a></td>
+      <td><code class="highlighter-rouge">interface Tuple2Traverse&lt;F&gt; : Traverse&lt;Tuple2PartialOf&lt;</code><a href="-tuple2-traverse/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-tuple2-foldable/index.html"><code class="highlighter-rouge">Tuple2Foldable</code></a><code class="highlighter-rouge">&lt;</code><a href="-tuple2-traverse/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple3-eq/index.html">Tuple3Eq</a></td>
+      <td><code class="highlighter-rouge">interface Tuple3Eq&lt;A, B, C&gt; : Eq&lt;Tuple3&lt;</code><a href="-tuple3-eq/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple3-eq/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple3-eq/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple3-hash/index.html">Tuple3Hash</a></td>
+      <td><code class="highlighter-rouge">interface Tuple3Hash&lt;A, B, C&gt; : Hash&lt;Tuple3&lt;</code><a href="-tuple3-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple3-hash/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple3-hash/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-tuple3-eq/index.html"><code class="highlighter-rouge">Tuple3Eq</code></a><code class="highlighter-rouge">&lt;</code><a href="-tuple3-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple3-hash/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple3-hash/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple3-show/index.html">Tuple3Show</a></td>
+      <td><code class="highlighter-rouge">interface Tuple3Show&lt;A, B, C&gt; : Show&lt;Tuple3&lt;</code><a href="-tuple3-show/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple3-show/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple3-show/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple4-eq/index.html">Tuple4Eq</a></td>
+      <td><code class="highlighter-rouge">interface Tuple4Eq&lt;A, B, C, D&gt; : Eq&lt;Tuple4&lt;</code><a href="-tuple4-eq/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple4-eq/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple4-eq/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple4-eq/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple4-hash/index.html">Tuple4Hash</a></td>
+      <td><code class="highlighter-rouge">interface Tuple4Hash&lt;A, B, C, D&gt; : Hash&lt;Tuple4&lt;</code><a href="-tuple4-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple4-hash/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple4-hash/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple4-hash/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-tuple4-eq/index.html"><code class="highlighter-rouge">Tuple4Eq</code></a><code class="highlighter-rouge">&lt;</code><a href="-tuple4-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple4-hash/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple4-hash/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple4-hash/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple4-show/index.html">Tuple4Show</a></td>
+      <td><code class="highlighter-rouge">interface Tuple4Show&lt;A, B, C, D&gt; : Show&lt;Tuple4&lt;</code><a href="-tuple4-show/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple4-show/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple4-show/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple4-show/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple5-eq/index.html">Tuple5Eq</a></td>
+      <td><code class="highlighter-rouge">interface Tuple5Eq&lt;A, B, C, D, E&gt; : Eq&lt;Tuple5&lt;</code><a href="-tuple5-eq/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple5-eq/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple5-eq/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple5-eq/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">, </code><a href="-tuple5-eq/index.html#E"><code class="highlighter-rouge">E</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple5-hash/index.html">Tuple5Hash</a></td>
+      <td><code class="highlighter-rouge">interface Tuple5Hash&lt;A, B, C, D, E&gt; : Hash&lt;Tuple5&lt;</code><a href="-tuple5-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple5-hash/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple5-hash/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple5-hash/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">, </code><a href="-tuple5-hash/index.html#E"><code class="highlighter-rouge">E</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-tuple5-eq/index.html"><code class="highlighter-rouge">Tuple5Eq</code></a><code class="highlighter-rouge">&lt;</code><a href="-tuple5-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple5-hash/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple5-hash/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple5-hash/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">, </code><a href="-tuple5-hash/index.html#E"><code class="highlighter-rouge">E</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple5-show/index.html">Tuple5Show</a></td>
+      <td><code class="highlighter-rouge">interface Tuple5Show&lt;A, B, C, D, E&gt; : Show&lt;Tuple5&lt;</code><a href="-tuple5-show/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple5-show/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple5-show/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple5-show/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">, </code><a href="-tuple5-show/index.html#E"><code class="highlighter-rouge">E</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple6-eq/index.html">Tuple6Eq</a></td>
+      <td><code class="highlighter-rouge">interface Tuple6Eq&lt;A, B, C, D, E, F&gt; : Eq&lt;Tuple6&lt;</code><a href="-tuple6-eq/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple6-eq/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple6-eq/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple6-eq/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">, </code><a href="-tuple6-eq/index.html#E"><code class="highlighter-rouge">E</code></a><code class="highlighter-rouge">, </code><a href="-tuple6-eq/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple6-hash/index.html">Tuple6Hash</a></td>
+      <td><code class="highlighter-rouge">interface Tuple6Hash&lt;A, B, C, D, E, F&gt; : Hash&lt;Tuple6&lt;</code><a href="-tuple6-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple6-hash/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple6-hash/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple6-hash/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">, </code><a href="-tuple6-hash/index.html#E"><code class="highlighter-rouge">E</code></a><code class="highlighter-rouge">, </code><a href="-tuple6-hash/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-tuple6-eq/index.html"><code class="highlighter-rouge">Tuple6Eq</code></a><code class="highlighter-rouge">&lt;</code><a href="-tuple6-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple6-hash/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple6-hash/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple6-hash/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">, </code><a href="-tuple6-hash/index.html#E"><code class="highlighter-rouge">E</code></a><code class="highlighter-rouge">, </code><a href="-tuple6-hash/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple6-show/index.html">Tuple6Show</a></td>
+      <td><code class="highlighter-rouge">interface Tuple6Show&lt;A, B, C, D, E, F&gt; : Show&lt;Tuple6&lt;</code><a href="-tuple6-show/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple6-show/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple6-show/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple6-show/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">, </code><a href="-tuple6-show/index.html#E"><code class="highlighter-rouge">E</code></a><code class="highlighter-rouge">, </code><a href="-tuple6-show/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple7-eq/index.html">Tuple7Eq</a></td>
+      <td><code class="highlighter-rouge">interface Tuple7Eq&lt;A, B, C, D, E, F, G&gt; : Eq&lt;Tuple7&lt;</code><a href="-tuple7-eq/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple7-eq/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple7-eq/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple7-eq/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">, </code><a href="-tuple7-eq/index.html#E"><code class="highlighter-rouge">E</code></a><code class="highlighter-rouge">, </code><a href="-tuple7-eq/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">, </code><a href="-tuple7-eq/index.html#G"><code class="highlighter-rouge">G</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple7-hash/index.html">Tuple7Hash</a></td>
+      <td><code class="highlighter-rouge">interface Tuple7Hash&lt;A, B, C, D, E, F, G&gt; : Hash&lt;Tuple7&lt;</code><a href="-tuple7-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple7-hash/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple7-hash/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple7-hash/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">, </code><a href="-tuple7-hash/index.html#E"><code class="highlighter-rouge">E</code></a><code class="highlighter-rouge">, </code><a href="-tuple7-hash/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">, </code><a href="-tuple7-hash/index.html#G"><code class="highlighter-rouge">G</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-tuple7-eq/index.html"><code class="highlighter-rouge">Tuple7Eq</code></a><code class="highlighter-rouge">&lt;</code><a href="-tuple7-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple7-hash/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple7-hash/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple7-hash/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">, </code><a href="-tuple7-hash/index.html#E"><code class="highlighter-rouge">E</code></a><code class="highlighter-rouge">, </code><a href="-tuple7-hash/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">, </code><a href="-tuple7-hash/index.html#G"><code class="highlighter-rouge">G</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple7-show/index.html">Tuple7Show</a></td>
+      <td><code class="highlighter-rouge">interface Tuple7Show&lt;A, B, C, D, E, F, G&gt; : Show&lt;Tuple7&lt;</code><a href="-tuple7-show/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple7-show/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple7-show/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple7-show/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">, </code><a href="-tuple7-show/index.html#E"><code class="highlighter-rouge">E</code></a><code class="highlighter-rouge">, </code><a href="-tuple7-show/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">, </code><a href="-tuple7-show/index.html#G"><code class="highlighter-rouge">G</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple8-eq/index.html">Tuple8Eq</a></td>
+      <td><code class="highlighter-rouge">interface Tuple8Eq&lt;A, B, C, D, E, F, G, H&gt; : Eq&lt;Tuple8&lt;</code><a href="-tuple8-eq/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-eq/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-eq/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-eq/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-eq/index.html#E"><code class="highlighter-rouge">E</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-eq/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-eq/index.html#G"><code class="highlighter-rouge">G</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-eq/index.html#H"><code class="highlighter-rouge">H</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple8-hash/index.html">Tuple8Hash</a></td>
+      <td><code class="highlighter-rouge">interface Tuple8Hash&lt;A, B, C, D, E, F, G, H&gt; : Hash&lt;Tuple8&lt;</code><a href="-tuple8-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-hash/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-hash/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-hash/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-hash/index.html#E"><code class="highlighter-rouge">E</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-hash/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-hash/index.html#G"><code class="highlighter-rouge">G</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-hash/index.html#H"><code class="highlighter-rouge">H</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-tuple8-eq/index.html"><code class="highlighter-rouge">Tuple8Eq</code></a><code class="highlighter-rouge">&lt;</code><a href="-tuple8-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-hash/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-hash/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-hash/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-hash/index.html#E"><code class="highlighter-rouge">E</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-hash/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-hash/index.html#G"><code class="highlighter-rouge">G</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-hash/index.html#H"><code class="highlighter-rouge">H</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple8-show/index.html">Tuple8Show</a></td>
+      <td><code class="highlighter-rouge">interface Tuple8Show&lt;A, B, C, D, E, F, G, H&gt; : Show&lt;Tuple8&lt;</code><a href="-tuple8-show/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-show/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-show/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-show/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-show/index.html#E"><code class="highlighter-rouge">E</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-show/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-show/index.html#G"><code class="highlighter-rouge">G</code></a><code class="highlighter-rouge">, </code><a href="-tuple8-show/index.html#H"><code class="highlighter-rouge">H</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple9-eq/index.html">Tuple9Eq</a></td>
+      <td><code class="highlighter-rouge">interface Tuple9Eq&lt;A, B, C, D, E, F, G, H, I&gt; : Eq&lt;Tuple9&lt;</code><a href="-tuple9-eq/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-eq/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-eq/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-eq/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-eq/index.html#E"><code class="highlighter-rouge">E</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-eq/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-eq/index.html#G"><code class="highlighter-rouge">G</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-eq/index.html#H"><code class="highlighter-rouge">H</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-eq/index.html#I"><code class="highlighter-rouge">I</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple9-hash/index.html">Tuple9Hash</a></td>
+      <td><code class="highlighter-rouge">interface Tuple9Hash&lt;A, B, C, D, E, F, G, H, I&gt; : Hash&lt;Tuple9&lt;</code><a href="-tuple9-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-hash/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-hash/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-hash/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-hash/index.html#E"><code class="highlighter-rouge">E</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-hash/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-hash/index.html#G"><code class="highlighter-rouge">G</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-hash/index.html#H"><code class="highlighter-rouge">H</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-hash/index.html#I"><code class="highlighter-rouge">I</code></a><code class="highlighter-rouge">&gt;&gt;, </code><a href="-tuple9-eq/index.html"><code class="highlighter-rouge">Tuple9Eq</code></a><code class="highlighter-rouge">&lt;</code><a href="-tuple9-hash/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-hash/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-hash/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-hash/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-hash/index.html#E"><code class="highlighter-rouge">E</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-hash/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-hash/index.html#G"><code class="highlighter-rouge">G</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-hash/index.html#H"><code class="highlighter-rouge">H</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-hash/index.html#I"><code class="highlighter-rouge">I</code></a><code class="highlighter-rouge">&gt;</code></td>
+    </tr>
+    <tr>
+      <td><a href="-tuple9-show/index.html">Tuple9Show</a></td>
+      <td><code class="highlighter-rouge">interface Tuple9Show&lt;A, B, C, D, E, F, G, H, I&gt; : Show&lt;Tuple9&lt;</code><a href="-tuple9-show/index.html#A"><code class="highlighter-rouge">A</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-show/index.html#B"><code class="highlighter-rouge">B</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-show/index.html#C"><code class="highlighter-rouge">C</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-show/index.html#D"><code class="highlighter-rouge">D</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-show/index.html#E"><code class="highlighter-rouge">E</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-show/index.html#F"><code class="highlighter-rouge">F</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-show/index.html#G"><code class="highlighter-rouge">G</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-show/index.html#H"><code class="highlighter-rouge">H</code></a><code class="highlighter-rouge">, </code><a href="-tuple9-show/index.html#I"><code class="highlighter-rouge">I</code></a><code class="highlighter-rouge">&gt;&gt;</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="extensions-for-external-classes">Extensions for External Classes</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="arrow.core.-either/index.html">arrow.core.Either</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="arrow.core.-try/index.html">arrow.core.Try</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="arrow.-kind/index.html">arrow.Kind</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="kotlin.-boolean/index.html">kotlin.Boolean</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="kotlin.-byte/index.html">kotlin.Byte</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="kotlin.-char/index.html">kotlin.Char</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="kotlin.-double/index.html">kotlin.Double</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="kotlin.-float/index.html">kotlin.Float</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="kotlin.-int/index.html">kotlin.Int</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="kotlin.-long/index.html">kotlin.Long</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="kotlin.-short/index.html">kotlin.Short</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="kotlin.-string/index.html">kotlin.String</a></td>
+      <td>&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+</div>
+
+</div>
+<!-- Jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Arrow playground -->
+<script src="https://unpkg.com/arrow-playground@1" data-selector="[class^=&#39;language-kotlin&#39;]"></script>
+<!-- Highlight -->
+<script src="../../../../js/highlight.pack.js"></script>
+<script>
+  hljs.initHighlighting();
+</script>
+<!-- Docsearch -->
+<script type="text/javascript" src="../../../../js/docsearch.min.js"></script>
+<!-- Custom scripts for this template -->
+<script src="../../../../js/functions.js"></script>
+<!-- Gitter -->
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'arrow-kt/Lobby'
+  };
+
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="" defer=""></script>
+
+
+
+</body></html>

@@ -1,5 +1,0 @@
-sudo: required
-os: osx
-script:
-  - brew install dashing
-  - dashing build
