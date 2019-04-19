@@ -103,7 +103,7 @@ dashing.json
       //...
 }
 ```
-
+This is a pretty good [example](https://www.awesome-testing.com/2017/05/how-to-find-test-cssselector-using.html) how to specify the css selectors with this [tester](https://www.w3schools.com/cssref/trysel.asp)
 
 - Debugging 
 
