@@ -22,29 +22,26 @@ Visit the [dashing website](https://github.com/technosophos/dashing) to get star
 
 ### Dash a powerful time saver
 - You will have Arrow Offline 
-![minimal](Screenshot%202019-04-18%20at%2010.24.45.png)
+![minimal](Screenshot%202019-04-21%20at%2021.49.08.png)
 
-- Combined with [Alfredo](https://github.com/Kapeli/Dash-Alfred-Workflow) - You can quick-search through the whole library without breaking a sweat
+- Combined with [Alfredo](https://github.com/Kapeli/Dash-Alfred-Workflow) and its auto-rendering - You can quick-search through the whole library without breaking a sweat
 
-Here is an Haskell example:
-![Haskell example](Screenshot%202019-04-18%20at%2010.30.01.png)
+![Arrow example](Screenshot%202019-04-21%20at%2021.51.02.png)
 
 - Search with tags and filters
 
-![Haskell example](Screenshot%202019-04-18%20at%2010.39.19.png)
+![Haskell example](Screenshot%202019-04-21%20at%2021.34.08.png)
 
 ### Features
 
 - [X] Enable arrow-playground
-- [ ] Searchable type classes
-- [ ] Searchable effects
-- [ ] Searchable data-types
-- [ ] Searchable optics
-- [ ] Searchable AQL 
-- [ ] Searchable Generics
-- [ ] Searchable Integrations
-- [ ] Searchable Free
-- [ ] Searchable Recursion Schemes
+- [X] Searchable type classes and classes
+- [X] Searchable functions
+- [X] Searchable packages
+- [X] Searchable guides
+- [X] Searchable types 
+- [ ] Available through the dash contribution platform 
+
 
 ## Contributions
 Your development environment is the [next.arrow-kt.io file](https://github.com/i-walker/Arrow-Docset/tree/master/next.arrow-kt.io). 

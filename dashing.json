@@ -1,9 +1,14 @@
 {
-    "name": "Arrow",
-    "package": "next.arrow-kt.io",
+    "name": "Λrrow",
+    "package": "arrow-kt",
     "index": "index.html",
     "selectors": {
-        "div>h2:first-of-type:not([id*=package]):not([id*=type])[id], div+h2:first-of-type:not([id*=package]):not([id*=type])[id]": "Guide"
+        "div>h2:first-of-type:not([id*=package]):not([id*=type])[id], div+h2:first-of-type:not([id*=package]):not([id*=type])[id]": "Guide",
+        "[id*=package] + table > tbody > tr > td > a:first-child": "Module",
+        "[id*=function] + table > tbody > tr > td > a:first-child": "Function",
+        "[id*=types] + table > tbody > tr > td > a:first-child": "Type",
+        "[id*=alias] + table > tbody > tr > td > a:first-child": "Type",
+        "[id*=classes] + table > tbody > tr > td > a:first-child": "Class"
     },
     "ignore": [
         "API Docs", "Packages"
