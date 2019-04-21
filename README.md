@@ -15,8 +15,9 @@ Visit the [dashing website](https://github.com/technosophos/dashing) to get star
 #### Prerequsite:
 - [Dash for macOS or iOS ](https://kapeli.com/dash) or any other .docset Browser, e.g. [Zeal for linux](https://zealdocs.org)
 
-- (optional - but very much recommended) [Dash Alfredo Workflow](https://github.com/Kapeli/Dash-Alfred-Workflow) with [Alfredo](https://www.alfredapp.com)
+- (Very much recommended - still optional) [Dash Alfredo Workflow](https://github.com/Kapeli/Dash-Alfred-Workflow) with [Alfredo](https://www.alfredapp.com)
 
+- Powerusers should add the [IntellijDash Plugin](https://github.com/gdelmas/IntelliJDashPlugin) for an even smoother workflow 
 
 ### Install Λrrow-Docset
 
