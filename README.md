@@ -1,4 +1,5 @@
 ## [Λrrow](https://next.arrow-kt.io/docs/)-docset
+<img height="70" src="https://avatars2.githubusercontent.com/u/29458023?v=4&amp;s=200" width="70">
 
 This beautiful library deserves a dash-docset. 
 Help me to create a more discoverable version of this minimal example. 
