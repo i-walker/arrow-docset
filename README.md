@@ -15,16 +15,15 @@
 ### Install Λrrow-Docset
 
 - Download the [current docset](https://github.com/i-walker/Arrow-Docset/releases)
-- Open [Dash](https://kapeli.com/dash) -> Click the plus icon -> Go to Download Docsets 
--> Main Docsets 
+- Open [Dash](https://kapeli.com/dash) -> click the plus icon -> click Download Docsets -> click Main Docsets 
 
-- Under the Thread: Docsets -> in the left corner there is a plus and go to -> Add Local Docs -> specify the arrow-kt.docset file
+- Under the Thread: Docsets -> click the plus icon in the left-hand corner -> click Add Local Docs -> specify the arrow-kt.docset file
 
 ### Dash a powerful time saver
-- You will have Λrrow Offline Screenshot
+- Enjoy Λrrow Offline 
 ![minimal](Screenshot%202019-04-22%20at%2008.23.14.png)
 
-- Combined with [Alfredo](https://github.com/Kapeli/Dash-Alfred-Workflow) and its auto-rendering - You can quick-search through the whole library without breaking a sweat
+- Quick-search through the whole library without breaking a sweat - thanks to [Alfredo](https://github.com/Kapeli/Dash-Alfred-Workflow) and auto-rendering 
 
 ![Arrow example](Screenshot%202019-04-21%20at%2021.51.02.png)
 
@@ -46,9 +45,9 @@
 ## Contributions
 
 This beautiful library deserves a dash-docset. 
-Help me to create a more discoverable version of this minimal example. 
+Help me to create a more discoverable version. 
 
-To enable all features we will use [dashing](https://github.com/technosophos/dashing)
+To enable more features we will use [dashing](https://github.com/technosophos/dashing)
 It is pretty straight-forward, we map [Dash Datatypes](https://kapeli.com/docsets#supportedentrytypes)
 to Arrow. 
 
@@ -56,7 +55,7 @@ PR's are very welcomed !
 Visit the [dashing website](https://github.com/technosophos/dashing) to get started.
 
 Your development environment is the [next.arrow-kt.io file](https://github.com/i-walker/Arrow-Docset/tree/master/next.arrow-kt.io). 
-Add the appropriate mappings to dashing.json under selector. Check-out the issues.
+Add the appropriate mappings to dashing.json under selector and check-out the issues.
 
 Dowload dashing:
 ```
@@ -69,7 +68,7 @@ $ go get -u github.com/technosophos/dashing
 Here are the [sources](https://github.com/technosophos/dashing/releases)
 
 ```
-## Docset Datatypes
+## Available Docset Datatypes
 
 Annotation  Attribute   Binding     Builtin     Callback    Category
     
@@ -112,8 +111,7 @@ dashing.json
       //...
 }
 ```
-This is a pretty good [example](https://www.awesome-testing.com/2017/05/how-to-find-test-cssselector-using.html) how to specify the css selectors with this [tester](https://www.w3schools.com/cssref/trysel.asp)
-
+This is a pretty good [example](https://www.awesome-testing.com/2017/05/how-to-find-test-cssselector-using.html) how to specify the css selectors with this [tester](https://www.w3schools.com/cssref/trysel.asp) and an [cheat-cheet](https://www.w3schools.com/cssref/css_selectors.asp)
 - Debugging and building the docset
 
 ```bash
