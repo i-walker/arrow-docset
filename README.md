@@ -117,3 +117,6 @@ This is a pretty good [example](https://www.awesome-testing.com/2017/05/how-to-f
 ```bash
 $ dashing build
 ```
+
+## Acknowledgement
+Many Thanks to the Λrrow Community who set up the API Doc's and Guides. Special thanks to @nomisRev and @raulraja !
