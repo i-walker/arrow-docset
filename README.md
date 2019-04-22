@@ -21,8 +21,8 @@
 - Under the Thread: Docsets -> in the left corner there is a plus and go to -> Add Local Docs -> specify the arrow-kt.docset file
 
 ### Dash a powerful time saver
-- You will have Λrrow Offline 
-![minimal](Screenshot%202019-04-21%20at%2021.49.08.png)
+- You will have Λrrow Offline Screenshot
+![minimal](Screenshot%2019-04-22%at%08.23.14.png)
 
 - Combined with [Alfredo](https://github.com/Kapeli/Dash-Alfred-Workflow) and its auto-rendering - You can quick-search through the whole library without breaking a sweat
 
