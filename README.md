@@ -1,16 +1,8 @@
 ## [Λrrow](https://next.arrow-kt.io/docs/)-docset
 <img height="70" src="https://avatars2.githubusercontent.com/u/29458023?v=4&amp;s=200" width="70">
-
-This beautiful library deserves a dash-docset. 
-Help me to create a more discoverable version of this minimal example. 
-
-To enable all features we will use [dashing](https://github.com/technosophos/dashing)
-It is pretty straight-forward, we map [Dash Datatypes](https://kapeli.com/docsets#supportedentrytypes)
-to Arrow. 
-
-PR's are very welcomed ! 
-Visit the [dashing website](https://github.com/technosophos/dashing) to get started.
-
+### Why should you use it?
+- `Λrrow-docset` is faster and more intuitiv than surfing through the internet
+- `Λrrow-docset` gives you an Single Point of Reference for everything related to the Λrrow Documentation, including the whole API Doc's, which you previously had to manuelly search through with IntelliJ
 
 #### Prerequsite:
 - [Dash for macOS or iOS ](https://kapeli.com/dash) or any other .docset Browser, e.g. [Zeal for linux](https://zealdocs.org)
@@ -51,6 +43,17 @@ Visit the [dashing website](https://github.com/technosophos/dashing) to get star
 
 
 ## Contributions
+
+This beautiful library deserves a dash-docset. 
+Help me to create a more discoverable version of this minimal example. 
+
+To enable all features we will use [dashing](https://github.com/technosophos/dashing)
+It is pretty straight-forward, we map [Dash Datatypes](https://kapeli.com/docsets#supportedentrytypes)
+to Arrow. 
+
+PR's are very welcomed ! 
+Visit the [dashing website](https://github.com/technosophos/dashing) to get started.
+
 Your development environment is the [next.arrow-kt.io file](https://github.com/i-walker/Arrow-Docset/tree/master/next.arrow-kt.io). 
 Add the appropriate mappings to dashing.json under selector. Check-out the issues.
 
