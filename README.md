@@ -1,8 +1,9 @@
 ## [Λrrow](https://next.arrow-kt.io/docs/)-docset
 <img height="70" src="https://avatars2.githubusercontent.com/u/29458023?v=4&amp;s=200" width="70">
+
 ### Why should you use it?
-- `Λrrow-docset` is faster and more intuitiv than surfing through the internet
-- `Λrrow-docset` gives you an Single Point of Reference for everything related to the Λrrow Documentation, including the whole API Doc's, which you previously had to manuelly search through with IntelliJ
+- *Λrrow-docset* is faster and more intuitiv than surfing through the internet
+- *Λrrow-docset* gives you an Single Point of Reference for everything related to the Λrrow Documentation, including the whole API Doc's, which you previously had to manuelly search through with IntelliJ
 
 #### Prerequsite:
 - [Dash for macOS or iOS ](https://kapeli.com/dash) or any other .docset Browser, e.g. [Zeal for linux](https://zealdocs.org)
