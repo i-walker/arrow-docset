@@ -22,7 +22,7 @@
 
 ### Dash a powerful time saver
 - You will have Λrrow Offline Screenshot
-![minimal](Screenshot%2019-04-22%at%08.23.14.png)
+![minimal](Screenshot%202019-04-22%20at%2008.23.14.png)
 
 - Combined with [Alfredo](https://github.com/Kapeli/Dash-Alfred-Workflow) and its auto-rendering - You can quick-search through the whole library without breaking a sweat
 
