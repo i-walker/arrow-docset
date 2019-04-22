@@ -119,4 +119,4 @@ $ dashing build
 ```
 
 ## Acknowledgement
-Many Thanks to the Λrrow Community who set up the API Doc's and Guides. Special thanks to @nomisRev and @raulraja !
+Many Thanks to the Λrrow Community who set up the API Doc's and Guides. Special thanks to [@nomisRev](https://github.com/nomisRev) and [@raulraja](https://github.com/raulraja) !
