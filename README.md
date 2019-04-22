@@ -5,7 +5,7 @@
 - *Λrrow-docset* is **faster** and **more intuitiv** than surfing through the internet
 - *Λrrow-docset* gives you an **Single Point of Reference** for everything related to the Λrrow Documentation, **including the whole API Doc's**, which you previously had to manuelly search through with IntelliJ
 
-![The workflow](https://media.giphy.com/media/IdwwG6oXWAuAvHqNCi/giphy.gif)
+<iframe src="https://giphy.com/embed/IdwwG6oXWAuAvHqNCi" width="480" height="387" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/IdwwG6oXWAuAvHqNCi">via GIPHY</a></p>
 
 #### Prerequsite:
 - [Dash for macOS or iOS ](https://kapeli.com/dash) or any other .docset Browser, e.g. [Zeal for linux](https://zealdocs.org)
