@@ -8,7 +8,7 @@
 ![Worlflow](Apr-22-2019%2011-04-23.gif)
 
 #### Prerequsite:
-- [Dash for macOS or iOS ](https://kapeli.com/dash) or any other .docset Browser, e.g. [Zeal for Linux, Windows ](https://zealdocs.org), [Velocity for Windows ](https://velocity.silverlakesoftware.com) , [Web version](https://devdocs.io)
+- [Dash for macOS or iOS ](https://kapeli.com/dash) or any other .docset Browser, e.g. [Zeal for Linux and Windows ](https://zealdocs.org), [Velocity for Windows ](https://velocity.silverlakesoftware.com) and a [Web version](https://devdocs.io)
 
 - (Very much recommended - still optional) [Dash Alfredo Workflow](https://github.com/Kapeli/Dash-Alfred-Workflow) with [Alfredo](https://www.alfredapp.com)
 
